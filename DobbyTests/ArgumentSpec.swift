@@ -23,7 +23,7 @@ class ArgumentSpec: QuickSpec {
             }
 
             context("when one matches anything") {
-                it("should always return true") {
+                it("should always succeed") {
                     expect(value(1) == any()).to(beTrue())
                     expect(any() == value(1)).to(beTrue())
                     expect(filter { (x: Int) in x == 1 } == any()).to(beTrue())
@@ -33,7 +33,7 @@ class ArgumentSpec: QuickSpec {
             }
 
             context("when both are filters") {
-                it("should always return false") {
+                it("should always fail") {
                     expect(filter { (x: Int) in x == 1 } == filter { (x: Int) in x == 1 }).to(beFalse())
                 }
             }

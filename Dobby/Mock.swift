@@ -2,7 +2,7 @@
 
 import Foundation
 
-public struct Mock<Interaction: Equatable> {
+public class Mock<Interaction: Equatable> {
     public var interactions: [Interaction] = []
 
     public init() {}
@@ -10,7 +10,7 @@ public struct Mock<Interaction: Equatable> {
 
 // MARK: - Basics
 
-public func record<Interaction: Equatable>(inout mock: Mock<Interaction>, interaction: Interaction) {
+public func record<Interaction: Equatable>(mock: Mock<Interaction>, interaction: Interaction) {
     mock.interactions.append(interaction)
 }
 

@@ -11,8 +11,8 @@ class StubSpec: QuickSpec {
 
         beforeEach {
             stub = Stub<Int, Int>()
-            behave(&(stub!), 1, 2)
-            behave(&(stub!), 2, 4)
+            behave(stub, 1, 2)
+            behave(stub, 2, 4)
         }
 
         describe("Stubbing") {

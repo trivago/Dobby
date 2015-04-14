@@ -2,7 +2,7 @@
 
 import Foundation
 
-public struct Stub<Interaction: Equatable, ReturnValue> {
+public class Stub<Interaction: Equatable, ReturnValue> {
     public var behavior: [(interaction: Interaction, returnValue: ReturnValue)] = []
 
     public init() {}
@@ -10,7 +10,7 @@ public struct Stub<Interaction: Equatable, ReturnValue> {
 
 // MARK: - Basics
 
-public func behave<Interaction: Equatable, ReturnValue>(inout stub: Stub<Interaction, ReturnValue>, interaction: Interaction, returnValue: ReturnValue) {
+public func behave<Interaction: Equatable, ReturnValue>(stub: Stub<Interaction, ReturnValue>, interaction: Interaction, returnValue: ReturnValue) {
     stub.behavior.append((interaction: interaction, returnValue: returnValue))
 }
 

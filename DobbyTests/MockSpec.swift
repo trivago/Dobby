@@ -11,9 +11,9 @@ class MockSpec: QuickSpec {
 
         beforeEach {
             mock = Mock<Int>()
-            record(&(mock!), 1)
-            record(&(mock!), 2)
-            record(&(mock!), 3)
+            record(mock, 1)
+            record(mock, 2)
+            record(mock, 3)
         }
 
         describe("Recording an interaction") {
