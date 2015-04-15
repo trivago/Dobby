@@ -359,7 +359,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0630;
-				ORGANIZATIONNAME = Rheinfabrik;
+				ORGANIZATIONNAME = "B264 GmbH";
 				TargetAttributes = {
 					DC7F6AF71AD8291800CCBF6D = {
 						CreatedOnToolsVersion = 6.3;
@@ -768,6 +768,7 @@
 				DC84522D1ADBF5CC006AC5D4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		DC84522E1ADBF5CC006AC5D4 /* Build configuration list for PBXNativeTarget "Dobby-MacTests" */ = {
 			isa = XCConfigurationList;
@@ -776,6 +777,7 @@
 				DC8452301ADBF5CC006AC5D4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
