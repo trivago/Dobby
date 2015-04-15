@@ -1,5 +1,3 @@
-//  Copyright (c) 2015 Rheinfabrik. All rights reserved.
-
 import Foundation
 
 public class Stub<Interaction: Equatable, ReturnValue> {

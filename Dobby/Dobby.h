@@ -1,5 +1,3 @@
-//  Copyright (c) 2015 Rheinfabrik. All rights reserved.
-
 #import <Foundation/Foundation.h>
 
 //! Project version number for Dobby.
