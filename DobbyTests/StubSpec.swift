@@ -16,7 +16,7 @@ class StubSpec: QuickSpec {
         }
 
         describe("Stubbing") {
-            it("should append to the stub") {
+            it("should append to the stub's behavior") {
                 expect(stub.behavior[0].interaction).to(equal(1))
                 expect(stub.behavior[0].returnValue).to(equal(2))
                 expect(stub.behavior[1].interaction).to(equal(2))

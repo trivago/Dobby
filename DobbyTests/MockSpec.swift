@@ -17,7 +17,7 @@ class MockSpec: QuickSpec {
         }
 
         describe("Recording an interaction") {
-            it("should append to the mock") {
+            it("should append to the mock's interactions") {
                 expect(mock.interactions).to(equal([ 1, 2, 3 ]))
             }
         }
