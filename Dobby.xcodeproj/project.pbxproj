@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DC3CFE781ADE895E004728C2 /* FoundationExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3CFE771ADE895E004728C2 /* FoundationExtensions.swift */; };
+		DC3CFE791ADE895E004728C2 /* FoundationExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3CFE771ADE895E004728C2 /* FoundationExtensions.swift */; };
 		DC7F6AFE1AD8291800CCBF6D /* Dobby.h in Headers */ = {isa = PBXBuildFile; fileRef = DC7F6AFD1AD8291800CCBF6D /* Dobby.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DC7F6B041AD8291800CCBF6D /* Dobby.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC7F6AF81AD8291800CCBF6D /* Dobby.framework */; };
 		DC7F6B151AD8293B00CCBF6D /* Argument.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7F6B141AD8293B00CCBF6D /* Argument.swift */; };
@@ -84,6 +86,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		DC3CFE771ADE895E004728C2 /* FoundationExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoundationExtensions.swift; sourceTree = "<group>"; };
 		DC7F6AF81AD8291800CCBF6D /* Dobby.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Dobby.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC7F6AFC1AD8291800CCBF6D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DC7F6AFD1AD8291800CCBF6D /* Dobby.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Dobby.h; sourceTree = "<group>"; };
@@ -147,6 +150,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DC3CFE761ADE895E004728C2 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				DC3CFE771ADE895E004728C2 /* FoundationExtensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		DC7F6AEE1AD8291800CCBF6D = {
 			isa = PBXGroup;
 			children = (
@@ -175,6 +186,7 @@
 				DC7F6AFD1AD8291800CCBF6D /* Dobby.h */,
 				DC7F6B1F1AD82D3800CCBF6D /* Mock.swift */,
 				DC7F6B1D1AD82B8C00CCBF6D /* Stub.swift */,
+				DC3CFE761ADE895E004728C2 /* Extensions */,
 				DC7F6AFB1AD8291800CCBF6D /* Supporting Files */,
 			);
 			path = Dobby;
@@ -411,6 +423,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DC3CFE781ADE895E004728C2 /* FoundationExtensions.swift in Sources */,
 				DC7F6B151AD8293B00CCBF6D /* Argument.swift in Sources */,
 				DC7F6B1E1AD82B8C00CCBF6D /* Stub.swift in Sources */,
 				DC7F6B201AD82D3800CCBF6D /* Mock.swift in Sources */,
@@ -431,6 +444,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DC3CFE791ADE895E004728C2 /* FoundationExtensions.swift in Sources */,
 				DC84523D1ADBF73C006AC5D4 /* Argument.swift in Sources */,
 				DC8452401ADBF73C006AC5D4 /* Stub.swift in Sources */,
 				DC84523F1ADBF73C006AC5D4 /* Mock.swift in Sources */,

@@ -2,10 +2,22 @@
 
 import Box
 
+public protocol ArgumentConvertible: Equatable {
+    typealias ArgumentType: Equatable
+
+    func argument() -> Argument<ArgumentType>
+}
+
 public enum Argument<T: Equatable>: Equatable {
     case Filter(Box<T -> Bool>)
     case Value(Box<T>)
     case Any
+}
+
+extension Argument: ArgumentConvertible {
+    public func argument() -> Argument<T> {
+        return self
+    }
 }
 
 // MARK: - Equality
