@@ -8,11 +8,11 @@ A mock can be used to record interactions with an object:
 
 ```swift
 struct MyMock {
-    let mock = Mock<Interaction2<String, String>>()
+    let mock = Mock<String>()
     
-    func myMethod(first: String, second: String) -> String {
-        record(mock, interaction(first, second))
-        return first + second
+    func myMethod(input: String) -> String {
+        record(mock, input)
+        return input.uppercaseString
     }
 }
 ```
@@ -21,9 +21,9 @@ Interactions can be verified:
 
 ```swift
 var myMock = MyMock()
-myMock.myMethod("first", second: "second")
+myMock.myMethod("lowercase")
 
-expect(verify(myMock.mock, [ interaction("first", any()) ])).to(beTrue())
+expect(verify(myMock.mock, [ "lowercase" ])).to(beTrue())
 ```
 
 ## Stub
