@@ -14,16 +14,15 @@ public func record<Interaction: Equatable>(mock: Mock<Interaction>, interaction:
 
 // MARK: - Verification
 
-public func verify<Interaction: Equatable, C: CollectionType where C.Generator.Element == Interaction>(mock: Mock<Interaction>, interactions: C) -> Bool {
-    var index = interactions.startIndex
+public func verify<Interaction: Equatable, S: SequenceType where S.Generator.Element == Interaction>(mock: Mock<Interaction>, interactions: S) -> Bool {
+    var generator = interactions.generate()
+    var element = generator.next()
+
     for interaction in mock.interactions {
-        if interaction == interactions[index] {
-            index = advance(index, 1)
-            if index == interactions.endIndex {
-                return true
-            }
+        if interaction == element {
+            element = generator.next()
         }
     }
 
-    return false
+    return element == nil
 }
