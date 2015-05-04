@@ -1,1 +1,2 @@
 github "robrix/Box" ~> 1.2
+github "Quick/Nimble" ~> 0.4
