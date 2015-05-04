@@ -164,10 +164,10 @@ behave(stringToolsMock.concatStub, .Concat(any(), any()), "")
 expect(stringToolsMock.uppercase("input")).to(equal("INPUT"))
 expect(stringToolsMock.concat("first", "second")).to(equal(""))
 
-verify(stringToolsMock.mock).to(equal(
+verify(stringToolsMock.mock).to(equal([
     .Uppercase(value("input")),
     .Concat(value("first"), value("second"))
-))
+]))
 ```
 
 ## About
