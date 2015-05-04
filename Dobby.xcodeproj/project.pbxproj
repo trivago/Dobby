@@ -9,8 +9,8 @@
 /* Begin PBXBuildFile section */
 		DC3CFE711ADE6B8A004728C2 /* Interaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3CFE701ADE6B8A004728C2 /* Interaction.swift */; };
 		DC3CFE721ADE6D31004728C2 /* Interaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3CFE701ADE6B8A004728C2 /* Interaction.swift */; };
-		DC3CFE781ADE895E004728C2 /* FoundationExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3CFE771ADE895E004728C2 /* FoundationExtensions.swift */; };
-		DC3CFE791ADE895E004728C2 /* FoundationExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3CFE771ADE895E004728C2 /* FoundationExtensions.swift */; };
+		DC3CFE781ADE895E004728C2 /* SwiftExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3CFE771ADE895E004728C2 /* SwiftExtensions.swift */; };
+		DC3CFE791ADE895E004728C2 /* SwiftExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3CFE771ADE895E004728C2 /* SwiftExtensions.swift */; };
 		DC3CFE7D1ADE913B004728C2 /* InteractionSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3CFE7A1ADE903E004728C2 /* InteractionSpec.swift */; };
 		DC3CFE7E1ADE913C004728C2 /* InteractionSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3CFE7A1ADE903E004728C2 /* InteractionSpec.swift */; };
 		DC7F6AFE1AD8291800CCBF6D /* Dobby.h in Headers */ = {isa = PBXBuildFile; fileRef = DC7F6AFD1AD8291800CCBF6D /* Dobby.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -91,7 +91,7 @@
 
 /* Begin PBXFileReference section */
 		DC3CFE701ADE6B8A004728C2 /* Interaction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Interaction.swift; sourceTree = "<group>"; };
-		DC3CFE771ADE895E004728C2 /* FoundationExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoundationExtensions.swift; sourceTree = "<group>"; };
+		DC3CFE771ADE895E004728C2 /* SwiftExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftExtensions.swift; sourceTree = "<group>"; };
 		DC3CFE7A1ADE903E004728C2 /* InteractionSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InteractionSpec.swift; sourceTree = "<group>"; };
 		DC7F6AF81AD8291800CCBF6D /* Dobby.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Dobby.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC7F6AFC1AD8291800CCBF6D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -159,7 +159,7 @@
 		DC3CFE761ADE895E004728C2 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				DC3CFE771ADE895E004728C2 /* FoundationExtensions.swift */,
+				DC3CFE771ADE895E004728C2 /* SwiftExtensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -432,7 +432,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DC3CFE711ADE6B8A004728C2 /* Interaction.swift in Sources */,
-				DC3CFE781ADE895E004728C2 /* FoundationExtensions.swift in Sources */,
+				DC3CFE781ADE895E004728C2 /* SwiftExtensions.swift in Sources */,
 				DC7F6B151AD8293B00CCBF6D /* Argument.swift in Sources */,
 				DC7F6B1E1AD82B8C00CCBF6D /* Stub.swift in Sources */,
 				DC7F6B201AD82D3800CCBF6D /* Mock.swift in Sources */,
@@ -455,7 +455,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DC3CFE721ADE6D31004728C2 /* Interaction.swift in Sources */,
-				DC3CFE791ADE895E004728C2 /* FoundationExtensions.swift in Sources */,
+				DC3CFE791ADE895E004728C2 /* SwiftExtensions.swift in Sources */,
 				DC84523D1ADBF73C006AC5D4 /* Argument.swift in Sources */,
 				DC8452401ADBF73C006AC5D4 /* Stub.swift in Sources */,
 				DC84523F1ADBF73C006AC5D4 /* Mock.swift in Sources */,
