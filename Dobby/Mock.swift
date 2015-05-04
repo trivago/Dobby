@@ -12,10 +12,6 @@ public func record<Interaction: Equatable>(mock: Mock<Interaction>, interaction:
 
 // MARK: - Verification
 
-public func equals<Interaction: Equatable>(mock: Mock<Interaction>, interactions: [Interaction]) -> Bool {
-    return mock.interactions == interactions
-}
-
 public func contains<Interaction: Equatable>(mock: Mock<Interaction>, interactions: [Interaction]) -> Bool {
     return isEmpty(reduce(mock.interactions, ArraySlice(interactions)) { interactions, interaction in
         if interactions.first == interaction {

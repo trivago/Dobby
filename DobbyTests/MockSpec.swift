@@ -21,20 +21,10 @@ class MockSpec: QuickSpec {
         }
 
         describe("Verifying interactions") {
-            describe("for equality") {
-                it("should check in-order") {
-                    expect(equals(mock, [])).to(beFalse())
-                    expect(equals(mock, [ 1, 2, 3 ])).to(beTrue())
-                    expect(equals(mock, [ 3, 2, 1 ])).to(beFalse())
-                }
-            }
-
-            describe("for containment") {
-                it("should check in-order") {
-                    expect(contains(mock, [])).to(beTrue())
-                    expect(contains(mock, [ 1, 3 ])).to(beTrue())
-                    expect(contains(mock, [ 3, 1 ])).to(beFalse())
-                }
+            it("should check in-order") {
+                expect(contains(mock, [])).to(beTrue())
+                expect(contains(mock, [ 1, 3 ])).to(beTrue())
+                expect(contains(mock, [ 3, 1 ])).to(beFalse())
             }
         }
     }
