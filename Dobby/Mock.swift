@@ -1,5 +1,3 @@
-import Foundation
-
 public class Mock<Interaction: Equatable> {
     public var interactions: [Interaction] = []
 
