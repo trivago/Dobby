@@ -14,28 +14,19 @@ class EqualSpec: QuickSpec {
             record(mock, 3)
         }
 
-        describe("Recording an interaction") {
-            it("should append to the mock's interactions") {
-                expect(mock.interactions).to(equal([ 1, 2, 3 ]))
-            }
-        }
-
-        describe("Verifying interactions") {
-            describe("for equality") {
-                it("should check in-order") {
-                    expect(equals(mock, [])).to(beFalse())
-                    expect(equals(mock, [ 1, 2, 3 ])).to(beTrue())
-                    expect(equals(mock, [ 3, 2, 1 ])).to(beFalse())
+        describe("Verifying interactions for equality") {
+            it("should check in-order") {
+                failsWithErrorMessage("expected interactions to equal <[]>, got <[1, 2, 3]>") {
+                    verify(mock).to(equal())
                 }
-            }
 
-            describe("for containment") {
-                it("should check in-order") {
-                    expect(contains(mock, [])).to(beTrue())
-                    expect(contains(mock, [ 1, 3 ])).to(beTrue())
-                    expect(contains(mock, [ 3, 1 ])).to(beFalse())
+                verify(mock).to(equal(1, 2, 3))
+
+                failsWithErrorMessage("expected interactions to equal <[3, 2, 1]>, got <[1, 2, 3]>") {
+                    verify(mock).to(equal(3, 2, 1))
                 }
             }
         }
     }
 }
+
