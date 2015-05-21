@@ -1,5 +1,3 @@
-import Foundation
-
 public struct Interaction0: Equatable {
 
 }

@@ -1,5 +1,3 @@
-import Foundation
-
 public class Stub<Interaction: Equatable, ReturnValue> {
     public var behavior: [(interaction: Interaction, returnValue: ReturnValue)] = []
 

@@ -22,8 +22,9 @@ Interactions can be verified:
 ```swift
 let myMock = MyMock()
 myMock.myMethod("lowercase")
+myMock.myMethod("another lowercase")
 
-expect(verify(myMock.mock, [ "lowercase" ])).to(beTrue())
+verify(myMock.mock).to(contain("another lowercase"))
 ```
 
 ## Stub
@@ -163,10 +164,10 @@ behave(stringToolsMock.concatStub, .Concat(any(), any()), "")
 expect(stringToolsMock.uppercase("input")).to(equal("INPUT"))
 expect(stringToolsMock.concat("first", "second")).to(equal(""))
 
-expect(verify(stringToolsMock.mock, [
+verify(stringToolsMock.mock).to(equal([
     .Uppercase(value("input")),
     .Concat(value("first"), value("second"))
-])).to(beTrue())
+]))
 ```
 
 ## About

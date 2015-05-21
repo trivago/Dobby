@@ -9,8 +9,8 @@
 /* Begin PBXBuildFile section */
 		DC3CFE711ADE6B8A004728C2 /* Interaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3CFE701ADE6B8A004728C2 /* Interaction.swift */; };
 		DC3CFE721ADE6D31004728C2 /* Interaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3CFE701ADE6B8A004728C2 /* Interaction.swift */; };
-		DC3CFE781ADE895E004728C2 /* FoundationExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3CFE771ADE895E004728C2 /* FoundationExtensions.swift */; };
-		DC3CFE791ADE895E004728C2 /* FoundationExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3CFE771ADE895E004728C2 /* FoundationExtensions.swift */; };
+		DC3CFE781ADE895E004728C2 /* SwiftExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3CFE771ADE895E004728C2 /* SwiftExtensions.swift */; };
+		DC3CFE791ADE895E004728C2 /* SwiftExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3CFE771ADE895E004728C2 /* SwiftExtensions.swift */; };
 		DC3CFE7D1ADE913B004728C2 /* InteractionSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3CFE7A1ADE903E004728C2 /* InteractionSpec.swift */; };
 		DC3CFE7E1ADE913C004728C2 /* InteractionSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3CFE7A1ADE903E004728C2 /* InteractionSpec.swift */; };
 		DC7F6AFE1AD8291800CCBF6D /* Dobby.h in Headers */ = {isa = PBXBuildFile; fileRef = DC7F6AFD1AD8291800CCBF6D /* Dobby.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -43,6 +43,10 @@
 		DC8452411ADBF743006AC5D4 /* ArgumentSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7F6B211AD8308A00CCBF6D /* ArgumentSpec.swift */; };
 		DC8452421ADBF743006AC5D4 /* MockSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7F6B241AD830A500CCBF6D /* MockSpec.swift */; };
 		DC8452431ADBF743006AC5D4 /* StubSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7F6B261AD830B500CCBF6D /* StubSpec.swift */; };
+		DC8581761AF76C2400DAA04E /* DSL.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC8581721AF76C2400DAA04E /* DSL.swift */; };
+		DC8581771AF76C2400DAA04E /* DSL.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC8581721AF76C2400DAA04E /* DSL.swift */; };
+		DC85817C1AF76C3A00DAA04E /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC7F6B281AD8313400CCBF6D /* Nimble.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		DC85817D1AF76C3E00DAA04E /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC8452331ADBF603006AC5D4 /* Nimble.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -91,7 +95,7 @@
 
 /* Begin PBXFileReference section */
 		DC3CFE701ADE6B8A004728C2 /* Interaction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Interaction.swift; sourceTree = "<group>"; };
-		DC3CFE771ADE895E004728C2 /* FoundationExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoundationExtensions.swift; sourceTree = "<group>"; };
+		DC3CFE771ADE895E004728C2 /* SwiftExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftExtensions.swift; sourceTree = "<group>"; };
 		DC3CFE7A1ADE903E004728C2 /* InteractionSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InteractionSpec.swift; sourceTree = "<group>"; };
 		DC7F6AF81AD8291800CCBF6D /* Dobby.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Dobby.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC7F6AFC1AD8291800CCBF6D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -112,6 +116,7 @@
 		DC8452321ADBF603006AC5D4 /* Box.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Box.framework; path = Carthage/Build/Mac/Box.framework; sourceTree = "<group>"; };
 		DC8452331ADBF603006AC5D4 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/Mac/Nimble.framework; sourceTree = "<group>"; };
 		DC8452341ADBF603006AC5D4 /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/Mac/Quick.framework; sourceTree = "<group>"; };
+		DC8581721AF76C2400DAA04E /* DSL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DSL.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +124,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DC85817C1AF76C3A00DAA04E /* Nimble.framework in Frameworks */,
 				DC7F6B171AD82A3F00CCBF6D /* Box.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -138,6 +144,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DC85817D1AF76C3E00DAA04E /* Nimble.framework in Frameworks */,
 				DC8452351ADBF6D8006AC5D4 /* Box.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -159,7 +166,7 @@
 		DC3CFE761ADE895E004728C2 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				DC3CFE771ADE895E004728C2 /* FoundationExtensions.swift */,
+				DC3CFE771ADE895E004728C2 /* SwiftExtensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -194,6 +201,7 @@
 				DC7F6B1F1AD82D3800CCBF6D /* Mock.swift */,
 				DC7F6B1D1AD82B8C00CCBF6D /* Stub.swift */,
 				DC3CFE761ADE895E004728C2 /* Extensions */,
+				DC8581711AF76C2400DAA04E /* Nimble */,
 				DC7F6AFB1AD8291800CCBF6D /* Supporting Files */,
 			);
 			path = Dobby;
@@ -254,6 +262,14 @@
 				DC8452321ADBF603006AC5D4 /* Box.framework */,
 			);
 			name = Mac;
+			sourceTree = "<group>";
+		};
+		DC8581711AF76C2400DAA04E /* Nimble */ = {
+			isa = PBXGroup;
+			children = (
+				DC8581721AF76C2400DAA04E /* DSL.swift */,
+			);
+			path = Nimble;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -432,8 +448,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				DC3CFE711ADE6B8A004728C2 /* Interaction.swift in Sources */,
-				DC3CFE781ADE895E004728C2 /* FoundationExtensions.swift in Sources */,
+				DC3CFE781ADE895E004728C2 /* SwiftExtensions.swift in Sources */,
 				DC7F6B151AD8293B00CCBF6D /* Argument.swift in Sources */,
+				DC8581761AF76C2400DAA04E /* DSL.swift in Sources */,
 				DC7F6B1E1AD82B8C00CCBF6D /* Stub.swift in Sources */,
 				DC7F6B201AD82D3800CCBF6D /* Mock.swift in Sources */,
 			);
@@ -455,8 +472,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				DC3CFE721ADE6D31004728C2 /* Interaction.swift in Sources */,
-				DC3CFE791ADE895E004728C2 /* FoundationExtensions.swift in Sources */,
+				DC3CFE791ADE895E004728C2 /* SwiftExtensions.swift in Sources */,
 				DC84523D1ADBF73C006AC5D4 /* Argument.swift in Sources */,
+				DC8581771AF76C2400DAA04E /* DSL.swift in Sources */,
 				DC8452401ADBF73C006AC5D4 /* Stub.swift in Sources */,
 				DC84523F1ADBF73C006AC5D4 /* Mock.swift in Sources */,
 			);
@@ -590,7 +608,12 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/Carthage/Build/iOS";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(DEVELOPER_DIR)/Platforms/iPhoneSimulator.platform/Developer/Library/Frameworks",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = Dobby/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -608,7 +631,12 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/Carthage/Build/iOS";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(DEVELOPER_DIR)/Platforms/iPhoneSimulator.platform/Developer/Library/Frameworks",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = Dobby/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -658,7 +686,11 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/Carthage/Build/Mac";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+				);
 				FRAMEWORK_VERSION = A;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -667,6 +699,10 @@
 				INFOPLIST_FILE = Dobby/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"-framework",
+					XCTest,
+				);
 				PRODUCT_NAME = "$(inherited)";
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
@@ -681,11 +717,19 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/Carthage/Build/Mac";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+				);
 				FRAMEWORK_VERSION = A;
 				INFOPLIST_FILE = Dobby/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"-framework",
+					XCTest,
+				);
 				PRODUCT_NAME = "$(inherited)";
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
