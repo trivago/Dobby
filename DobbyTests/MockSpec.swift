@@ -22,6 +22,7 @@ class MockSpec: QuickSpec {
 
         describe("Verifying interactions") {
             it("should check in-order") {
+                expect(verify(mock, [])).to(beTrue())
                 expect(verify(mock, [ 1, 3 ])).to(beTrue())
                 expect(verify(mock, [ 3, 1 ])).to(beFalse())
             }
