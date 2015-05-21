@@ -4,11 +4,14 @@ machine:
 
 dependencies:
   pre:
+    - scripts/import_certs
     - sudo chown :wheel /Library/Developer/CoreSimulator/Profiles/Runtimes/iOS\ *.simruntime/Contents/Resources/RuntimeRoot/usr/lib/dyld_sim
     - brew update
     - brew install carthage
   override:
     - carthage bootstrap
+  post:
+    - scripts/delete_keychain
   cache_directories:
     - "Carthage"
 
