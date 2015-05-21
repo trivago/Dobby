@@ -1,0 +1,24 @@
+#!/bin/bash
+
+##
+## Configuration Variables
+##
+
+# The name of the keychain to create for iOS code signing.
+KEYCHAIN=ios-build.keychain
+
+##
+## Build Process
+##
+
+delete_keychain ()
+{
+    if [ -z "$KEY_PASSWORD" ]
+    then
+        return 0
+    fi
+
+    security delete-keychain "$KEYCHAIN"
+}
+
+delete_keychain
