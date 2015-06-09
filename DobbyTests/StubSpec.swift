@@ -9,8 +9,8 @@ class StubSpec: QuickSpec {
 
         beforeEach {
             stub = Stub<Int, Int>()
-            behave(stub, 1, 2)
-            behave(stub, 2, 4)
+            stub.behave(1, 2)
+            stub.behave(2, 4)
         }
 
         describe("Stubbing") {
@@ -24,7 +24,9 @@ class StubSpec: QuickSpec {
 
         describe("Invoking a stub") {
             it("should return the first matching interaction's return value") {
-                expect(invoke(stub, 1)).to(equal(2))
+                expect(stub.invoke(0)).to(beNil())
+                expect(stub.invoke(1)).to(equal(2))
+                expect(stub.invoke(2)).to(equal(4))
             }
         }
     }

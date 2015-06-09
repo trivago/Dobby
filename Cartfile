@@ -1,2 +1,1 @@
-github "robrix/Box" ~> 1.2
-github "Quick/Nimble" ~> 0.4
+github "Quick/Nimble" "swift-2.0"

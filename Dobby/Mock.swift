@@ -1,23 +1,21 @@
 public class Mock<Interaction: Equatable> {
     public var interactions: [Interaction] = []
 
-    public init() {}
-}
+    public init() {
 
-// MARK: - Basics
+    }
 
-public func record<Interaction: Equatable>(mock: Mock<Interaction>, interaction: Interaction) {
-    mock.interactions.append(interaction)
-}
+    public func record(interaction: Interaction) {
+        interactions.append(interaction)
+    }
 
-// MARK: - Verification
-
-public func contains<Interaction: Equatable>(mock: Mock<Interaction>, interactions: [Interaction]) -> Bool {
-    return isEmpty(reduce(mock.interactions, ArraySlice(interactions)) { interactions, interaction in
-        if interactions.first == interaction {
-            return interactions[1..<count(interactions)]
-        } else {
-            return interactions
-        }
-    })
+    public func contains(interactions: [Interaction]) -> Bool {
+        return self.interactions.reduce(ArraySlice(interactions)) { interactions, interaction in
+            if interactions.first == interaction {
+                return interactions[1..<interactions.count]
+            } else {
+                return interactions
+            }
+        }.isEmpty
+    }
 }

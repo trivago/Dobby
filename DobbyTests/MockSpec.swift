@@ -9,9 +9,9 @@ class MockSpec: QuickSpec {
 
         beforeEach {
             mock = Mock<Int>()
-            record(mock, 1)
-            record(mock, 2)
-            record(mock, 3)
+            mock.record(1)
+            mock.record(2)
+            mock.record(3)
         }
 
         describe("Recording an interaction") {
@@ -22,9 +22,9 @@ class MockSpec: QuickSpec {
 
         describe("Verifying interactions") {
             it("should check in-order") {
-                expect(contains(mock, [])).to(beTrue())
-                expect(contains(mock, [ 1, 3 ])).to(beTrue())
-                expect(contains(mock, [ 3, 1 ])).to(beFalse())
+                expect(mock.contains([])).to(beTrue())
+                expect(mock.contains([ 1, 3 ])).to(beTrue())
+                expect(mock.contains([ 3, 1 ])).to(beFalse())
             }
         }
     }

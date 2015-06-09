@@ -68,18 +68,18 @@ public func interaction<A: ArgumentConvertible>(arg0: A) -> Interaction1<A.Argum
     return Interaction1(arg0: arg0.argument())
 }
 
-public func interaction<A: ArgumentConvertible, B: ArgumentConvertible>(arg0: A, arg1: B) -> Interaction2<A.ArgumentType, B.ArgumentType> {
+public func interaction<A: ArgumentConvertible, B: ArgumentConvertible>(arg0: A, _ arg1: B) -> Interaction2<A.ArgumentType, B.ArgumentType> {
     return Interaction2(arg0: arg0.argument(), arg1: arg1.argument())
 }
 
-public func interaction<A: ArgumentConvertible, B: ArgumentConvertible, C: ArgumentConvertible>(arg0: A, arg1: B, arg2: C) -> Interaction3<A.ArgumentType, B.ArgumentType, C.ArgumentType> {
+public func interaction<A: ArgumentConvertible, B: ArgumentConvertible, C: ArgumentConvertible>(arg0: A, _ arg1: B, _ arg2: C) -> Interaction3<A.ArgumentType, B.ArgumentType, C.ArgumentType> {
     return Interaction3(arg0: arg0.argument(), arg1: arg1.argument(), arg2: arg2.argument())
 }
 
-public func interaction<A: ArgumentConvertible, B: ArgumentConvertible, C: ArgumentConvertible, D: ArgumentConvertible>(arg0: A, arg1: B, arg2: C, arg3: D) -> Interaction4<A.ArgumentType, B.ArgumentType, C.ArgumentType, D.ArgumentType> {
+public func interaction<A: ArgumentConvertible, B: ArgumentConvertible, C: ArgumentConvertible, D: ArgumentConvertible>(arg0: A, _ arg1: B, _ arg2: C, _ arg3: D) -> Interaction4<A.ArgumentType, B.ArgumentType, C.ArgumentType, D.ArgumentType> {
     return Interaction4(arg0: arg0.argument(), arg1: arg1.argument(), arg2: arg2.argument(), arg3: arg3.argument())
 }
 
-public func interaction<A: ArgumentConvertible, B: ArgumentConvertible, C: ArgumentConvertible, D: ArgumentConvertible, E: ArgumentConvertible>(arg0: A, arg1: B, arg2: C, arg3: D, arg4: E) -> Interaction5<A.ArgumentType, B.ArgumentType, C.ArgumentType, D.ArgumentType, E.ArgumentType> {
+public func interaction<A: ArgumentConvertible, B: ArgumentConvertible, C: ArgumentConvertible, D: ArgumentConvertible, E: ArgumentConvertible>(arg0: A, _ arg1: B, _ arg2: C, _ arg3: D, _ arg4: E) -> Interaction5<A.ArgumentType, B.ArgumentType, C.ArgumentType, D.ArgumentType, E.ArgumentType> {
     return Interaction5(arg0: arg0.argument(), arg1: arg1.argument(), arg2: arg2.argument(), arg3: arg3.argument(), arg4: arg4.argument())
 }

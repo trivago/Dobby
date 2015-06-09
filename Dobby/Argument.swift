@@ -1,14 +1,12 @@
-import Box
-
-public protocol ArgumentConvertible: Equatable {
+public protocol ArgumentConvertible {
     typealias ArgumentType: Equatable
 
     func argument() -> Argument<ArgumentType>
 }
 
 public enum Argument<T: Equatable>: Equatable {
-    case Filter(Box<T -> Bool>)
-    case Value(Box<T>)
+    case Filter(T -> Bool)
+    case Value(T)
     case Any
 }
 
@@ -23,11 +21,11 @@ extension Argument: ArgumentConvertible {
 public func == <T: Equatable>(lhs: Argument<T>, rhs: Argument<T>) -> Bool {
     switch (lhs, rhs) {
     case let (.Value(left), .Value(right)):
-        return left.value == right.value
+        return left == right
     case let (.Value(value), .Filter(f)):
-        return f.value(value.value)
+        return f(value)
     case let (.Filter(f), .Value(value)):
-        return f.value(value.value)
+        return f(value)
     case (.Any, _), (_, .Any):
         return true
     default:
@@ -38,11 +36,11 @@ public func == <T: Equatable>(lhs: Argument<T>, rhs: Argument<T>) -> Bool {
 // MARK: - Basics
 
 public func filter<T: Equatable>(f: T -> Bool) -> Argument<T> {
-    return .Filter(Box(f))
+    return .Filter(f)
 }
 
 public func value<T: Equatable>(value: T) -> Argument<T> {
-    return .Value(Box(value))
+    return .Value(value)
 }
 
 public func any<T: Equatable>() -> Argument<T> {
