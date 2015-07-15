@@ -5,28 +5,41 @@ import Dobby
 
 class StubSpec: QuickSpec {
     override func spec() {
-        var stub: Stub<Int, Int>!
+        var stub: Stub<(Int, Int), Int>!
 
         beforeEach {
-            stub = Stub<Int, Int>()
-            stub.behave(1, 2)
-            stub.behave(2, 4)
+            stub = Stub()
         }
 
-        describe("Stubbing") {
-            it("should append to the stub's behavior") {
-                expect(stub.behavior[0].interaction).to(equal(1))
-                expect(stub.behavior[0].returnValue).to(equal(2))
-                expect(stub.behavior[1].interaction).to(equal(2))
-                expect(stub.behavior[1].returnValue).to(equal(4))
+        context("Invocation") {
+            it("returns the correct value") {
+                stub.on(tuple(4, 3), returnValue: 9)
+                stub.on(tuple(any(), any())) { $0.0 + $0.1 }
+                expect(try! stub.invoke((4, 3))).to(equal(9))
+                expect(try! stub.invoke((4, 4))).to(equal(8))
             }
-        }
 
-        describe("Invoking a stub") {
-            it("should return the first matching interaction's return value") {
-                expect(stub.invoke(0)).to(beNil())
-                expect(stub.invoke(1)).to(equal(2))
-                expect(stub.invoke(2)).to(equal(4))
+            it("returns the correct value after disposal") {
+                let disposable1 = stub.on(tuple(4, 3), returnValue: 9)
+                let disposable2 = stub.on(tuple(any(), any())) { $0.0 + $0.1 }
+
+                disposable1.dispose()
+
+                expect(disposable1.disposed).to(beTrue())
+                expect(disposable2.disposed).to(beFalse())
+
+                expect(try! stub.invoke((4, 3))).to(equal(7))
+            }
+
+            it("throws an exception if an interaction is unexpected") {
+                do {
+                    try stub.invoke((5, 6))
+                } catch StubError<(Int, Int)>.UnexpectedInteraction(let interaction) {
+                    expect(interaction.0).to(equal(5))
+                    expect(interaction.1).to(equal(6))
+                } catch {
+                    fail("Unexpected exception: \(error)")
+                }
             }
         }
     }

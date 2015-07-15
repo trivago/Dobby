@@ -1,29 +1,29 @@
-extension Bool: ArgumentConvertible {
-    public func argument() -> Argument<Bool> {
-        return Argument.Value(self)
+extension Bool: ExpectationConvertible {
+    public func expectation() -> Expectation<Bool> {
+        return Expectation(value: self)
     }
 }
 
-extension Int: ArgumentConvertible {
-    public func argument() -> Argument<Int> {
-        return Argument.Value(self)
+extension Int: ExpectationConvertible {
+    public func expectation() -> Expectation<Int> {
+        return Expectation(value: self)
     }
 }
 
-extension Float: ArgumentConvertible {
-    public func argument() -> Argument<Float> {
-        return Argument.Value(self)
+extension Float: ExpectationConvertible {
+    public func expectation() -> Expectation<Float> {
+        return Expectation(value: self)
     }
 }
 
-extension Double: ArgumentConvertible {
-    public func argument() -> Argument<Double> {
-        return Argument.Value(self)
+extension Double: ExpectationConvertible {
+    public func expectation() -> Expectation<Double> {
+        return Expectation(value: self)
     }
 }
 
-extension String: ArgumentConvertible {
-    public func argument() -> Argument<String> {
-        return Argument.Value(self)
+extension String: ExpectationConvertible {
+    public func expectation() -> Expectation<String> {
+        return Expectation(value: self)
     }
 }

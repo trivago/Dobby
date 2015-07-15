@@ -7,42 +7,32 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		DC3CFE711ADE6B8A004728C2 /* Interaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3CFE701ADE6B8A004728C2 /* Interaction.swift */; };
-		DC3CFE721ADE6D31004728C2 /* Interaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3CFE701ADE6B8A004728C2 /* Interaction.swift */; };
 		DC3CFE781ADE895E004728C2 /* SwiftExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3CFE771ADE895E004728C2 /* SwiftExtensions.swift */; };
 		DC3CFE791ADE895E004728C2 /* SwiftExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3CFE771ADE895E004728C2 /* SwiftExtensions.swift */; };
-		DC3CFE7D1ADE913B004728C2 /* InteractionSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3CFE7A1ADE903E004728C2 /* InteractionSpec.swift */; };
-		DC3CFE7E1ADE913C004728C2 /* InteractionSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3CFE7A1ADE903E004728C2 /* InteractionSpec.swift */; };
-		DC7856891B275A9C00DC2EEC /* DSLSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7856881B275A9C00DC2EEC /* DSLSpec.swift */; };
-		DC78568A1B275A9C00DC2EEC /* DSLSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7856881B275A9C00DC2EEC /* DSLSpec.swift */; };
+		DC457AD91B5552CA00919032 /* Expectation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC457AD81B5552CA00919032 /* Expectation.swift */; };
+		DC457ADA1B5552CA00919032 /* Expectation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC457AD81B5552CA00919032 /* Expectation.swift */; };
 		DC7F6AFE1AD8291800CCBF6D /* Dobby.h in Headers */ = {isa = PBXBuildFile; fileRef = DC7F6AFD1AD8291800CCBF6D /* Dobby.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DC7F6B041AD8291800CCBF6D /* Dobby.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC7F6AF81AD8291800CCBF6D /* Dobby.framework */; };
-		DC7F6B151AD8293B00CCBF6D /* Argument.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7F6B141AD8293B00CCBF6D /* Argument.swift */; };
 		DC7F6B1E1AD82B8C00CCBF6D /* Stub.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7F6B1D1AD82B8C00CCBF6D /* Stub.swift */; };
 		DC7F6B201AD82D3800CCBF6D /* Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7F6B1F1AD82D3800CCBF6D /* Mock.swift */; };
-		DC7F6B231AD8309000CCBF6D /* ArgumentSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7F6B211AD8308A00CCBF6D /* ArgumentSpec.swift */; };
 		DC7F6B251AD830A500CCBF6D /* MockSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7F6B241AD830A500CCBF6D /* MockSpec.swift */; };
 		DC7F6B271AD830B500CCBF6D /* StubSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7F6B261AD830B500CCBF6D /* StubSpec.swift */; };
 		DC7F6B2A1AD8313400CCBF6D /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC7F6B281AD8313400CCBF6D /* Nimble.framework */; };
 		DC7F6B2B1AD8313400CCBF6D /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC7F6B291AD8313400CCBF6D /* Quick.framework */; };
 		DC7F6B2C1AD8314100CCBF6D /* Quick.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = DC7F6B291AD8313400CCBF6D /* Quick.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		DC7F6B2D1AD8314100CCBF6D /* Nimble.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = DC7F6B281AD8313400CCBF6D /* Nimble.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		DC83356C1B56661900569709 /* Disposable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC83356B1B56661900569709 /* Disposable.swift */; };
+		DC83356D1B56661900569709 /* Disposable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC83356B1B56661900569709 /* Disposable.swift */; };
 		DC8452231ADBF5CC006AC5D4 /* Dobby.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC8452181ADBF5CC006AC5D4 /* Dobby.framework */; };
 		DC8452371ADBF6F4006AC5D4 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC8452341ADBF603006AC5D4 /* Quick.framework */; };
 		DC8452381ADBF6F4006AC5D4 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC8452331ADBF603006AC5D4 /* Nimble.framework */; };
 		DC84523A1ADBF6F6006AC5D4 /* Quick.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = DC8452341ADBF603006AC5D4 /* Quick.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		DC84523B1ADBF6F6006AC5D4 /* Nimble.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = DC8452331ADBF603006AC5D4 /* Nimble.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		DC84523D1ADBF73C006AC5D4 /* Argument.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7F6B141AD8293B00CCBF6D /* Argument.swift */; };
 		DC84523E1ADBF73C006AC5D4 /* Dobby.h in Headers */ = {isa = PBXBuildFile; fileRef = DC7F6AFD1AD8291800CCBF6D /* Dobby.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DC84523F1ADBF73C006AC5D4 /* Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7F6B1F1AD82D3800CCBF6D /* Mock.swift */; };
 		DC8452401ADBF73C006AC5D4 /* Stub.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7F6B1D1AD82B8C00CCBF6D /* Stub.swift */; };
-		DC8452411ADBF743006AC5D4 /* ArgumentSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7F6B211AD8308A00CCBF6D /* ArgumentSpec.swift */; };
 		DC8452421ADBF743006AC5D4 /* MockSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7F6B241AD830A500CCBF6D /* MockSpec.swift */; };
 		DC8452431ADBF743006AC5D4 /* StubSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7F6B261AD830B500CCBF6D /* StubSpec.swift */; };
-		DC8581761AF76C2400DAA04E /* DSL.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC8581721AF76C2400DAA04E /* DSL.swift */; };
-		DC8581771AF76C2400DAA04E /* DSL.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC8581721AF76C2400DAA04E /* DSL.swift */; };
-		DC85817C1AF76C3A00DAA04E /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC7F6B281AD8313400CCBF6D /* Nimble.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
-		DC85817D1AF76C3E00DAA04E /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC8452331ADBF603006AC5D4 /* Nimble.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -88,28 +78,24 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		DC3CFE701ADE6B8A004728C2 /* Interaction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Interaction.swift; sourceTree = "<group>"; };
 		DC3CFE771ADE895E004728C2 /* SwiftExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftExtensions.swift; sourceTree = "<group>"; };
-		DC3CFE7A1ADE903E004728C2 /* InteractionSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InteractionSpec.swift; sourceTree = "<group>"; };
-		DC7856881B275A9C00DC2EEC /* DSLSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DSLSpec.swift; sourceTree = "<group>"; };
+		DC457AD81B5552CA00919032 /* Expectation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Expectation.swift; sourceTree = "<group>"; };
 		DC7F6AF81AD8291800CCBF6D /* Dobby.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Dobby.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC7F6AFC1AD8291800CCBF6D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DC7F6AFD1AD8291800CCBF6D /* Dobby.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Dobby.h; sourceTree = "<group>"; };
 		DC7F6B031AD8291800CCBF6D /* DobbyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DobbyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC7F6B091AD8291800CCBF6D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		DC7F6B141AD8293B00CCBF6D /* Argument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Argument.swift; sourceTree = "<group>"; };
 		DC7F6B1D1AD82B8C00CCBF6D /* Stub.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stub.swift; sourceTree = "<group>"; };
 		DC7F6B1F1AD82D3800CCBF6D /* Mock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mock.swift; sourceTree = "<group>"; };
-		DC7F6B211AD8308A00CCBF6D /* ArgumentSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArgumentSpec.swift; sourceTree = "<group>"; };
 		DC7F6B241AD830A500CCBF6D /* MockSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockSpec.swift; sourceTree = "<group>"; };
 		DC7F6B261AD830B500CCBF6D /* StubSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StubSpec.swift; sourceTree = "<group>"; };
 		DC7F6B281AD8313400CCBF6D /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/iOS/Nimble.framework; sourceTree = "<group>"; };
 		DC7F6B291AD8313400CCBF6D /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/iOS/Quick.framework; sourceTree = "<group>"; };
+		DC83356B1B56661900569709 /* Disposable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Disposable.swift; sourceTree = "<group>"; };
 		DC8452181ADBF5CC006AC5D4 /* Dobby.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Dobby.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC8452221ADBF5CC006AC5D4 /* DobbyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DobbyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC8452331ADBF603006AC5D4 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/Mac/Nimble.framework; sourceTree = "<group>"; };
 		DC8452341ADBF603006AC5D4 /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/Mac/Quick.framework; sourceTree = "<group>"; };
-		DC8581721AF76C2400DAA04E /* DSL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DSL.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,7 +103,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DC85817C1AF76C3A00DAA04E /* Nimble.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -135,7 +120,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DC85817D1AF76C3E00DAA04E /* Nimble.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -158,14 +142,6 @@
 				DC3CFE771ADE895E004728C2 /* SwiftExtensions.swift */,
 			);
 			path = Extensions;
-			sourceTree = "<group>";
-		};
-		DC7856871B275A9C00DC2EEC /* Nimble */ = {
-			isa = PBXGroup;
-			children = (
-				DC7856881B275A9C00DC2EEC /* DSLSpec.swift */,
-			);
-			path = Nimble;
 			sourceTree = "<group>";
 		};
 		DC7F6AEE1AD8291800CCBF6D = {
@@ -192,13 +168,12 @@
 		DC7F6AFA1AD8291800CCBF6D /* Dobby */ = {
 			isa = PBXGroup;
 			children = (
-				DC7F6B141AD8293B00CCBF6D /* Argument.swift */,
+				DC83356B1B56661900569709 /* Disposable.swift */,
 				DC7F6AFD1AD8291800CCBF6D /* Dobby.h */,
-				DC3CFE701ADE6B8A004728C2 /* Interaction.swift */,
+				DC457AD81B5552CA00919032 /* Expectation.swift */,
 				DC7F6B1F1AD82D3800CCBF6D /* Mock.swift */,
 				DC7F6B1D1AD82B8C00CCBF6D /* Stub.swift */,
 				DC3CFE761ADE895E004728C2 /* Extensions */,
-				DC8581711AF76C2400DAA04E /* Nimble */,
 				DC7F6AFB1AD8291800CCBF6D /* Supporting Files */,
 			);
 			path = Dobby;
@@ -215,11 +190,8 @@
 		DC7F6B071AD8291800CCBF6D /* DobbyTests */ = {
 			isa = PBXGroup;
 			children = (
-				DC7F6B211AD8308A00CCBF6D /* ArgumentSpec.swift */,
-				DC3CFE7A1ADE903E004728C2 /* InteractionSpec.swift */,
 				DC7F6B241AD830A500CCBF6D /* MockSpec.swift */,
 				DC7F6B261AD830B500CCBF6D /* StubSpec.swift */,
-				DC7856871B275A9C00DC2EEC /* Nimble */,
 				DC7F6B081AD8291800CCBF6D /* Supporting Files */,
 			);
 			path = DobbyTests;
@@ -258,14 +230,6 @@
 				DC8452331ADBF603006AC5D4 /* Nimble.framework */,
 			);
 			name = Mac;
-			sourceTree = "<group>";
-		};
-		DC8581711AF76C2400DAA04E /* Nimble */ = {
-			isa = PBXGroup;
-			children = (
-				DC8581721AF76C2400DAA04E /* DSL.swift */,
-			);
-			path = Nimble;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -444,10 +408,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DC3CFE711ADE6B8A004728C2 /* Interaction.swift in Sources */,
+				DC457AD91B5552CA00919032 /* Expectation.swift in Sources */,
 				DC3CFE781ADE895E004728C2 /* SwiftExtensions.swift in Sources */,
-				DC7F6B151AD8293B00CCBF6D /* Argument.swift in Sources */,
-				DC8581761AF76C2400DAA04E /* DSL.swift in Sources */,
+				DC83356C1B56661900569709 /* Disposable.swift in Sources */,
 				DC7F6B1E1AD82B8C00CCBF6D /* Stub.swift in Sources */,
 				DC7F6B201AD82D3800CCBF6D /* Mock.swift in Sources */,
 			);
@@ -458,10 +421,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DC7F6B251AD830A500CCBF6D /* MockSpec.swift in Sources */,
-				DC3CFE7D1ADE913B004728C2 /* InteractionSpec.swift in Sources */,
 				DC7F6B271AD830B500CCBF6D /* StubSpec.swift in Sources */,
-				DC7F6B231AD8309000CCBF6D /* ArgumentSpec.swift in Sources */,
-				DC7856891B275A9C00DC2EEC /* DSLSpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -469,10 +429,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DC3CFE721ADE6D31004728C2 /* Interaction.swift in Sources */,
+				DC457ADA1B5552CA00919032 /* Expectation.swift in Sources */,
 				DC3CFE791ADE895E004728C2 /* SwiftExtensions.swift in Sources */,
-				DC84523D1ADBF73C006AC5D4 /* Argument.swift in Sources */,
-				DC8581771AF76C2400DAA04E /* DSL.swift in Sources */,
+				DC83356D1B56661900569709 /* Disposable.swift in Sources */,
 				DC8452401ADBF73C006AC5D4 /* Stub.swift in Sources */,
 				DC84523F1ADBF73C006AC5D4 /* Mock.swift in Sources */,
 			);
@@ -483,10 +442,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DC8452421ADBF743006AC5D4 /* MockSpec.swift in Sources */,
-				DC3CFE7E1ADE913C004728C2 /* InteractionSpec.swift in Sources */,
 				DC8452431ADBF743006AC5D4 /* StubSpec.swift in Sources */,
-				DC8452411ADBF743006AC5D4 /* ArgumentSpec.swift in Sources */,
-				DC78568A1B275A9C00DC2EEC /* DSLSpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -612,7 +568,6 @@
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 					"$(DEVELOPER_DIR)/Platforms/iPhoneSimulator.platform/Developer/Library/Frameworks",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = Dobby/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
@@ -636,7 +591,6 @@
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 					"$(DEVELOPER_DIR)/Platforms/iPhoneSimulator.platform/Developer/Library/Frameworks",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = Dobby/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
@@ -693,7 +647,6 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
-					"$(PROJECT_DIR)/Carthage/Build/Mac",
 				);
 				FRAMEWORK_VERSION = A;
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -725,7 +678,6 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
-					"$(PROJECT_DIR)/Carthage/Build/Mac",
 				);
 				FRAMEWORK_VERSION = A;
 				INFOPLIST_FILE = Dobby/Info.plist;
