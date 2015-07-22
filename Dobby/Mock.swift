@@ -1,23 +1,46 @@
-public class Mock<Interaction: Equatable> {
-    public var interactions: [Interaction] = []
+import XCTest
 
-    public init() {}
-}
+/// A mock which can verify that all set up expectations are matched with the
+/// recorded interactions.
+public final class Mock<Interaction> {
+    private var expectations: [Expectation<Interaction>] = []
+    private var interactions: [Interaction] = []
 
-// MARK: - Basics
+    /// Initializes a new mock.
+    public init() {
+        
+    }
 
-public func record<Interaction: Equatable>(mock: Mock<Interaction>, interaction: Interaction) {
-    mock.interactions.append(interaction)
-}
+    /// Sets up the given expectation.
+    public func expect<E: ExpectationConvertible where E.InteractionType == Interaction>(expectation: E) {
+        expectations.append(expectation.expectation())
+    }
 
-// MARK: - Verification
+    /// Records the given interaction.
+    public func record(interaction: Interaction) {
+        interactions.append(interaction)
+    }
 
-public func contains<Interaction: Equatable>(mock: Mock<Interaction>, interactions: [Interaction]) -> Bool {
-    return isEmpty(reduce(mock.interactions, ArraySlice(interactions)) { interactions, interaction in
-        if interactions.first == interaction {
-            return interactions[1..<count(interactions)]
-        } else {
-            return interactions
+    /// Verifies that all set up expectations are matched with the recorded
+    /// interactions.
+    ///
+    /// Verification is performed in order, i.e., the first expectation must
+    /// match the first interaction, the second expectation must match the
+    /// second interaction, and so on. All expectations must match an
+    /// interaction and vice versa.
+    public func verify(file file: String = __FILE__, line: UInt = __LINE__) {
+        verify(file: file, line: line, fail: XCTFail)
+    }
+
+    internal func verify(file file: String = __FILE__, line: UInt = __LINE__, fail: (String, file: String, line: UInt) -> ()) {
+        for var index = 0; index < max(expectations.count, interactions.count); index++ {
+            if index >= interactions.count {
+                fail("Expectation <\(expectations[index])> not matched", file: file, line: line)
+            } else if index >= expectations.count {
+                fail("Interaction <\(interactions[index])> not matched", file: file, line: line)
+            } else if !expectations[index].matches(interactions[index]) {
+                fail("Expectation <\(expectations[index])> does not match interaction <\(interactions[index])>", file: file, line: line)
+            }
         }
-    })
+    }
 }
