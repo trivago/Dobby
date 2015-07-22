@@ -54,7 +54,7 @@ extension Expectation: ExpectationConvertible {
 
 public func tuple<A: ExpectationConvertible>(arg1: A) -> Expectation<(A.InteractionType)> {
     return Expectation(description: "(\(arg1))") { interaction in
-        return arg1.expectation().matches(interaction.0)
+        return arg1.expectation().matches(interaction)
     }
 }
 
