@@ -11,7 +11,7 @@ struct MyMock {
     let mock = Mock<String>()
 
     func myMethod(input: String) -> String {
-        record(mock, input)
+        mock.record(input)
         return input.uppercaseString
     }
 }
@@ -44,7 +44,7 @@ class MyClassMock: MyClass {
     let myMethodStub = Stub<Interaction2<String, String>, String>()
     override func myMethod(first: String, _ second: String) -> String {
         // Call super if the stub doesn't define any behavior for the interaction.
-        return invoke(myMethodStub, interaction(first, second)) ?? super.myMethod(first, second)
+        return myMethodStub.invoke(interaction(first, second)) ?? super.myMethod(first, second)
     }
 }
 ```
@@ -53,9 +53,8 @@ Behavior can be modified on-the-fly:
 
 ```swift
 let myClassMock = MyClassMock()
-
-behave(myClassMock.myMethodStub, interaction(filter { isEmpty($0) }, any()), "no first")
-behave(myClassMock.myMethodStub, interaction(any(), filter { isEmpty($0) }), "no second")
+myClassMock.myMethodStub.behave(interaction(filter { isEmpty($0) }, any()), "no first")
+myClassMock.myMethodStub.behave(interaction(any(), filter { isEmpty($0) }), "no second")
 
 expect(myClassMock.myMethod("", "second")).to(equal("no first"))
 expect(myClassMock.myMethod("first", "")).to(equal("no second"))
@@ -142,14 +141,14 @@ class StringToolsMock: StringTools {
     
     let uppercaseStub = Stub<StringToolsMockInteraction, String>()
     override func uppercase(input: String) -> String {
-        record(mock, .Uppercase(value(input)))
-        return invoke(uppercaseStub, .Uppercase(value(input))) ?? super.uppercase(input)
+        mock.record(.Uppercase(value(input)))
+        return uppercaseStub.invoke(.Uppercase(value(input))) ?? super.uppercase(input)
     }
 
     let concatStub = Stub<StringToolsMockInteraction, String>()
     override func concat(first: String, _ second: String) -> String {
-        record(mock, .Concat(value(first), value(second)))
-        return invoke(concatStub, .Concat(value(first), value(second))) ?? super.concat(first, second)
+        mock.record(.Concat(value(first), value(second)))
+        return concatStub.invoke(.Concat(value(first), value(second))) ?? super.concat(first, second)
     }
 }
 ```
@@ -158,8 +157,7 @@ So that multiple interactions can be easily verified:
 
 ```swift
 let stringToolsMock = StringToolsMock()
-
-behave(stringToolsMock.concatStub, .Concat(any(), any()), "")
+stringToolsMock.concatStub.behave(.Concat(any(), any()), "")
 
 expect(stringToolsMock.uppercase("input")).to(equal("INPUT"))
 expect(stringToolsMock.concat("first", "second")).to(equal(""))
