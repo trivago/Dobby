@@ -1,173 +1,69 @@
 # Dobby
 
-Dobby provides a few helpers for mocking and stubbing.
+Dobby provides a few helpers for mocking and stubbing using expectations.
 
-## Mock
+## Expectations
 
-A mock can be used to record interactions with an object:
-
-```swift
-struct MyMock {
-    let mock = Mock<String>()
-
-    func myMethod(input: String) -> String {
-        mock.record(input)
-        return input.uppercaseString
-    }
-}
-```
-
-Interactions can be verified:
+Expectations can be matched with values, serving as the fundamental building block for mocking and stubbing. There are many functions that help creating expectations for (equatable) types, including tuples, arrays, and dictionaries with equatable elements:
 
 ```swift
-let myMock = MyMock()
-myMock.myMethod("lowercase")
-myMock.myMethod("another lowercase")
-
-verify(myMock.mock).to(contain("another lowercase"))
+matches { $0 == value } // matches value
+any() // matches anything
+equals(1) // matches 1
+equals((1, 2)) // matches (1, 2)
+equals((1, 2, 3)) // matches (1, 2, 3)
+equals((1, 2, 3, 4)) // matches (1, 2, 3, 4)
+equals((1, 2, 3, 4, 5)) // matches (1, 2, 3, 4, 5)
+equals([1, 2, 3]) // matches [1, 2, 3]
+equals([1: 1, 2: 2, 3: 3]) // matches [1: 1, 2: 2, 3: 3]
 ```
 
-## Stub
-
-A stub can be used to alter the behavior of a method:
+Expectations may also be nested:
 
 ```swift
-class MyClass {
-    func myMethod(first: String, _ second: String) -> String {
-        return first + second
-    }
-}
+matches((matches { $0 == 0 }, any(), 2)) // matches (0, _, 2)
+matches([any(), equals(4)]) // matches [_, 4]
+matches(["key": matches { $0 == 5 }]) // matches ["key": 5]
 ```
+
+## Mocks
+
+Mocks can be used to verify that all set up expectations are matched with the recorded interactions. Verification is performed in order and all expectations must match an interaction and vice versa:
 
 ```swift
-class MyClassMock: MyClass {
-    let myMethodStub = Stub<Interaction2<String, String>, String>()
-    override func myMethod(first: String, _ second: String) -> String {
-        // Call super if the stub doesn't define any behavior for the interaction.
-        return myMethodStub.invoke(interaction(first, second)) ?? super.myMethod(first, second)
-    }
-}
+let mock = Mock<[Int]>()
+mock.expect(matches([any(), matches { $0 > 0 }])) // expects [_, n > 0]
+mock.record([0, 1])
+mock.verify() // succeeds
 ```
 
-Behavior can be modified on-the-fly:
+## Stubs
+
+Stubs, when invoked, return a value based on their set up behavior, or, if an interaction is unexpected, throw an error. Behavior is matched in order, i.e., the function or return value associated with the first expectation that matches an interaction is invoked/returned:
 
 ```swift
-let myClassMock = MyClassMock()
-myClassMock.myMethodStub.behave(interaction(filter { isEmpty($0) }, any()), "no first")
-myClassMock.myMethodStub.behave(interaction(any(), filter { isEmpty($0) }), "no second")
-
-expect(myClassMock.myMethod("", "second")).to(equal("no first"))
-expect(myClassMock.myMethod("first", "")).to(equal("no second"))
-expect(myClassMock.myMethod("first", "second")).to(equal("first second"))
+let stub = Stub<(Int, Int), Int>()
+let behavior = stub.on(equals((4, 3)), returnValue: 9)
+stub.on(matches((any(), any()))) { $0.0 + $0.1 }
+try! stub.invoke((4, 3)) // returns 9
+try! stub.invoke((4, 4)) // returns 8
 ```
 
-## Argument & Interaction
-
-In addition to mocks and stubs, another two helpers are provided for working with arguments and interactions.
-
-### Argument
-
-An argument either represents a filter, a value or any value.
+Behavior may also be disposed:
 
 ```swift
-let arg: Argument<Int> = filter { $0 > 2 }
+behavior.dispose()
+try! stub.invoke((4, 3)) // returns 7
 ```
 
-```swift
-let arg: Argument<Int> = value(2)
-```
+## Example
 
-```swift
-let arg: Argument<Int> = any()
-```
+> to be written..
 
-### Interaction
+## Documentation
 
-An interaction holds up to five arguments. It's basically an equatable tuple of arguments:
-
-```swift
-let int: Interaction0 = interaction()
-```
-
-```swift
-let int: Interaction3<Int, Int, Int> = interaction(1, 2, 3)
-```
-
-```swift
-let int: Interaction5<Int, Bool, Int, Float, Int> = interaction(1, any(), 3, filter { $0 > 4 }, 5)
-```
-
-## Advanced usage
-
-What if multiple interactions are to be verified? Here is an example:
-
-```swift
-class StringTools {
-    func uppercase(input: String) -> String {
-        return input.uppercaseString
-    }
-
-    func concat(first: String, _ second: String) -> String {
-        return first + second
-    }
-}
-```
-
-In this scenario, an equatable enum can be defined for all interactions:
-
-```swift
-enum StringToolsMockInteraction: Equatable {
-   case Uppercase(Argument<String>)
-   case Concat(Argument<String>, Argument<String>)
-}
-
-func == (lhs: StringToolsMockInteraction, rhs: StringToolsMockInteraction) -> Bool {
-    switch (lhs, rhs) {
-    case let (.Uppercase(left), .Uppercase(right)):
-        return left == right
-    case let (.Concat(first1, second1), .Concat(first2, second2)):
-        return first1 == first2 && second1 == second2
-    default:
-        return false
-    }
-}
-```
-
-This enables recording and differentiation of multiple interactions using the same mock:
-
-```swift
-class StringToolsMock: StringTools {
-    let mock = Mock<StringToolsMockInteraction>()
-    
-    let uppercaseStub = Stub<StringToolsMockInteraction, String>()
-    override func uppercase(input: String) -> String {
-        mock.record(.Uppercase(value(input)))
-        return uppercaseStub.invoke(.Uppercase(value(input))) ?? super.uppercase(input)
-    }
-
-    let concatStub = Stub<StringToolsMockInteraction, String>()
-    override func concat(first: String, _ second: String) -> String {
-        mock.record(.Concat(value(first), value(second)))
-        return concatStub.invoke(.Concat(value(first), value(second))) ?? super.concat(first, second)
-    }
-}
-```
-
-So that multiple interactions can be easily verified:
-
-```swift
-let stringToolsMock = StringToolsMock()
-stringToolsMock.concatStub.behave(.Concat(any(), any()), "")
-
-expect(stringToolsMock.uppercase("input")).to(equal("INPUT"))
-expect(stringToolsMock.concat("first", "second")).to(equal(""))
-
-verify(stringToolsMock.mock).to(equal([
-    .Uppercase(value("input")),
-    .Concat(value("first"), value("second"))
-]))
-```
+Please check out the [source](https://github.com/rheinfabrik/Dobby/tree/swift-2.0/Dobby) and [tests](https://github.com/rheinfabrik/Dobby/tree/swift-2.0/DobbyTests) for further documentation.
 
 ## About
 
-Dobby was built by [Rheinfabrik](http://www.rheinfabrik.de) 🏭
+Dobby was built at [Rheinfabrik](http://www.rheinfabrik.de) 🏭
