@@ -120,47 +120,40 @@ extension Expectation: ExpectationConvertible {
     }
 }
 
-/// Returns a new expectation that matches the given 1-tuple.
-public func tuple<A: ExpectationConvertible>(arg1: A) -> Expectation<(A.InteractionType)> {
-    return Expectation(description: "(\(arg1))") { interaction in
-        return arg1.expectation().matches(interaction)
+/// Returns a new expectation that matches the given 2-tuple of expectations.
+public func matches<A: ExpectationConvertible, B: ExpectationConvertible>(tuple: (A, B)) -> Expectation<(A.InteractionType, B.InteractionType)> {
+    return Expectation(description: "\(tuple)") { interaction in
+        return tuple.0.expectation().matches(interaction.0)
+            && tuple.1.expectation().matches(interaction.1)
     }
 }
 
-/// Returns a new expectation that matches the given 2-tuple.
-public func tuple<A: ExpectationConvertible, B: ExpectationConvertible>(arg1: A, _ arg2: B) -> Expectation<(A.InteractionType, B.InteractionType)> {
-    return Expectation(description: "(\(arg1), \(arg2))") { interaction in
-        return arg1.expectation().matches(interaction.0)
-            && arg2.expectation().matches(interaction.1)
+/// Returns a new expectation that matches the given 3-tuple of expectations.
+public func matches<A: ExpectationConvertible, B: ExpectationConvertible, C: ExpectationConvertible>(tuple: (A, B, C)) -> Expectation<(A.InteractionType, B.InteractionType, C.InteractionType)> {
+    return Expectation(description: "\(tuple)") { interaction in
+        return tuple.0.expectation().matches(interaction.0)
+            && tuple.1.expectation().matches(interaction.1)
+            && tuple.2.expectation().matches(interaction.2)
     }
 }
 
-/// Returns a new expectation that matches the given 3-tuple.
-public func tuple<A: ExpectationConvertible, B: ExpectationConvertible, C: ExpectationConvertible>(arg1: A, _ arg2: B, _ arg3: C) -> Expectation<(A.InteractionType, B.InteractionType, C.InteractionType)> {
-    return Expectation(description: "(\(arg1), \(arg2), \(arg3))") { interaction in
-        return arg1.expectation().matches(interaction.0)
-            && arg2.expectation().matches(interaction.1)
-            && arg3.expectation().matches(interaction.2)
+/// Returns a new expectation that matches the given 4-tuple of expectations.
+public func matches<A: ExpectationConvertible, B: ExpectationConvertible, C: ExpectationConvertible, D: ExpectationConvertible>(tuple: (A, B, C, D)) -> Expectation<(A.InteractionType, B.InteractionType, C.InteractionType, D.InteractionType)> {
+    return Expectation(description: "\(tuple)") { interaction in
+        return tuple.0.expectation().matches(interaction.0)
+            && tuple.1.expectation().matches(interaction.1)
+            && tuple.2.expectation().matches(interaction.2)
+            && tuple.3.expectation().matches(interaction.3)
     }
 }
 
-/// Returns a new expectation that matches the given 4-tuple.
-public func tuple<A: ExpectationConvertible, B: ExpectationConvertible, C: ExpectationConvertible, D: ExpectationConvertible>(arg1: A, _ arg2: B, _ arg3: C, _ arg4: D) -> Expectation<(A.InteractionType, B.InteractionType, C.InteractionType, D.InteractionType)> {
-    return Expectation(description: "(\(arg1), \(arg2), \(arg3), \(arg4))") { interaction in
-        return arg1.expectation().matches(interaction.0)
-            && arg2.expectation().matches(interaction.1)
-            && arg3.expectation().matches(interaction.2)
-            && arg4.expectation().matches(interaction.3)
-    }
-}
-
-/// Returns a new expectation that matches the given 5-tuple.
-public func tuple<A: ExpectationConvertible, B: ExpectationConvertible, C: ExpectationConvertible, D: ExpectationConvertible, E: ExpectationConvertible>(arg1: A, _ arg2: B, _ arg3: C, _ arg4: D, _ arg5: E) -> Expectation<(A.InteractionType, B.InteractionType, C.InteractionType, D.InteractionType, E.InteractionType)> {
-    return Expectation(description: "(\(arg1), \(arg2), \(arg3), \(arg4), \(arg5))") { interaction in
-        return arg1.expectation().matches(interaction.0)
-            && arg2.expectation().matches(interaction.1)
-            && arg3.expectation().matches(interaction.2)
-            && arg4.expectation().matches(interaction.3)
-            && arg5.expectation().matches(interaction.4)
+/// Returns a new expectation that matches the given 5-tuple of expectations.
+public func matches<A: ExpectationConvertible, B: ExpectationConvertible, C: ExpectationConvertible, D: ExpectationConvertible, E: ExpectationConvertible>(tuple: (A, B, C, D, E)) -> Expectation<(A.InteractionType, B.InteractionType, C.InteractionType, D.InteractionType, E.InteractionType)> {
+    return Expectation(description: "\(tuple)") { interaction in
+        return tuple.0.expectation().matches(interaction.0)
+            && tuple.1.expectation().matches(interaction.1)
+            && tuple.2.expectation().matches(interaction.2)
+            && tuple.3.expectation().matches(interaction.3)
+            && tuple.4.expectation().matches(interaction.4)
     }
 }

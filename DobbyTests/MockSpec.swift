@@ -13,15 +13,15 @@ class MockSpec: QuickSpec {
 
         context("Verification") {
             it("succeeds if all expectations match an interaction") {
-                mock.expect(tuple(any(), 1))
-                mock.expect(tuple(any(), matches { $0 == 2 }))
+                mock.expect(matches((any(), 1)))
+                mock.expect(matches((any(), matches { $0 == 2 })))
                 mock.record((0, 1))
                 mock.record((0, 2))
                 mock.verify()
             }
 
             it("fails if an expectation is not matched") {
-                mock.expect(tuple(any(), equals(3)))
+                mock.expect(matches((any(), equals(3))))
                 mock.verify { (message, _, _) in
                     expect(message).to(equal("Expectation <(_, 3)> not matched"))
                 }
@@ -35,8 +35,8 @@ class MockSpec: QuickSpec {
             }
 
             it("fails if any expectation does not match an interaction") {
-                mock.expect(tuple(6, 7))
-                mock.expect(tuple(8, matches { $0 == 9 }))
+                mock.expect(matches((6, 7)))
+                mock.expect(matches((8, matches { $0 == 9 })))
                 mock.record((6, 7))
                 mock.record((8, 10))
                 mock.verify { (message, _, _) in
