@@ -157,3 +157,27 @@ public func matches<A: ExpectationConvertible, B: ExpectationConvertible, C: Exp
             && tuple.4.expectation().matches(interaction.4)
     }
 }
+
+/// Returns a new expectation that matches the given array of expectations.
+public func matches<Element: ExpectationConvertible>(array: [Element]) -> Expectation<[Element.InteractionType]> {
+    return Expectation(description: "\(array)") { interaction in
+        guard array.count == interaction.count else { return false }
+        for (element, actualElement) in zip(array, interaction) {
+            guard element.expectation().matches(actualElement) else { return false }
+        }
+
+        return true
+    }
+}
+
+/// Returns a new expectation that matches the given dictionary of expectations.
+public func matches<Key: Hashable, Value: ExpectationConvertible>(dictionary: [Key: Value]) -> Expectation<[Key: Value.InteractionType]> {
+    return Expectation(description: "\(dictionary)") { interaction in
+        guard dictionary.count == interaction.count else { return false }
+        for (key, value) in dictionary {
+            guard let actualValue = interaction[key] where value.expectation().matches(actualValue) else { return false }
+        }
+
+        return true
+    }
+}
