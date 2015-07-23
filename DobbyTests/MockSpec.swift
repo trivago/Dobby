@@ -11,7 +11,7 @@ class MockSpec: QuickSpec {
             mock = Mock()
         }
 
-        context("Verification") {
+        describe("Verification") {
             it("succeeds if all expectations match an interaction") {
                 mock.expect(matches((any(), 1)))
                 mock.expect(matches((any(), matches { $0 == 2 })))

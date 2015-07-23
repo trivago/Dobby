@@ -11,7 +11,7 @@ class StubSpec: QuickSpec {
             stub = Stub()
         }
 
-        context("Invocation") {
+        describe("Invocation") {
             it("returns the correct value") {
                 stub.on(matches((4, 3)), returnValue: 9)
                 stub.on(matches((any(), any()))) { $0.0 + $0.1 }
@@ -37,9 +37,12 @@ class StubSpec: QuickSpec {
                 } catch StubError<(Int, Int), Int>.UnexpectedInteraction(let interaction) {
                     expect(interaction.0).to(equal(5))
                     expect(interaction.1).to(equal(6))
+                    return;
                 } catch {
                     fail("Unexpected exception: \(error)")
                 }
+
+                fail("Invocation with an unexpected interaction did not throw an exception")
             }
         }
     }
