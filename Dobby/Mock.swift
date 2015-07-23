@@ -12,7 +12,7 @@ public final class Mock<Interaction> {
     }
 
     /// Sets up the given expectation.
-    public func expect<E: ExpectationConvertible where E.InteractionType == Interaction>(expectation: E) {
+    public func expect<E: ExpectationConvertible where E.ValueType == Interaction>(expectation: E) {
         expectations.append(expectation.expectation())
     }
 

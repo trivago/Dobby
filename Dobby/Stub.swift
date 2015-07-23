@@ -22,13 +22,14 @@ public final class Stub<Interaction, ReturnValue> {
     /// matched with an interaction.
     ///
     /// Returns a disposable that, when disposed, removes this behavior.
-    public func on<E: ExpectationConvertible where E.InteractionType == Interaction>(expectation: E, invoke returnValueForInteraction: Interaction -> ReturnValue) -> Disposable {
+    public func on<E: ExpectationConvertible where E.ValueType == Interaction>(expectation: E, invoke returnValueForInteraction: Interaction -> ReturnValue) -> Disposable {
         let identifier = currentIdentifier++
         behavior.append((identifier, expectation.expectation(), returnValueForInteraction))
 
         return Disposable { [weak self] in
-            guard let index = self?.behavior.indexOf({ $0.identifier == identifier }) else { return }
-            self?.behavior.removeAtIndex(index)
+            if let index = (self?.behavior.indexOf { behavior in behavior.identifier == identifier }) {
+                self?.behavior.removeAtIndex(index)
+            }
         }
     }
 
@@ -38,7 +39,7 @@ public final class Stub<Interaction, ReturnValue> {
     /// Returns a disposable that, when disposed, removes this behavior.
     ///
     /// - SeeAlso: `Stub.on<E>(expectation: E, invoke: Interaction -> ReturnValue) -> Disposable`
-    public func on<E: ExpectationConvertible where E.InteractionType == Interaction>(expectation: E, returnValue: ReturnValue) -> Disposable {
+    public func on<E: ExpectationConvertible where E.ValueType == Interaction>(expectation: E, returnValue: ReturnValue) -> Disposable {
         return on(expectation) { _ in returnValue }
     }
 
