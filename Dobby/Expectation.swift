@@ -54,6 +54,56 @@ public func equals<Value: Equatable>(value: Value) -> Expectation<Value> {
     return Expectation(value: value)
 }
 
+/// Returns a new expectation that matches the given 2-tuple.
+public func equals<A: Equatable, B: Equatable>(tuple: (A, B)) -> Expectation<(A, B)> {
+    return Expectation(description: "\(tuple)") { interaction in
+        return tuple.0 == interaction.0
+            && tuple.1 == interaction.1
+    }
+}
+
+/// Returns a new expectation that matches the given 3-tuple.
+public func equals<A: Equatable, B: Equatable, C: Equatable>(tuple: (A, B, C)) -> Expectation<(A, B, C)> {
+    return Expectation(description: "\(tuple)") { interaction in
+        return tuple.0 == interaction.0
+            && tuple.1 == interaction.1
+            && tuple.2 == interaction.2
+    }
+}
+
+/// Returns a new expectation that matches the given 4-tuple.
+public func equals<A: Equatable, B: Equatable, C: Equatable, D: Equatable>(tuple: (A, B, C, D)) -> Expectation<(A, B, C, D)> {
+    return Expectation(description: "\(tuple)") { interaction in
+        return tuple.0 == interaction.0
+            && tuple.1 == interaction.1
+            && tuple.2 == interaction.2
+            && tuple.3 == interaction.3
+    }
+}
+
+/// Returns a new expectation that matches the given 5-tuple.
+public func equals<A: Equatable, B: Equatable, C: Equatable, D: Equatable, E: Equatable>(tuple: (A, B, C, D, E)) -> Expectation<(A, B, C, D, E)> {
+    return Expectation(description: "\(tuple)") { interaction in
+        // Expression was too complex to be solved in reasonable time; [...]
+        let equals = tuple.0 == interaction.0
+            && tuple.1 == interaction.1
+            && tuple.2 == interaction.2
+            && tuple.3 == interaction.3
+            && tuple.4 == interaction.4
+        return equals
+    }
+}
+
+/// Returns a new expectation that matches the given array.
+public func equals<Element: Equatable>(array: [Element]) -> Expectation<[Element]> {
+    return Expectation(description: "\(array)") { $0 == array }
+}
+
+/// Returns a new expectation that matches the given dictionary.
+public func equals<Key: Equatable, Value: Equatable>(dictionary: [Key: Value]) -> Expectation<[Key: Value]> {
+    return Expectation(description: "\(dictionary)") { $0 == dictionary }
+}
+
 /// Conforming types can be converted to an expectation.
 public protocol ExpectationConvertible {
     /// The type of interaction with which this type, when converted to an
