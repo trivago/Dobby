@@ -1,5 +1,5 @@
 /// A stub error.
-public enum StubError<Interaction>: ErrorType {
+public enum StubError<Interaction, ReturnValue>: ErrorType {
     /// The associated interaction was unexpected.
     case UnexpectedInteraction(Interaction)
 }
@@ -58,6 +58,6 @@ public final class Stub<Interaction, ReturnValue> {
             }
         }
 
-        throw StubError.UnexpectedInteraction(interaction)
+        throw StubError<Interaction, ReturnValue>.UnexpectedInteraction(interaction)
     }
 }
