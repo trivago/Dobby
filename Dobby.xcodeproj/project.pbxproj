@@ -33,6 +33,8 @@
 		DC8452401ADBF73C006AC5D4 /* Stub.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7F6B1D1AD82B8C00CCBF6D /* Stub.swift */; };
 		DC8452421ADBF743006AC5D4 /* MockSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7F6B241AD830A500CCBF6D /* MockSpec.swift */; };
 		DC8452431ADBF743006AC5D4 /* StubSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7F6B261AD830B500CCBF6D /* StubSpec.swift */; };
+		DCE4080E1B6161000009E0B4 /* ExpectationSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCE4080D1B6161000009E0B4 /* ExpectationSpec.swift */; };
+		DCE4080F1B6161000009E0B4 /* ExpectationSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCE4080D1B6161000009E0B4 /* ExpectationSpec.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -96,6 +98,7 @@
 		DC8452221ADBF5CC006AC5D4 /* DobbyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DobbyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC8452331ADBF603006AC5D4 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/Mac/Nimble.framework; sourceTree = "<group>"; };
 		DC8452341ADBF603006AC5D4 /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/Mac/Quick.framework; sourceTree = "<group>"; };
+		DCE4080D1B6161000009E0B4 /* ExpectationSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpectationSpec.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -190,6 +193,7 @@
 		DC7F6B071AD8291800CCBF6D /* DobbyTests */ = {
 			isa = PBXGroup;
 			children = (
+				DCE4080D1B6161000009E0B4 /* ExpectationSpec.swift */,
 				DC7F6B241AD830A500CCBF6D /* MockSpec.swift */,
 				DC7F6B261AD830B500CCBF6D /* StubSpec.swift */,
 				DC7F6B081AD8291800CCBF6D /* Supporting Files */,
@@ -420,6 +424,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DCE4080E1B6161000009E0B4 /* ExpectationSpec.swift in Sources */,
 				DC7F6B251AD830A500CCBF6D /* MockSpec.swift in Sources */,
 				DC7F6B271AD830B500CCBF6D /* StubSpec.swift in Sources */,
 			);
@@ -441,6 +446,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DCE4080F1B6161000009E0B4 /* ExpectationSpec.swift in Sources */,
 				DC8452421ADBF743006AC5D4 /* MockSpec.swift in Sources */,
 				DC8452431ADBF743006AC5D4 /* StubSpec.swift in Sources */,
 			);
