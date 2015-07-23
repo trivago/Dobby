@@ -21,7 +21,7 @@ class MockSpec: QuickSpec {
             }
 
             it("fails if an expectation is not matched") {
-                mock.expect(tuple(any(), value(3)))
+                mock.expect(tuple(any(), equals(3)))
                 mock.verify { (message, _, _) in
                     expect(message).to(equal("Expectation <(_, 3)> not matched"))
                 }

@@ -24,7 +24,6 @@ public func matches<Interaction>(matches: Interaction -> Bool) -> Expectation<In
     return Expectation(matches: matches)
 }
 
-
 public extension Expectation {
     /// Initializes a new expectation that matches anything.
     public init() {
@@ -51,7 +50,7 @@ public extension Expectation where Interaction: Equatable {
 /// Returns a new expectation that matches the given value.
 ///
 /// - SeeAlso: `Expectation.init<Interaction>(value: Value)`
-public func value<Value: Equatable>(value: Value) -> Expectation<Value> {
+public func equals<Value: Equatable>(value: Value) -> Expectation<Value> {
     return Expectation(value: value)
 }
 
