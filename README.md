@@ -39,21 +39,21 @@ mock.verify() // succeeds
 
 ## Stubs
 
-Stubs, when invoked, return a value based on their set up behavior, or, if an interaction is unexpected, throw an error. Behavior is matched in order, i.e., the function or return value associated with the first expectation that matches an interaction is invoked/returned:
+Stubs, when invoked, return a value based on their set up behavior, or, if an interaction is unexpected, return `nil`. Behavior is matched in order, i.e., the function or return value associated with the first expectation that matches an interaction is invoked/returned:
 
 ```swift
 let stub = Stub<(Int, Int), Int>()
 let behavior = stub.on(equals((4, 3)), returnValue: 9)
 stub.on(matches((any(), any()))) { $0.0 + $0.1 }
-try! stub.invoke((4, 3)) // returns 9
-try! stub.invoke((4, 4)) // returns 8
+stub.invoke(4, 3) // returns 9
+stub.invoke(4, 4) // returns 8
 ```
 
 Behavior may also be disposed:
 
 ```swift
 behavior.dispose()
-try! stub.invoke((4, 3)) // returns 7
+stub.invoke(4, 3) // returns 7
 ```
 
 ## Example
@@ -62,7 +62,7 @@ try! stub.invoke((4, 3)) // returns 7
 
 ## Documentation
 
-Please check out the [source](https://github.com/rheinfabrik/Dobby/tree/swift-2.0/Dobby) and [tests](https://github.com/rheinfabrik/Dobby/tree/swift-2.0/DobbyTests) for further documentation.
+Please check out the [source](https://github.com/rheinfabrik/Dobby/tree/swift-1.2/Dobby) and [tests](https://github.com/rheinfabrik/Dobby/tree/swift-1.2/DobbyTests) for further documentation.
 
 ## About
 

@@ -15,8 +15,8 @@ class StubSpec: QuickSpec {
             it("returns the correct value") {
                 stub.on(matches((4, 3)), returnValue: 9)
                 stub.on(matches((any(), any()))) { $0.0 + $0.1 }
-                expect(try! stub.invoke((4, 3))).to(equal(9))
-                expect(try! stub.invoke((4, 4))).to(equal(8))
+                expect(stub.invoke(4, 3)).to(equal(9))
+                expect(stub.invoke(4, 4)).to(equal(8))
             }
 
             it("returns the correct value after disposal") {
@@ -28,21 +28,11 @@ class StubSpec: QuickSpec {
                 expect(disposable1.disposed).to(beTrue())
                 expect(disposable2.disposed).to(beFalse())
 
-                expect(try! stub.invoke((4, 3))).to(equal(7))
+                expect(stub.invoke(4, 3)).to(equal(7))
             }
 
-            it("throws an exception if an interaction is unexpected") {
-                do {
-                    try stub.invoke((5, 6))
-                } catch StubError<(Int, Int), Int>.UnexpectedInteraction(let interaction) {
-                    expect(interaction.0).to(equal(5))
-                    expect(interaction.1).to(equal(6))
-                    return;
-                } catch {
-                    fail("Unexpected exception: \(error)")
-                }
-
-                fail("Invocation with an unexpected interaction did not throw an exception")
+            it("returns nil if an interaction is unexpected") {
+                expect(stub.invoke(5, 6)).to(beNil())
             }
         }
     }

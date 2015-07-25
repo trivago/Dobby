@@ -1,5 +1,5 @@
 /// An expectation that can be matched with a value.
-public struct Expectation<Value>: CustomStringConvertible {
+public struct Expectation<Value>: Printable {
     public private(set) var description: String
 
     private let matchesFunc: Value -> Bool
@@ -24,32 +24,18 @@ public func matches<Value>(matches: Value -> Bool) -> Expectation<Value> {
     return Expectation(matches: matches)
 }
 
-public extension Expectation {
-    /// Initializes a new expectation that matches anything.
-    public init() {
-        self.init(description: "_") { _ in true }
-    }
-}
-
 /// Returns a new expectation that matches anything.
 ///
 /// - SeeAlso: `Expectation.init<Value>()`
 public func any<Value>() -> Expectation<Value> {
-    return Expectation()
-}
-
-public extension Expectation where Value: Equatable {
-    /// Initializes a new expectation that matches the given value.
-    public init(value: Value) {
-        self.init(description: "\(value)") { actualValue in value == actualValue }
-    }
+    return Expectation(description: "_", matches: { _ in true })
 }
 
 /// Returns a new expectation that matches the given value.
 ///
 /// - SeeAlso: `Expectation.init<Value>(value: Value)`
 public func equals<Value: Equatable>(value: Value) -> Expectation<Value> {
-    return Expectation(value: value)
+    return Expectation(description: "\(value)", matches: { actualValue in value == actualValue })
 }
 
 /// Returns a new expectation that matches the given 2-tuple.
@@ -159,10 +145,14 @@ public func matches<A: ExpectationConvertible, B: ExpectationConvertible, C: Exp
 /// Returns a new expectation that matches the given array of expectations.
 public func matches<Element: ExpectationConvertible>(values: [Element]) -> Expectation<[Element.ValueType]> {
     return Expectation(description: "\(values)") { actualValues in
-        guard values.count == actualValues.count else { return false }
+        if values.count != actualValues.count {
+            return false
+        }
 
         for (element, actualElement) in zip(values, actualValues) {
-            guard element.expectation().matches(actualElement) else { return false }
+            if !element.expectation().matches(actualElement) {
+                return false
+            }
         }
 
         return true
@@ -172,10 +162,14 @@ public func matches<Element: ExpectationConvertible>(values: [Element]) -> Expec
 /// Returns a new expectation that matches the given dictionary of expectations.
 public func matches<Key: Hashable, Value: ExpectationConvertible>(values: [Key: Value]) -> Expectation<[Key: Value.ValueType]> {
     return Expectation(description: "\(values)") { actualValues in
-        guard values.count == actualValues.count else { return false }
+        if values.count != actualValues.count {
+            return false
+        }
 
         for (key, value) in values {
-            guard (actualValues[key].map { actualValue in value.expectation().matches(actualValue) } ?? false) else { return false }
+            if !(actualValues[key].map { actualValue in value.expectation().matches(actualValue) } ?? false) {
+                return false
+            }
         }
 
         return true
