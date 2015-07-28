@@ -39,21 +39,21 @@ mock.verify() // succeeds
 
 ## Stubs
 
-Stubs, when invoked, return a value based on their set up behavior, or, if an interaction is unexpected, return `nil`. Behavior is matched in order, i.e., the function or return value associated with the first expectation that matches an interaction is invoked/returned:
+Stubs, when invoked, return a value based on their set up behavior, or, if an interaction is unexpected, throw an error. Behavior is matched in order, i.e., the function or return value associated with the first expectation that matches an interaction is invoked/returned:
 
 ```swift
 let stub = Stub<(Int, Int), Int>()
 let behavior = stub.on(equals((4, 3)), returnValue: 9)
 stub.on(matches((any(), any()))) { $0.0 + $0.1 }
-stub.invoke(4, 3) // returns 9
-stub.invoke(4, 4) // returns 8
+try! stub.invoke((4, 3)) // returns 9
+try! stub.invoke((4, 4)) // returns 8
 ```
 
 Behavior may also be disposed:
 
 ```swift
 behavior.dispose()
-stub.invoke(4, 3) // returns 7
+try! stub.invoke((4, 3)) // returns 7
 ```
 
 ## Example
@@ -75,9 +75,9 @@ class MyClassMock: MyClass {
   let myMethodMock = Mock<(String, String)>()
   let myMethodStub = Stub<(String, String), String>()
   override func myMethod(fst: String, _ snd: String) -> String {
-    myMethodMock.record(fst, snd)
-    // Call super if the stub doesn't define any behavior for the interaction.
-    return myMethodStub.invoke(fst, snd) ?? super.myMethod(fst, snd)
+    myMethodMock.record((fst, snd))
+    // Throw an exception if the stub doesn't define any behavior for the interaction.
+    return try! myMethodStub.invoke((fst, snd))
   }
 }
 ```

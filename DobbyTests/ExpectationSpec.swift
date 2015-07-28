@@ -43,12 +43,12 @@ class ExpectationSpec: QuickSpec {
                 let expectation: Dobby.Expectation<(Int, Int)> = equals((0, 1))
 
                 it("succeeds if all actual values equal the expected values") {
-                    expect(expectation.matches(0, 1)).to(beTrue())
+                    expect(expectation.matches((0, 1))).to(beTrue())
                 }
 
                 it("fails if any actual value does not equal the expected value") {
-                    expect(expectation.matches(1, 1)).to(beFalse())
-                    expect(expectation.matches(0, 0)).to(beFalse())
+                    expect(expectation.matches((1, 1))).to(beFalse())
+                    expect(expectation.matches((0, 0))).to(beFalse())
                 }
             }
 
@@ -56,13 +56,13 @@ class ExpectationSpec: QuickSpec {
                 let expectation: Dobby.Expectation<(Int, Int, Int)> = equals((0, 1, 2))
 
                 it("succeeds if all actual values equal the expected values") {
-                    expect(expectation.matches(0, 1, 2)).to(beTrue())
+                    expect(expectation.matches((0, 1, 2))).to(beTrue())
                 }
 
                 it("fails if any actual value does not equal the expected value") {
-                    expect(expectation.matches(1, 1, 2)).to(beFalse())
-                    expect(expectation.matches(0, 0, 2)).to(beFalse())
-                    expect(expectation.matches(0, 1, 1)).to(beFalse())
+                    expect(expectation.matches((1, 1, 2))).to(beFalse())
+                    expect(expectation.matches((0, 0, 2))).to(beFalse())
+                    expect(expectation.matches((0, 1, 1))).to(beFalse())
                 }
             }
 
@@ -70,14 +70,14 @@ class ExpectationSpec: QuickSpec {
                 let expectation: Dobby.Expectation<(Int, Int, Int, Int)> = equals((0, 1, 2, 3))
 
                 it("succeeds if all actual values equal the expected values") {
-                    expect(expectation.matches(0, 1, 2, 3)).to(beTrue())
+                    expect(expectation.matches((0, 1, 2, 3))).to(beTrue())
                 }
 
                 it("fails if any actual value does not equal the expected value") {
-                    expect(expectation.matches(1, 1, 2, 3)).to(beFalse())
-                    expect(expectation.matches(0, 0, 2, 3)).to(beFalse())
-                    expect(expectation.matches(0, 1, 1, 3)).to(beFalse())
-                    expect(expectation.matches(0, 1, 2, 2)).to(beFalse())
+                    expect(expectation.matches((1, 1, 2, 3))).to(beFalse())
+                    expect(expectation.matches((0, 0, 2, 3))).to(beFalse())
+                    expect(expectation.matches((0, 1, 1, 3))).to(beFalse())
+                    expect(expectation.matches((0, 1, 2, 2))).to(beFalse())
                 }
             }
 
@@ -85,15 +85,15 @@ class ExpectationSpec: QuickSpec {
                 let expectation: Dobby.Expectation<(Int, Int, Int, Int, Int)> = equals((0, 1, 2, 3, 4))
 
                 it("succeeds if all actual values equal the expected values") {
-                    expect(expectation.matches(0, 1, 2, 3, 4)).to(beTrue())
+                    expect(expectation.matches((0, 1, 2, 3, 4))).to(beTrue())
                 }
 
                 it("fails if any actual value does not equal the expected value") {
-                    expect(expectation.matches(1, 1, 2, 3, 4)).to(beFalse())
-                    expect(expectation.matches(0, 0, 2, 3, 4)).to(beFalse())
-                    expect(expectation.matches(0, 1, 1, 3, 4)).to(beFalse())
-                    expect(expectation.matches(0, 1, 2, 2, 4)).to(beFalse())
-                    expect(expectation.matches(0, 1, 2, 3, 3)).to(beFalse())
+                    expect(expectation.matches((1, 1, 2, 3, 4))).to(beFalse())
+                    expect(expectation.matches((0, 0, 2, 3, 4))).to(beFalse())
+                    expect(expectation.matches((0, 1, 1, 3, 4))).to(beFalse())
+                    expect(expectation.matches((0, 1, 2, 2, 4))).to(beFalse())
+                    expect(expectation.matches((0, 1, 2, 3, 3))).to(beFalse())
                 }
             }
 
@@ -139,12 +139,12 @@ class ExpectationSpec: QuickSpec {
                 let expectation: Dobby.Expectation<(Int, Int)> = matches((equals(0), equals(1)))
 
                 it("succeeds if all actual values equal the expected values") {
-                    expect(expectation.matches(0, 1)).to(beTrue())
+                    expect(expectation.matches((0, 1))).to(beTrue())
                 }
 
                 it("fails if any actual value does not equal the expected value") {
-                    expect(expectation.matches(1, 1)).to(beFalse())
-                    expect(expectation.matches(0, 0)).to(beFalse())
+                    expect(expectation.matches((1, 1))).to(beFalse())
+                    expect(expectation.matches((0, 0))).to(beFalse())
                 }
             }
 
@@ -152,13 +152,13 @@ class ExpectationSpec: QuickSpec {
                 let expectation: Dobby.Expectation<(Int, Int, Int)> = matches((equals(0), equals(1), equals(2)))
 
                 it("succeeds if all actual values equal the expected values") {
-                    expect(expectation.matches(0, 1, 2)).to(beTrue())
+                    expect(expectation.matches((0, 1, 2))).to(beTrue())
                 }
 
                 it("fails if any actual value does not equal the expected value") {
-                    expect(expectation.matches(1, 1, 2)).to(beFalse())
-                    expect(expectation.matches(0, 0, 2)).to(beFalse())
-                    expect(expectation.matches(0, 1, 1)).to(beFalse())
+                    expect(expectation.matches((1, 1, 2))).to(beFalse())
+                    expect(expectation.matches((0, 0, 2))).to(beFalse())
+                    expect(expectation.matches((0, 1, 1))).to(beFalse())
                 }
             }
 
@@ -166,14 +166,14 @@ class ExpectationSpec: QuickSpec {
                 let expectation: Dobby.Expectation<(Int, Int, Int, Int)> = matches((equals(0), equals(1), equals(2), equals(3)))
 
                 it("succeeds if all actual values equal the expected values") {
-                    expect(expectation.matches(0, 1, 2, 3)).to(beTrue())
+                    expect(expectation.matches((0, 1, 2, 3))).to(beTrue())
                 }
 
                 it("fails if any actual value does not equal the expected value") {
-                    expect(expectation.matches(1, 1, 2, 3)).to(beFalse())
-                    expect(expectation.matches(0, 0, 2, 3)).to(beFalse())
-                    expect(expectation.matches(0, 1, 1, 3)).to(beFalse())
-                    expect(expectation.matches(0, 1, 2, 2)).to(beFalse())
+                    expect(expectation.matches((1, 1, 2, 3))).to(beFalse())
+                    expect(expectation.matches((0, 0, 2, 3))).to(beFalse())
+                    expect(expectation.matches((0, 1, 1, 3))).to(beFalse())
+                    expect(expectation.matches((0, 1, 2, 2))).to(beFalse())
                 }
             }
 
@@ -181,15 +181,15 @@ class ExpectationSpec: QuickSpec {
                 let expectation: Dobby.Expectation<(Int, Int, Int, Int, Int)> = matches((equals(0), equals(1), equals(2), equals(3), equals(4)))
 
                 it("succeeds if all actual values equal the expected values") {
-                    expect(expectation.matches(0, 1, 2, 3, 4)).to(beTrue())
+                    expect(expectation.matches((0, 1, 2, 3, 4))).to(beTrue())
                 }
 
                 it("fails if any actual value does not equal the expected value") {
-                    expect(expectation.matches(1, 1, 2, 3, 4)).to(beFalse())
-                    expect(expectation.matches(0, 0, 2, 3, 4)).to(beFalse())
-                    expect(expectation.matches(0, 1, 1, 3, 4)).to(beFalse())
-                    expect(expectation.matches(0, 1, 2, 2, 4)).to(beFalse())
-                    expect(expectation.matches(0, 1, 2, 3, 3)).to(beFalse())
+                    expect(expectation.matches((1, 1, 2, 3, 4))).to(beFalse())
+                    expect(expectation.matches((0, 0, 2, 3, 4))).to(beFalse())
+                    expect(expectation.matches((0, 1, 1, 3, 4))).to(beFalse())
+                    expect(expectation.matches((0, 1, 2, 2, 4))).to(beFalse())
+                    expect(expectation.matches((0, 1, 2, 3, 3))).to(beFalse())
                 }
             }
 

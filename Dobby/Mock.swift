@@ -28,11 +28,11 @@ public final class Mock<Interaction> {
     /// match the first interaction, the second expectation must match the
     /// second interaction, and so on. All expectations must match an
     /// interaction and vice versa.
-    public func verify(file: String = __FILE__, line: UInt = __LINE__) {
+    public func verify(file file: String = __FILE__, line: UInt = __LINE__) {
         verify(file: file, line: line, fail: XCTFail)
     }
 
-    public func verify(file: String = __FILE__, line: UInt = __LINE__, fail: (String, file: String, line: UInt) -> ()) {
+    internal func verify(file file: String = __FILE__, line: UInt = __LINE__, fail: (String, file: String, line: UInt) -> ()) {
         for var index = 0; index < max(expectations.count, interactions.count); index++ {
             if index >= interactions.count {
                 fail("Expectation <\(expectations[index])> not matched", file: file, line: line)
