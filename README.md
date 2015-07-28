@@ -58,7 +58,41 @@ stub.invoke(4, 3) // returns 7
 
 ## Example
 
-> to be written..
+The helpers provided for mocking and stubbing can be used with any testing approach, including protocol test implementations, test subclasses, etc. For example, imagine you want to verify interactions with the following class and change its behavior:
+
+```swift
+class MyClass {
+  func myMethod(fst: String, _ snd: String) -> String {
+    return fst + snd
+  }
+}
+```
+
+Writing a test subclass for the given class is very simple:
+
+```swift
+class MyClassMock: MyClass {
+  let myMethodMock = Mock<(String, String)>()
+  let myMethodStub = Stub<(String, String), String>()
+  override func myMethod(fst: String, _ snd: String) -> String {
+    myMethodMock.record(fst, snd)
+    // Call super if the stub doesn't define any behavior for the interaction.
+    return myMethodStub.invoke(fst, snd) ?? super.myMethod(fst, snd)
+  }
+}
+```
+
+The test subclass allows you to verify that all your set up expectations are matched with the recorded interactions and enables you to change its behavior on-the-fly:
+
+```swift
+let myClassMock = MyClassMock()
+myClassMock.myMethodMock.expect(matches(("Hello", "World")))
+myClassMock.myMethodStub.on(any()) { fst, snd in fst }
+myClassMock.myMethod("Hello", "World") // returns "Hello"
+myClassMock.myMethodMock.verify() // succeeds
+```
+
+If you ever find yourself wanting to use a mock or stub with several interactions of different types, consider using an equatable enum to define these interactions.
 
 ## Documentation
 
@@ -66,4 +100,6 @@ Please check out the [source](https://github.com/rheinfabrik/Dobby/tree/swift-1.
 
 ## About
 
-Dobby was built at [Rheinfabrik](http://www.rheinfabrik.de) 🏭
+![](https://cloud.githubusercontent.com/assets/926377/8927635/28afa5de-3519-11e5-8d50-4f474eb2a57f.gif)
+
+Dobby was born at [Rheinfabrik](http://www.rheinfabrik.de) 🏭
