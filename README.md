@@ -96,7 +96,7 @@ If you ever find yourself wanting to use a mock or stub with several interaction
 
 ## Documentation
 
-Please check out the [source](https://github.com/rheinfabrik/Dobby/tree/swift-1.2/Dobby) and [tests](https://github.com/rheinfabrik/Dobby/tree/swift-1.2/DobbyTests) for further documentation.
+Please check out the [source](https://github.com/rheinfabrik/Dobby/tree/master/Dobby) and [tests](https://github.com/rheinfabrik/Dobby/tree/master/DobbyTests) for further documentation.
 
 ## About
 
