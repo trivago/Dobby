@@ -22,14 +22,14 @@ class MockSpec: QuickSpec {
 
             it("fails if an expectation is not matched") {
                 mock.expect(matches((any(), equals(3))))
-                mock.verify { (message, _, _) in
+                mock.verify { (message: String, _, _) in
                     expect(message).to(equal("Expectation <(_, 3)> not matched"))
                 }
             }
 
             it("fails if an interaction is not matched") {
                 mock.record((4, 5))
-                mock.verify { (message, _, _) in
+                mock.verify { (message: String, _, _) in
                     expect(message).to(equal("Interaction <(4, 5)> not matched"))
                 }
             }
@@ -39,7 +39,7 @@ class MockSpec: QuickSpec {
                 mock.expect(matches((8, matches { $0 == 9 })))
                 mock.record((6, 7))
                 mock.record((8, 10))
-                mock.verify { (message, _, _) in
+                mock.verify { (message: String, _, _) in
                     expect(message).to(equal("Expectation <(8, <func>)> does not match interaction <(8, 10)>"))
                 }
             }
