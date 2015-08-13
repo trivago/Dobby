@@ -55,27 +55,33 @@ public func equals<Value: Equatable>(value: Value) -> Expectation<Value> {
 /// Returns a new expectation that matches the given 2-tuple.
 public func equals<A: Equatable, B: Equatable>(values: (A, B)) -> Expectation<(A, B)> {
     return Expectation(description: "\(values)") { actualValues in
-        return values.0 == actualValues.0
+        // Expression might become too complex to be solved in reasonable time; [...]
+        let equals = values.0 == actualValues.0
             && values.1 == actualValues.1
+        return equals
     }
 }
 
 /// Returns a new expectation that matches the given 3-tuple.
 public func equals<A: Equatable, B: Equatable, C: Equatable>(values: (A, B, C)) -> Expectation<(A, B, C)> {
     return Expectation(description: "\(values)") { actualValues in
-        return values.0 == actualValues.0
+        // Expression might become too complex to be solved in reasonable time; [...]
+        let equals = values.0 == actualValues.0
             && values.1 == actualValues.1
             && values.2 == actualValues.2
+        return equals
     }
 }
 
 /// Returns a new expectation that matches the given 4-tuple.
 public func equals<A: Equatable, B: Equatable, C: Equatable, D: Equatable>(values: (A, B, C, D)) -> Expectation<(A, B, C, D)> {
     return Expectation(description: "\(values)") { actualValues in
-        return values.0 == actualValues.0
+        // Expression was too complex to be solved in reasonable time; [...]
+        let equals = values.0 == actualValues.0
             && values.1 == actualValues.1
             && values.2 == actualValues.2
             && values.3 == actualValues.3
+        return equals
     }
 }
 
