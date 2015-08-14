@@ -38,7 +38,7 @@ public final class Mock<Interaction> {
                 fail("Expectation <\(expectations[index])> not matched", file: file, line: line)
             } else if index >= expectations.count {
                 fail("Interaction <\(interactions[index])> not matched", file: file, line: line)
-            } else if !expectations[index].matches(interactions[index]) {
+            } else if expectations[index].matches(interactions[index]) == false {
                 fail("Expectation <\(expectations[index])> does not match interaction <\(interactions[index])>", file: file, line: line)
             }
         }
