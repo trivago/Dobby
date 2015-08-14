@@ -33,14 +33,19 @@ public final class Mock<Interaction> {
     }
 
     public func verify(file: String = __FILE__, line: UInt = __LINE__, fail: (String, file: String, line: UInt) -> ()) {
-        for var index = 0; index < max(expectations.count, interactions.count); index++ {
-            if index >= interactions.count {
-                fail("Expectation <\(expectations[index])> not matched", file: file, line: line)
-            } else if index >= expectations.count {
-                fail("Interaction <\(interactions[index])> not matched", file: file, line: line)
-            } else if expectations[index].matches(interactions[index]) == false {
-                fail("Expectation <\(expectations[index])> does not match interaction <\(interactions[index])>", file: file, line: line)
+        var unmatchedInteractions = interactions
+        expectationLoop: for expectation in expectations {
+            for var index = 0; index < unmatchedInteractions.count; index++ {
+                let interaction = unmatchedInteractions[index]
+                if expectation.matches(interaction) {
+                    unmatchedInteractions.removeAtIndex(index)
+                    continue expectationLoop
+                }
             }
+            fail("Expectation <\(expectation)> not matched", file: file, line: line)
+        }
+        for interaction in unmatchedInteractions {
+            fail("Interaction <\(interaction)> not matched", file: file, line: line)
         }
     }
 }
