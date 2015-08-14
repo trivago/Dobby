@@ -21,10 +21,13 @@ class MockSpec: QuickSpec {
             }
 
             it("fails if an expectation is not matched") {
+                var failureMessageSent = false
                 mock.expect(matches((any(), equals(3))))
                 mock.verify { (message, _, _) in
+                    failureMessageSent = true
                     expect(message).to(equal("Expectation <(_, 3)> not matched"))
                 }
+                expect(failureMessageSent).to(beTrue())
             }
 
             it("fails if an interaction is not matched") {
