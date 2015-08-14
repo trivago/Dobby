@@ -11,8 +11,40 @@ class MockSpec: QuickSpec {
             mock = Mock()
         }
 
+        describe("Recording") {
+            it("succeeds if the given interaction matches the next expectation") {
+                mock.expect(matches((6, 7)))
+                mock.expect(matches((8, 9)))
+                mock.record((6, 7))
+                mock.record((8, 9))
+                mock.verify()
+            }
+
+            it("fails if the given interaction does not match the next expectation") {
+                var failureMessage: String?
+
+                mock.expect(matches((2, 3)))
+                mock.expect(matches((4, 5)))
+                mock.record((4, 5)) { (message, _, _) in
+                    failureMessage = message
+                }
+
+                expect(failureMessage).to(equal("Interaction <(4, 5)> does not match expectation <(2, 3)>"))
+            }
+
+            it("fails if the given interaction is not expected") {
+                var failureMessage: String?
+
+                mock.record((4, 5)) { (message, _, _) in
+                    failureMessage = message
+                }
+
+                expect(failureMessage).to(equal("Interaction <(4, 5)> not expected"))
+            }
+        }
+
         describe("Verification") {
-            it("succeeds if all expectations match an interaction") {
+            it("succeeds if all interactions match an expectation") {
                 mock.expect(matches((any(), 1)))
                 mock.expect(matches((any(), matches { $0 == 2 })))
                 mock.record((0, 1))
@@ -21,24 +53,15 @@ class MockSpec: QuickSpec {
             }
 
             it("fails if an expectation is not matched") {
-                var failureMessageSent = false
+                var failureMessage: String?
+
                 mock.expect(matches((any(), equals(3))))
                 mock.verify { (message, _, _) in
-                    failureMessageSent = true
-                    expect(message).to(equal("Expectation <(_, 3)> not matched"))
+                    failureMessage = message
                 }
-                expect(failureMessageSent).to(beTrue())
-            }
 
-            it("fails if an interaction is not matched") {
-                var failureMessageSent = false
-                mock.record((4, 5)) { (message, _, _) in
-                    failureMessageSent = true
-                    expect(message).to(equal("Received unexpected Interaction <(4, 5)>"))
-                }
-                expect(failureMessageSent).to(beTrue())
+                expect(failureMessage).to(equal("Expectation <(_, 3)> not matched"))
             }
-
         }
     }
 }
