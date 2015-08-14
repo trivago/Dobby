@@ -18,7 +18,6 @@ class MockSpec: QuickSpec {
                     mock.expect(matches((8, 9)))
                     mock.record((6, 7))
                     mock.record((8, 9))
-                    mock.verify()
                 }
 
                 it("fails if the given interaction does not match the next expectation") {
@@ -53,7 +52,6 @@ class MockSpec: QuickSpec {
                     mock.expect(matches((8, 9)))
                     mock.record((8, 9))
                     mock.record((6, 7))
-                    mock.verify()
                 }
 
                 it("fails if the given interaction does not match any expectation") {
