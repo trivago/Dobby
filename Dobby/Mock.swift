@@ -17,7 +17,24 @@ public final class Mock<Interaction> {
     }
 
     /// Records the given interaction.
-    public func record(interaction: Interaction) {
+    public func record(interaction: Interaction, file: String = __FILE__, line: UInt = __LINE__) {
+        record(interaction, file: file, line: line, fail: XCTFail)
+    }
+
+    public func record(interaction: Interaction, file: String = __FILE__, line: UInt = __LINE__, fail: (String, file: String, line: UInt) -> ()) {
+        var unexpectedInteraction = true
+        for expectation in expectations {
+            if expectation.matches(interaction) {
+                unexpectedInteraction = false
+                break
+            }
+        }
+
+        if unexpectedInteraction {
+            fail("Received unexpected Interaction <\(interaction)>", file: file, line: line)
+            return
+        }
+
         interactions.append(interaction)
     }
 
