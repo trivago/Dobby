@@ -25,17 +25,15 @@ public func matches<Value>(matches: Value -> Bool) -> Expectation<Value> {
 }
 
 /// Returns a new expectation that matches anything.
-///
-/// - SeeAlso: `Expectation.init<Value>()`
 public func any<Value>() -> Expectation<Value> {
-    return Expectation(description: "_", matches: { _ in true })
+    return Expectation(description: "_") { _ in true }
 }
 
 /// Returns a new expectation that matches the given value.
-///
-/// - SeeAlso: `Expectation.init<Value>(value: Value)`
 public func equals<Value: Equatable>(value: Value) -> Expectation<Value> {
-    return Expectation(description: "\(value)", matches: { actualValue in value == actualValue })
+    return Expectation(description: "\(value)") { actualValue in
+        return value == actualValue
+    }
 }
 
 /// Returns a new expectation that matches the given 2-tuple.
@@ -80,12 +78,16 @@ public func equals<A: Equatable, B: Equatable, C: Equatable, D: Equatable, E: Eq
 
 /// Returns a new expectation that matches the given array.
 public func equals<Element: Equatable>(value: [Element]) -> Expectation<[Element]> {
-    return Expectation(description: "\(value)") { actualValue in value == actualValue }
+    return Expectation(description: "\(value)") { actualValue in
+        return value == actualValue
+    }
 }
 
 /// Returns a new expectation that matches the given dictionary.
 public func equals<Key: Equatable, Value: Equatable>(value: [Key: Value]) -> Expectation<[Key: Value]> {
-    return Expectation(description: "\(value)") { actualValue in value == actualValue }
+    return Expectation(description: "\(value)") { actualValue in
+        return value == actualValue
+    }
 }
 
 /// Conforming types can be converted to an expectation.
