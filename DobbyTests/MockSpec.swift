@@ -8,9 +8,9 @@ class MockSpec: QuickSpec {
         var mock: Mock<(Int, Int)>!
 
         describe("Recording") {
-            context("when the order of expectations matters") {
+            context("when the mock is strict and the order of expectations matters") {
                 beforeEach {
-                    mock = Mock(ordered: true)
+                    mock = Mock(strict: true, ordered: true)
                 }
 
                 it("succeeds if the given interaction matches the next expectation") {
@@ -42,9 +42,10 @@ class MockSpec: QuickSpec {
                     expect(failureMessage).to(equal("Interaction <(4, 5)> not expected"))
                 }
             }
-            context("when the order of expectations doesn't matter") {
+
+            context("when the mock is strict and the order of expectations doesn't matter") {
                 beforeEach {
-                    mock = Mock(ordered: false)
+                    mock = Mock(strict: true, ordered: false)
                 }
 
                 it("succeeds if the given interaction matches any expectation") {
@@ -73,6 +74,21 @@ class MockSpec: QuickSpec {
                     }
 
                     expect(failureMessage).to(equal("Interaction <(4, 5)> not expected"))
+                }
+            }
+
+            context("when the mock is nice") {
+                beforeEach {
+                    mock = Mock(strict: false)
+                }
+
+                it("succeeds if the given interaction doesn't match any expectation") {
+                    mock.expect(matches((6, 7)))
+                    mock.record((8, 9))
+                }
+
+                it("succeeds if the given interaction is not expected") {
+                    mock.record((8, 9))
                 }
             }
         }
