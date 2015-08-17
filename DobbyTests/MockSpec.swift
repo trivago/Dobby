@@ -98,7 +98,7 @@ class MockSpec: QuickSpec {
                 mock = Mock()
             }
 
-            it("succeeds if all interactions match an expectation") {
+            it("succeeds if all expectations are matched") {
                 mock.expect(matches((any(), 1)))
                 mock.expect(matches((any(), matches { $0 == 2 })))
                 mock.record((0, 1))
@@ -106,15 +106,19 @@ class MockSpec: QuickSpec {
                 mock.verify()
             }
 
-            it("fails if an expectation is not matched") {
+            it("fails if any expectation is not matched") {
                 var failureMessage: String?
 
-                mock.expect(matches((any(), equals(3))))
+                mock.expect(matches((any(), 1)))
+                mock.expect(matches((any(), equals(2))))
+                mock.record((0, 1))
                 mock.verify { (message, _, _) in
                     failureMessage = message
                 }
 
-                expect(failureMessage).to(equal("Expectation <(_, 3)> not matched"))
+                expect(failureMessage).to(equal("Expectation <(_, 2)> not matched"))
+            }
+        }
 
         describe("Verification with delay") {
             beforeEach {
