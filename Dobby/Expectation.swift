@@ -29,6 +29,25 @@ public func any<Value>() -> Expectation<Value> {
     return Expectation(description: "_") { _ in true }
 }
 
+/// Returns a new expectation that matches nothing (in the sense of nil).
+public func none<Value>() -> Expectation<Value?> {
+    return Expectation(description: "nil") { actualValue in
+        return (actualValue ?? nil) == nil
+    }
+}
+
+/// Returns a new expectation that matches something (in the sense of whatever
+/// the given expectation matches).
+public func some<E: ExpectationConvertible>(expectation: E) -> Expectation<E.ValueType?> {
+    return Expectation(description: expectation.expectation().description) { actualValue in
+        if let actualValue = actualValue {
+            return expectation.expectation().matches(actualValue)
+        }
+
+        return false
+    }
+}
+
 /// Returns a new expectation that matches the given value.
 public func equals<Value: Equatable>(value: Value) -> Expectation<Value> {
     return Expectation(description: "\(value)") { actualValue in
