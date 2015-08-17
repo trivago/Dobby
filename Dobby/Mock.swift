@@ -3,12 +3,14 @@ import XCTest
 /// A mock which can verify that all set up expectations are matched with the
 /// recorded interactions.
 public final class Mock<Interaction> {
+    private let strict: Bool
     private let ordered: Bool
 
     private var expectations: [Expectation<Interaction>] = []
 
     /// Initializes a new mock.
-    public init(ordered: Bool = true) {
+    public init(strict: Bool = true, ordered: Bool = true) {
+        self.strict = strict
         self.ordered = ordered
     }
 
@@ -28,13 +30,15 @@ public final class Mock<Interaction> {
             if expectations[index].matches(interaction) {
                 expectations.removeAtIndex(index)
                 return
-            } else if ordered {
+            } else if strict && ordered {
                 fail("Interaction <\(interaction)> does not match expectation <\(expectations[index])>", file: file, line: line)
                 return
             }
         }
 
-        fail("Interaction <\(interaction)> not expected", file: file, line: line)
+        if strict {
+            fail("Interaction <\(interaction)> not expected", file: file, line: line)
+        }
     }
 
     /// Verifies that all set up expectations have been matched.
