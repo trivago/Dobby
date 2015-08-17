@@ -39,9 +39,10 @@ public func none<Value>() -> Expectation<Value?> {
 /// Returns a new expectation that matches something (in the sense of whatever
 /// the given expectation matches).
 public func some<E: ExpectationConvertible>(expectation: E) -> Expectation<E.ValueType?> {
-    return Expectation(description: expectation.expectation().description) { actualValue in
+    let actualExpectation = expectation.expectation()
+    return Expectation(description: actualExpectation.description) { actualValue in
         if let actualValue = actualValue {
-            return expectation.expectation().matches(actualValue)
+            return actualExpectation.matches(actualValue)
         }
 
         return false
