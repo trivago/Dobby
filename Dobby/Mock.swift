@@ -52,4 +52,22 @@ public final class Mock<Interaction> {
             fail("Expectation <\(expectation)> not matched", file: file, line: line)
         }
     }
+
+    /// Verifies that all set up expectations are matched within the given
+    /// delay.
+    public func verifyWithDelay(_ delay: NSTimeInterval = 1.0, file: String = __FILE__, line: UInt = __LINE__) {
+        verifyWithDelay(delay, file: file, line: line, fail: XCTFail)
+    }
+
+    /// INTERNAL API
+    public func verifyWithDelay(var delay: NSTimeInterval, file: String = __FILE__, line: UInt = __LINE__, fail: (String, file: String, line: UInt) -> ()) {
+        var step = 0.01
+
+        while delay > 0 && expectations.count > 0 {
+            NSRunLoop.currentRunLoop().runUntilDate(NSDate(timeIntervalSinceNow: step))
+            delay -= step; step *= 2
+        }
+
+        verify(file: file, line: line, fail: fail)
+    }
 }
