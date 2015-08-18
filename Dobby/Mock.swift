@@ -1,12 +1,11 @@
 import XCTest
 
-/// A mock which can verify that all set up expectations are matched with the
-/// recorded interactions.
+/// A mock which can verify that all set up expectations have been fulfilled.
 public final class Mock<Interaction> {
     private let strict: Bool
     private let ordered: Bool
 
-    private var expectations: [Expectation<Interaction>] = []
+    private var expectations: [Matcher<Interaction>] = []
 
     /// Initializes a new mock.
     public init(strict: Bool = true, ordered: Bool = true) {
@@ -14,9 +13,9 @@ public final class Mock<Interaction> {
         self.ordered = ordered
     }
 
-    /// Sets up the given expectation.
-    public func expect<E: ExpectationConvertible where E.ValueType == Interaction>(expectation: E) {
-        expectations.append(expectation.expectation())
+    /// Sets up the given matcher as expectation.
+    public func expect<M: MatcherConvertible where M.ValueType == Interaction>(matcher: M) {
+        expectations.append(matcher.matcher())
     }
 
     /// Records the given interaction.
@@ -41,7 +40,7 @@ public final class Mock<Interaction> {
         }
     }
 
-    /// Verifies that all set up expectations have been matched.
+    /// Verifies that all set up expectations have been fulfilled.
     public func verify(file: String = __FILE__, line: UInt = __LINE__) {
         verify(file: file, line: line, fail: XCTFail)
     }
@@ -49,11 +48,11 @@ public final class Mock<Interaction> {
     /// INTERNAL API
     public func verify(file: String = __FILE__, line: UInt = __LINE__, fail: (String, file: String, line: UInt) -> ()) {
         for expectation in expectations {
-            fail("Expectation <\(expectation)> not matched", file: file, line: line)
+            fail("Expectation <\(expectation)> not fulfilled", file: file, line: line)
         }
     }
 
-    /// Verifies that all set up expectations are matched within the given
+    /// Verifies that all set up expectations are fulfilled within the given
     /// delay.
     public func verifyWithDelay(_ delay: NSTimeInterval = 1.0, file: String = __FILE__, line: UInt = __LINE__) {
         verifyWithDelay(delay, file: file, line: line, fail: XCTFail)
