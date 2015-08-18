@@ -27,6 +27,31 @@ class ExpectationSpec: QuickSpec {
                 }
             }
 
+            context("nothing") {
+                let expectation: Dobby.Expectation<Int?> = none()
+
+                it("succeeds if the actual value equals nil") {
+                    expect(expectation.matches(nil)).to(beTrue())
+                }
+
+                it("fails if the actual value does not equal nil") {
+                    expect(expectation.matches(0)).to(beFalse())
+                }
+            }
+
+            context("something") {
+                let expectation: Dobby.Expectation<Int?> = some(0)
+
+                it("succeeds if the given expectation is matched") {
+                    expect(expectation.matches(0)).to(beTrue())
+                }
+
+                it("fails if the given expectation is not matched") {
+                    expect(expectation.matches(nil)).to(beFalse())
+                    expect(expectation.matches(1)).to(beFalse())
+                }
+            }
+
             context("a value") {
                 let expectation: Dobby.Expectation<Int> = equals(0)
 
