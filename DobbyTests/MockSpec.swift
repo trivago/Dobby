@@ -98,7 +98,7 @@ class MockSpec: QuickSpec {
                 mock = Mock()
             }
 
-            it("succeeds if all interactions match an expectation") {
+            it("succeeds if all expectations are matched") {
                 mock.expect(matches((any(), 1)))
                 mock.expect(matches((any(), matches { $0 == 2 })))
                 mock.record((0, 1))
@@ -106,15 +106,48 @@ class MockSpec: QuickSpec {
                 mock.verify()
             }
 
-            it("fails if an expectation is not matched") {
+            it("fails if any expectation is not matched") {
                 var failureMessage: String?
 
-                mock.expect(matches((any(), equals(3))))
+                mock.expect(matches((any(), 1)))
+                mock.expect(matches((any(), equals(2))))
+                mock.record((0, 1))
                 mock.verify { (message, _, _) in
                     failureMessage = message
                 }
 
-                expect(failureMessage).to(equal("Expectation <(_, 3)> not matched"))
+                expect(failureMessage).to(equal("Expectation <(_, 2)> not matched"))
+            }
+        }
+
+        describe("Verification with delay") {
+            beforeEach {
+                mock = Mock()
+            }
+
+            it("succeeds if all expectations are matched within the given delay") {
+                mock.expect(matches((any(), 1)))
+                mock.expect(matches((any(), matches { $0 == 2 })))
+                mock.record((0, 1))
+
+                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(0.25 * Double(NSEC_PER_SEC))), dispatch_get_main_queue()) {
+                    mock.record((0, 2))
+                }
+
+                mock.verifyWithDelay(0.5)
+            }
+
+            it("fails if any expectation is matched within the given delay") {
+                var failureMessage: String?
+
+                mock.expect(matches((any(), 1)))
+                mock.expect(matches((any(), equals(2))))
+                mock.record((0, 1))
+                mock.verifyWithDelay(0.25) { (message, _, _) in
+                    failureMessage = message
+                }
+
+                expect(failureMessage).to(equal("Expectation <(_, 2)> not matched"))
             }
         }
     }
