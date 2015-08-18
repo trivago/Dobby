@@ -90,6 +90,17 @@ class MockSpec: QuickSpec {
                 it("succeeds if the given interaction is not expected") {
                     mock.record((8, 9))
                 }
+
+                it("fails if the given interaction is not allowed") {
+                    var failureMessage: String?
+
+                    mock.reject(matches((8, 9)))
+                    mock.record((8, 9)) { (message, _, _) in
+                        failureMessage = message
+                    }
+
+                    expect(failureMessage).to(equal("Interaction <(8, 9)> not allowed"))
+                }
             }
         }
 

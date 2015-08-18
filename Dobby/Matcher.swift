@@ -168,7 +168,7 @@ public func matches<Element: MatcherConvertible>(values: [Element]) -> Matcher<[
         }
 
         for (element, actualElement) in zip(values, actualValues) {
-            if !element.matcher().matches(actualElement) {
+            if element.matcher().matches(actualElement) == false {
                 return false
             }
         }
@@ -185,7 +185,7 @@ public func matches<Key: Hashable, Value: MatcherConvertible>(values: [Key: Valu
         }
 
         for (key, value) in values {
-            if !(actualValues[key].map { actualValue in value.matcher().matches(actualValue) } ?? false) {
+            if (actualValues[key].map { actualValue in value.matcher().matches(actualValue) } ?? false) == false {
                 return false
             }
         }
