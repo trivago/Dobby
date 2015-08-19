@@ -43,7 +43,7 @@ class MockSpec: QuickSpec {
                 }
             }
 
-            context("when the mock is strict and the order of expectations doesn't matter") {
+            context("when the mock is strict and the order of expectations does not matter") {
                 beforeEach {
                     mock = Mock(strict: true, ordered: false)
                 }
@@ -82,13 +82,24 @@ class MockSpec: QuickSpec {
                     mock = Mock(strict: false)
                 }
 
-                it("succeeds if the given interaction doesn't match any expectation") {
+                it("succeeds if the given interaction does not match any expectation") {
                     mock.expect(matches((6, 7)))
                     mock.record((8, 9))
                 }
 
                 it("succeeds if the given interaction is not expected") {
                     mock.record((8, 9))
+                }
+
+                it("fails if the given interaction is not allowed") {
+                    var failureMessage: String?
+
+                    mock.reject(matches((8, 9)))
+                    mock.record((8, 9)) { (message, _, _) in
+                        failureMessage = message
+                    }
+
+                    expect(failureMessage).to(equal("Interaction <(8, 9)> not allowed"))
                 }
             }
         }
@@ -98,7 +109,7 @@ class MockSpec: QuickSpec {
                 mock = Mock()
             }
 
-            it("succeeds if all expectations are matched") {
+            it("succeeds if all expectations are fulfilled") {
                 mock.expect(matches((any(), 1)))
                 mock.expect(matches((any(), matches { $0 == 2 })))
                 mock.record((0, 1))
@@ -106,7 +117,7 @@ class MockSpec: QuickSpec {
                 mock.verify()
             }
 
-            it("fails if any expectation is not matched") {
+            it("fails if any expectation is not fulfilled") {
                 var failureMessage: String?
 
                 mock.expect(matches((any(), 1)))
@@ -116,7 +127,7 @@ class MockSpec: QuickSpec {
                     failureMessage = message
                 }
 
-                expect(failureMessage).to(equal("Expectation <(_, 2)> not matched"))
+                expect(failureMessage).to(equal("Expectation <(_, 2)> not fulfilled"))
             }
         }
 
@@ -125,7 +136,7 @@ class MockSpec: QuickSpec {
                 mock = Mock()
             }
 
-            it("succeeds if all expectations are matched within the given delay") {
+            it("succeeds if all expectations are fulfilled within the given delay") {
                 mock.expect(matches((any(), 1)))
                 mock.expect(matches((any(), matches { $0 == 2 })))
                 mock.record((0, 1))
@@ -137,7 +148,7 @@ class MockSpec: QuickSpec {
                 mock.verifyWithDelay(0.5)
             }
 
-            it("fails if any expectation is matched within the given delay") {
+            it("fails if any expectation is not fulfilled within the given delay") {
                 var failureMessage: String?
 
                 mock.expect(matches((any(), 1)))
@@ -147,7 +158,7 @@ class MockSpec: QuickSpec {
                     failureMessage = message
                 }
 
-                expect(failureMessage).to(equal("Expectation <(_, 2)> not matched"))
+                expect(failureMessage).to(equal("Expectation <(_, 2)> not fulfilled"))
             }
         }
     }
