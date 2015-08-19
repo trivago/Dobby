@@ -1,5 +1,6 @@
 /// A disposable that will run an action upon disposal.
 public final class Disposable {
+    /// The action associated with this disposable.
     private var action: (() -> ())?
 
     /// Whether this disposable has been disposed already.

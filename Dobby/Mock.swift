@@ -1,46 +1,111 @@
 import XCTest
 
-/// A mock which can verify that all set up expectations are matched with the
-/// recorded interactions.
-public final class Mock<Interaction> {
-    private var expectations: [Expectation<Interaction>] = []
-    private var interactions: [Interaction] = []
+/// A matcher-based expectation.
+private struct Expectation<Interaction> {
+    /// The matcher of this expectation.
+    private let matcher: Matcher<Interaction>
 
-    /// Initializes a new mock.
-    public init() {
-        
+    /// Whether this expectation is negative.
+    private let negative: Bool
+
+    /// Initializes a new expectation with the given matcher and negative flag.
+    private init<M: MatcherConvertible where M.ValueType == Interaction>(matcher: M, negative: Bool) {
+        self.matcher = matcher.matcher()
+        self.negative = negative
+    }
+}
+
+extension Expectation: CustomStringConvertible {
+    private var description: String {
+        return matcher.description
+    }
+}
+
+/// A mock which can verify that all set up expectations have been fulfilled.
+public final class Mock<Interaction> {
+    /// Whether this mock is strict (or nice).
+    private let strict: Bool
+
+    /// Whether the order of expectations matters.
+    private let ordered: Bool
+
+    /// All set up and not yet fulfilled expectations.
+    private var expectations: [Expectation<Interaction>] = []
+
+    /// Initializes a new mock with the given strict and ordered flags.
+    public init(strict: Bool = true, ordered: Bool = true) {
+        self.strict = strict
+        self.ordered = ordered
     }
 
-    /// Sets up the given expectation.
-    public func expect<E: ExpectationConvertible where E.ValueType == Interaction>(expectation: E) {
-        expectations.append(expectation.expectation())
+    /// Sets up the given matcher as expectation.
+    public func expect<M: MatcherConvertible where M.ValueType == Interaction>(matcher: M) {
+        expectations.append(Expectation(matcher: matcher, negative: false))
+    }
+
+    /// Sets up the given matcher as negative expectation.
+    ///
+    /// - Note: Negative expectations are restricted to nice mocks.
+    public func reject<M: MatcherConvertible where M.ValueType == Interaction>(matcher: M) {
+        assert(strict == false, "Setting up a matcher as negative expectation is restricted to nice mocks.")
+        expectations.append(Expectation(matcher: matcher, negative: true))
     }
 
     /// Records the given interaction.
-    public func record(interaction: Interaction) {
-        interactions.append(interaction)
+    public func record(interaction: Interaction, file: String = __FILE__, line: UInt = __LINE__) {
+        record(interaction, file: file, line: line, fail: XCTFail)
     }
 
-    /// Verifies that all set up expectations are matched with the recorded
-    /// interactions.
-    ///
-    /// Verification is performed in order, i.e., the first expectation must
-    /// match the first interaction, the second expectation must match the
-    /// second interaction, and so on. All expectations must match an
-    /// interaction and vice versa.
+    internal func record(interaction: Interaction, file: String = __FILE__, line: UInt = __LINE__, fail: (String, file: String, line: UInt) -> ()) {
+        for var index = 0; index < expectations.count; index++ {
+            let expectation = expectations[index]
+
+            if expectation.matcher.matches(interaction) {
+                if expectation.negative == false {
+                    expectations.removeAtIndex(index)
+                } else {
+                    fail("Interaction <\(interaction)> not allowed", file: file, line: line)
+                }
+
+                return
+            } else if strict && ordered {
+                fail("Interaction <\(interaction)> does not match expectation <\(expectation)>", file: file, line: line)
+                return
+            }
+        }
+
+        if strict {
+            fail("Interaction <\(interaction)> not expected", file: file, line: line)
+        }
+    }
+
+    /// Verifies that all set up expectations have been fulfilled.
     public func verify(file file: String = __FILE__, line: UInt = __LINE__) {
         verify(file: file, line: line, fail: XCTFail)
     }
 
     internal func verify(file file: String = __FILE__, line: UInt = __LINE__, fail: (String, file: String, line: UInt) -> ()) {
-        for var index = 0; index < max(expectations.count, interactions.count); index++ {
-            if index >= interactions.count {
-                fail("Expectation <\(expectations[index])> not matched", file: file, line: line)
-            } else if index >= expectations.count {
-                fail("Interaction <\(interactions[index])> not matched", file: file, line: line)
-            } else if !expectations[index].matches(interactions[index]) {
-                fail("Expectation <\(expectations[index])> does not match interaction <\(interactions[index])>", file: file, line: line)
+        for expectation in expectations {
+            if expectation.negative == false {
+                fail("Expectation <\(expectation)> not fulfilled", file: file, line: line)
             }
         }
+    }
+
+    /// Verifies that all set up expectations are fulfilled within the given
+    /// delay.
+    public func verifyWithDelay(delay: NSTimeInterval = 1.0, file: String = __FILE__, line: UInt = __LINE__) {
+        verifyWithDelay(delay, file: file, line: line, fail: XCTFail)
+    }
+
+    internal func verifyWithDelay(var delay: NSTimeInterval, file: String = __FILE__, line: UInt = __LINE__, fail: (String, file: String, line: UInt) -> ()) {
+        var step = 0.01
+
+        while delay > 0 && expectations.count > 0 {
+            NSRunLoop.currentRunLoop().runUntilDate(NSDate(timeIntervalSinceNow: step))
+            delay -= step; step *= 2
+        }
+
+        verify(file: file, line: line, fail: fail)
     }
 }

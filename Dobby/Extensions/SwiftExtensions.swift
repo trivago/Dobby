@@ -1,29 +1,29 @@
-extension Bool: ExpectationConvertible {
-    public func expectation() -> Expectation<Bool> {
-        return Expectation(value: self)
+extension Bool: MatcherConvertible {
+    public func matcher() -> Matcher<Bool> {
+        return equals(self)
     }
 }
 
-extension Int: ExpectationConvertible {
-    public func expectation() -> Expectation<Int> {
-        return Expectation(value: self)
+extension Int: MatcherConvertible {
+    public func matcher() -> Matcher<Int> {
+        return equals(self)
     }
 }
 
-extension Float: ExpectationConvertible {
-    public func expectation() -> Expectation<Float> {
-        return Expectation(value: self)
+extension Float: MatcherConvertible {
+    public func matcher() -> Matcher<Float> {
+        return equals(self)
     }
 }
 
-extension Double: ExpectationConvertible {
-    public func expectation() -> Expectation<Double> {
-        return Expectation(value: self)
+extension Double: MatcherConvertible {
+    public func matcher() -> Matcher<Double> {
+        return equals(self)
     }
 }
 
-extension String: ExpectationConvertible {
-    public func expectation() -> Expectation<String> {
-        return Expectation(value: self)
+extension String: MatcherConvertible {
+    public func matcher() -> Matcher<String> {
+        return equals(self)
     }
 }
