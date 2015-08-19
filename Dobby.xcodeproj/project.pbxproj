@@ -576,6 +576,10 @@
 				INFOPLIST_FILE = Dobby/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"-framework",
+					XCTest,
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "de.rheinfabrik.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(inherited)";
 				SKIP_INSTALL = YES;
@@ -599,6 +603,10 @@
 				INFOPLIST_FILE = Dobby/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"-framework",
+					XCTest,
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "de.rheinfabrik.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(inherited)";
 				SKIP_INSTALL = YES;
