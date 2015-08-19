@@ -38,7 +38,7 @@ public func not<M: MatcherConvertible>(matcher: M) -> Matcher<M.ValueType> {
 /// Returns a new matcher that matches nothing (in the sense of nil).
 public func none<Value>() -> Matcher<Value?> {
     return Matcher(description: "nil") { actualValue in
-        return (actualValue ?? nil) == nil
+        return actualValue == nil
     }
 }
 
