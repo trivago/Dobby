@@ -25,6 +25,16 @@ public func any<Value>() -> Matcher<Value> {
     return Matcher(description: "_") { _ in true }
 }
 
+/// Returns a new matcher that matches anything but whatever the given matcher
+/// does match.
+public func not<M: MatcherConvertible>(matcher: M) -> Matcher<M.ValueType> {
+    let actualMatcher = matcher.matcher()
+
+    return Matcher(description: "not(\(actualMatcher))") { actualValue in
+        return actualMatcher.matches(actualValue) == false
+    }
+}
+
 /// Returns a new matcher that matches nothing (in the sense of nil).
 public func none<Value>() -> Matcher<Value?> {
     return Matcher(description: "nil") { actualValue in

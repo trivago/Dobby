@@ -27,6 +27,18 @@ class MatcherSpec: QuickSpec {
                 }
             }
 
+            context("anything but whatever (not)") {
+                let matcher: Dobby.Matcher<Int> = not(0)
+
+                it("succeeds if the given matcher is not matched") {
+                    expect(matcher.matches(1)).to(beTrue())
+                }
+
+                it("fails if the given matcher is matched") {
+                    expect(matcher.matches(0)).to(beFalse())
+                }
+            }
+
             context("nothing") {
                 let matcher: Dobby.Matcher<Int?> = none()
 
