@@ -71,7 +71,7 @@ public final class Stub<Interaction, ReturnValue> {
     ///
     /// - Throws: `StubError.UnexpectedInteraction(Interaction)` if the given
     ///     interaction is unexpected.
-    public func invoke(interaction: Interaction) throws -> ReturnValue? {
+    public func invoke(interaction: Interaction) throws -> ReturnValue {
         for (_, behavior) in behaviors {
             if behavior.matcher.matches(interaction) {
                 return behavior.handler(interaction)
