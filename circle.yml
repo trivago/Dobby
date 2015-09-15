@@ -23,7 +23,7 @@ test:
         CODE_SIGN_IDENTITY=
         PROVISIONING_PROFILE=
         -sdk iphonesimulator
-        -destination 'platform=iOS Simulator,OS=8.3,name=iPhone 6'
+        -destination 'platform=iOS Simulator,OS=9.0,name=iPhone 6s'
         -project Dobby.xcodeproj
         -scheme "Dobby-iOS"
         -configuration Debug
