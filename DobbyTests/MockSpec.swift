@@ -79,7 +79,7 @@ class MockSpec: QuickSpec {
 
             context("when the mock is nice") {
                 beforeEach {
-                    mock = Mock(strict: false)
+                    mock = Mock(nice: true)
                 }
 
                 it("succeeds if the given interaction does not match any expectation") {

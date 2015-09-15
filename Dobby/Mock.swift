@@ -38,6 +38,11 @@ public final class Mock<Interaction> {
         self.ordered = ordered
     }
 
+    /// Initializes a new mock with the given nice and ordered flags.
+    public convenience init(nice: Bool, ordered: Bool = true) {
+        self.init(strict: nice == false, ordered: ordered)
+    }
+
     /// Sets up the given matcher as expectation.
     public func expect<M: MatcherConvertible where M.ValueType == Interaction>(matcher: M) {
         expectations.append(Expectation(matcher: matcher, negative: false))
