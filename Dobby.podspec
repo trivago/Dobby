@@ -20,7 +20,7 @@ Pod::Spec.new do |spec|
   spec.ios.deployment_target = '8.0'
   spec.osx.deployment_target = '10.10'
 
-  spec.framework = 'Foundation', 'XCTest'
+  spec.frameworks = 'Foundation', 'XCTest'
 
   spec.source_files = 'Dobby/**/*.{h,swift}'
 end
