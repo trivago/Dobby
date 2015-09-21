@@ -25,7 +25,7 @@ class MockSpec: QuickSpec {
 
                     mock.expect(matches((2, 3)))
                     mock.expect(matches((4, 5)))
-                    mock.record((4, 5)) { (message, _, _) in
+                    mock.record((4, 5)) { message, _, _ in
                         failureMessage = message
                     }
 
@@ -35,7 +35,7 @@ class MockSpec: QuickSpec {
                 it("fails if the given interaction is not expected") {
                     var failureMessage: String?
 
-                    mock.record((4, 5)) { (message, _, _) in
+                    mock.record((4, 5)) { message, _, _ in
                         failureMessage = message
                     }
 
@@ -59,7 +59,7 @@ class MockSpec: QuickSpec {
                     var failureMessage: String?
 
                     mock.expect(matches((2, 3)))
-                    mock.record((4, 5)) { (message, _, _) in
+                    mock.record((4, 5)) { message, _, _ in
                         failureMessage = message
                     }
 
@@ -69,7 +69,7 @@ class MockSpec: QuickSpec {
                 it("fails if the given interaction is not expected") {
                     var failureMessage: String?
 
-                    mock.record((4, 5)) { (message, _, _) in
+                    mock.record((4, 5)) { message, _, _ in
                         failureMessage = message
                     }
 
@@ -95,7 +95,7 @@ class MockSpec: QuickSpec {
                     var failureMessage: String?
 
                     mock.reject(matches((8, 9)))
-                    mock.record((8, 9)) { (message, _, _) in
+                    mock.record((8, 9)) { message, _, _ in
                         failureMessage = message
                     }
 
@@ -123,7 +123,7 @@ class MockSpec: QuickSpec {
                 mock.expect(matches((any(), 1)))
                 mock.expect(matches((any(), equals(2))))
                 mock.record((0, 1))
-                mock.verify { (message, _, _) in
+                mock.verify { message, _, _ in
                     failureMessage = message
                 }
 
@@ -154,7 +154,7 @@ class MockSpec: QuickSpec {
                 mock.expect(matches((any(), 1)))
                 mock.expect(matches((any(), equals(2))))
                 mock.record((0, 1))
-                mock.verifyWithDelay(0.25) { (message, _, _) in
+                mock.verifyWithDelay(0.25) { message, _, _ in
                     failureMessage = message
                 }
 
