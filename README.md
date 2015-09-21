@@ -90,7 +90,7 @@ mock.verify() // succeeds
 In addition to normal expectations, nice mocks allow negative expectations to be set up:
 
 ```swift
-let mock = Mock<Int>(strict: false)
+let mock = Mock<Int>(nice: true)
 mock.reject(0)
 mock.record(0) // fails (fast)
 ```
