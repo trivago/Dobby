@@ -2,9 +2,9 @@ Pod::Spec.new do |spec|
   spec.name = 'Dobby'
   spec.version = '0.4'
   spec.authors = {
-    'Felix Jendrusch' => 'felix@felixjendrusch.is'
+    'Rheinfabrik' => 'hi@rheinfabrik.de'
   }
-  spec.social_media_url = 'https://twitter.com/felixjendrusch'
+  spec.social_media_url = 'https://twitter.com/rheinfabrik'
   spec.license = {
     :type => 'Apache License, Version 2.0',
     :file => 'LICENSE'
