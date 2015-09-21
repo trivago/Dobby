@@ -49,7 +49,7 @@ mock.record([1, 0]) // fails (fast)
 The order of expectations may also be ignored:
 
 ```swift
-let mock = Mock<[String: Int]>(ordered: false)
+let mock = Mock<[Int]>(ordered: false)
 mock.expect(matches([0, 1]))
 mock.expect(matches([1, 0]))
 mock.record([1, 0]) // succeeds
