@@ -8,17 +8,27 @@
 KEYCHAIN=ios-build.keychain
 
 ##
-## Build Process
+## Delete Certificates
 ##
 
-delete_keychain ()
+delete_certificates ()
+{
+    # Delete the temporary keychain for code signing.
+    security delete-keychain "$KEYCHAIN"
+}
+
+##
+## Teardown
+##
+
+teardown ()
 {
     if [ -z "$KEY_PASSWORD" ]
     then
         return 0
     fi
 
-    security delete-keychain "$KEYCHAIN"
+    delete_certificates
 }
 
-delete_keychain
+teardown
