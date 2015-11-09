@@ -1,40 +1,7 @@
 machine:
   xcode:
-    version: "7.0"
-
-dependencies:
-  pre:
-    - scripts/cisetup
-    - brew install carthage
-  override:
-    - carthage bootstrap
+    version: "7.1"
 
 test:
-  pre:
-    - sudo chown :wheel /Library/Developer/CoreSimulator/Profiles/Runtimes/iOS\ *.simruntime/Contents/Resources/RuntimeRoot/usr/lib/dyld_sim
   override:
-    - set -o pipefail &&
-      xcodebuild
-        CODE_SIGNING_REQUIRED=NO
-        CODE_SIGN_IDENTITY=
-        PROVISIONING_PROFILE=
-        -sdk iphonesimulator
-        -destination 'platform=iOS Simulator,OS=9.0,name=iPhone 6s'
-        -project Dobby.xcodeproj
-        -scheme "Dobby-iOS"
-        -configuration Debug
-        clean test |
-      tee $CIRCLE_ARTIFACTS/xcode_raw_ios.log |
-      xcpretty --color --report junit --output $CIRCLE_TEST_REPORTS/xcode/ios-results.xml
-    - set -o pipefail &&
-      xcodebuild
-        CODE_SIGNING_REQUIRED=NO
-        CODE_SIGN_IDENTITY=
-        PROVISIONING_PROFILE=
-        -sdk macosx
-        -project Dobby.xcodeproj
-        -scheme "Dobby-Mac"
-        -configuration Debug
-        clean test |
-      tee $CIRCLE_ARTIFACTS/xcode_raw_osx.log |
-      xcpretty --color --report junit --output $CIRCLE_TEST_REPORTS/xcode/osx-results.xml
+    - script/cibuild
