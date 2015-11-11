@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DC18FB9C1BF0948900768632 /* Dobby.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = DC7F6AF81AD8291800CCBF6D /* Dobby.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		DC3CFE781ADE895E004728C2 /* SwiftExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3CFE771ADE895E004728C2 /* SwiftExtensions.swift */; };
 		DC3CFE791ADE895E004728C2 /* SwiftExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3CFE771ADE895E004728C2 /* SwiftExtensions.swift */; };
 		DC457AD91B5552CA00919032 /* Matcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC457AD81B5552CA00919032 /* Matcher.swift */; };
@@ -17,22 +18,20 @@
 		DC7F6B201AD82D3800CCBF6D /* Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7F6B1F1AD82D3800CCBF6D /* Mock.swift */; };
 		DC7F6B251AD830A500CCBF6D /* MockSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7F6B241AD830A500CCBF6D /* MockSpec.swift */; };
 		DC7F6B271AD830B500CCBF6D /* StubSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7F6B261AD830B500CCBF6D /* StubSpec.swift */; };
-		DC7F6B2A1AD8313400CCBF6D /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC7F6B281AD8313400CCBF6D /* Nimble.framework */; };
-		DC7F6B2B1AD8313400CCBF6D /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC7F6B291AD8313400CCBF6D /* Quick.framework */; };
-		DC7F6B2C1AD8314100CCBF6D /* Quick.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = DC7F6B291AD8313400CCBF6D /* Quick.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		DC7F6B2D1AD8314100CCBF6D /* Nimble.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = DC7F6B281AD8313400CCBF6D /* Nimble.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		DC83356C1B56661900569709 /* Disposable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC83356B1B56661900569709 /* Disposable.swift */; };
 		DC83356D1B56661900569709 /* Disposable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC83356B1B56661900569709 /* Disposable.swift */; };
 		DC8452231ADBF5CC006AC5D4 /* Dobby.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC8452181ADBF5CC006AC5D4 /* Dobby.framework */; };
-		DC8452371ADBF6F4006AC5D4 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC8452341ADBF603006AC5D4 /* Quick.framework */; };
-		DC8452381ADBF6F4006AC5D4 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC8452331ADBF603006AC5D4 /* Nimble.framework */; };
-		DC84523A1ADBF6F6006AC5D4 /* Quick.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = DC8452341ADBF603006AC5D4 /* Quick.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		DC84523B1ADBF6F6006AC5D4 /* Nimble.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = DC8452331ADBF603006AC5D4 /* Nimble.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		DC84523E1ADBF73C006AC5D4 /* Dobby.h in Headers */ = {isa = PBXBuildFile; fileRef = DC7F6AFD1AD8291800CCBF6D /* Dobby.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DC84523F1ADBF73C006AC5D4 /* Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7F6B1F1AD82D3800CCBF6D /* Mock.swift */; };
 		DC8452401ADBF73C006AC5D4 /* Stub.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7F6B1D1AD82B8C00CCBF6D /* Stub.swift */; };
 		DC8452421ADBF743006AC5D4 /* MockSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7F6B241AD830A500CCBF6D /* MockSpec.swift */; };
 		DC8452431ADBF743006AC5D4 /* StubSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7F6B261AD830B500CCBF6D /* StubSpec.swift */; };
+		DCDDA9301BED650100BB5228 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCDDA92F1BED650100BB5228 /* Nimble.framework */; };
+		DCDDA9321BED655500BB5228 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCDDA9311BED655500BB5228 /* Quick.framework */; };
+		DCDDA9351BED657C00BB5228 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCDDA92F1BED650100BB5228 /* Nimble.framework */; };
+		DCDDA9361BED657C00BB5228 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCDDA9311BED655500BB5228 /* Quick.framework */; };
+		DCDDA9371BED658600BB5228 /* Nimble.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = DCDDA92F1BED650100BB5228 /* Nimble.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		DCDDA9381BED658600BB5228 /* Quick.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = DCDDA9311BED655500BB5228 /* Quick.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		DCE4080E1B6161000009E0B4 /* MatcherSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCE4080D1B6161000009E0B4 /* MatcherSpec.swift */; };
 		DCE4080F1B6161000009E0B4 /* MatcherSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCE4080D1B6161000009E0B4 /* MatcherSpec.swift */; };
 /* End PBXBuildFile section */
@@ -55,26 +54,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		DC7F6B1B1AD82B1400CCBF6D /* CopyFiles */ = {
+		DCDDA9241BED61E900BB5228 /* Copy Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				DC7F6B2C1AD8314100CCBF6D /* Quick.framework in CopyFiles */,
-				DC7F6B2D1AD8314100CCBF6D /* Nimble.framework in CopyFiles */,
+				DCDDA9371BED658600BB5228 /* Nimble.framework in Copy Frameworks */,
+				DCDDA9381BED658600BB5228 /* Quick.framework in Copy Frameworks */,
+				DC18FB9C1BF0948900768632 /* Dobby.framework in Copy Frameworks */,
 			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		DC8452361ADBF6E5006AC5D4 /* CopyFiles */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				DC84523A1ADBF6F6006AC5D4 /* Quick.framework in CopyFiles */,
-				DC84523B1ADBF6F6006AC5D4 /* Nimble.framework in CopyFiles */,
-			);
+			name = "Copy Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -91,13 +81,36 @@
 		DC7F6B1F1AD82D3800CCBF6D /* Mock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mock.swift; sourceTree = "<group>"; };
 		DC7F6B241AD830A500CCBF6D /* MockSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockSpec.swift; sourceTree = "<group>"; };
 		DC7F6B261AD830B500CCBF6D /* StubSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StubSpec.swift; sourceTree = "<group>"; };
-		DC7F6B281AD8313400CCBF6D /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/iOS/Nimble.framework; sourceTree = "<group>"; };
-		DC7F6B291AD8313400CCBF6D /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/iOS/Quick.framework; sourceTree = "<group>"; };
 		DC83356B1B56661900569709 /* Disposable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Disposable.swift; sourceTree = "<group>"; };
 		DC8452181ADBF5CC006AC5D4 /* Dobby.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Dobby.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC8452221ADBF5CC006AC5D4 /* DobbyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DobbyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		DC8452331ADBF603006AC5D4 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/Mac/Nimble.framework; sourceTree = "<group>"; };
-		DC8452341ADBF603006AC5D4 /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/Mac/Quick.framework; sourceTree = "<group>"; };
+		DCDDA8EB1BED4A7600BB5228 /* Common.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Common.xcconfig; sourceTree = "<group>"; };
+		DCDDA8ED1BED4A7600BB5228 /* Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Debug.xcconfig; sourceTree = "<group>"; };
+		DCDDA8EE1BED4A7600BB5228 /* Profile.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Profile.xcconfig; sourceTree = "<group>"; };
+		DCDDA8EF1BED4A7600BB5228 /* Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Release.xcconfig; sourceTree = "<group>"; };
+		DCDDA8F01BED4A7600BB5228 /* Test.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Test.xcconfig; sourceTree = "<group>"; };
+		DCDDA8F21BED4A7600BB5228 /* Application.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Application.xcconfig; sourceTree = "<group>"; };
+		DCDDA8F31BED4A7600BB5228 /* Framework.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Framework.xcconfig; sourceTree = "<group>"; };
+		DCDDA8F41BED4A7600BB5228 /* StaticLibrary.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = StaticLibrary.xcconfig; sourceTree = "<group>"; };
+		DCDDA8F81BED4A7600BB5228 /* iOS-Application.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "iOS-Application.xcconfig"; sourceTree = "<group>"; };
+		DCDDA8F91BED4A7600BB5228 /* iOS-Base.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "iOS-Base.xcconfig"; sourceTree = "<group>"; };
+		DCDDA8FA1BED4A7600BB5228 /* iOS-Framework.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "iOS-Framework.xcconfig"; sourceTree = "<group>"; };
+		DCDDA8FB1BED4A7600BB5228 /* iOS-StaticLibrary.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "iOS-StaticLibrary.xcconfig"; sourceTree = "<group>"; };
+		DCDDA8FD1BED4A7600BB5228 /* Mac-Application.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Mac-Application.xcconfig"; sourceTree = "<group>"; };
+		DCDDA8FE1BED4A7600BB5228 /* Mac-Base.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Mac-Base.xcconfig"; sourceTree = "<group>"; };
+		DCDDA8FF1BED4A7600BB5228 /* Mac-DynamicLibrary.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Mac-DynamicLibrary.xcconfig"; sourceTree = "<group>"; };
+		DCDDA9001BED4A7600BB5228 /* Mac-Framework.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Mac-Framework.xcconfig"; sourceTree = "<group>"; };
+		DCDDA9011BED4A7600BB5228 /* Mac-StaticLibrary.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Mac-StaticLibrary.xcconfig"; sourceTree = "<group>"; };
+		DCDDA9041BED4A7600BB5228 /* tvOS-Application.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "tvOS-Application.xcconfig"; sourceTree = "<group>"; };
+		DCDDA9051BED4A7600BB5228 /* tvOS-Base.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "tvOS-Base.xcconfig"; sourceTree = "<group>"; };
+		DCDDA9061BED4A7600BB5228 /* tvOS-Framework.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "tvOS-Framework.xcconfig"; sourceTree = "<group>"; };
+		DCDDA9071BED4A7600BB5228 /* tvOS-StaticLibrary.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "tvOS-StaticLibrary.xcconfig"; sourceTree = "<group>"; };
+		DCDDA9091BED4A7600BB5228 /* watchOS-Application.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "watchOS-Application.xcconfig"; sourceTree = "<group>"; };
+		DCDDA90A1BED4A7600BB5228 /* watchOS-Base.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "watchOS-Base.xcconfig"; sourceTree = "<group>"; };
+		DCDDA90B1BED4A7600BB5228 /* watchOS-Framework.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "watchOS-Framework.xcconfig"; sourceTree = "<group>"; };
+		DCDDA90C1BED4A7600BB5228 /* watchOS-StaticLibrary.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "watchOS-StaticLibrary.xcconfig"; sourceTree = "<group>"; };
+		DCDDA92F1BED650100BB5228 /* Nimble.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Nimble.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DCDDA9311BED655500BB5228 /* Quick.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Quick.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCE4080D1B6161000009E0B4 /* MatcherSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MatcherSpec.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -113,8 +126,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DC7F6B2B1AD8313400CCBF6D /* Quick.framework in Frameworks */,
-				DC7F6B2A1AD8313400CCBF6D /* Nimble.framework in Frameworks */,
+				DCDDA9351BED657C00BB5228 /* Nimble.framework in Frameworks */,
+				DCDDA9361BED657C00BB5228 /* Quick.framework in Frameworks */,
 				DC7F6B041AD8291800CCBF6D /* Dobby.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -130,8 +143,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DC8452371ADBF6F4006AC5D4 /* Quick.framework in Frameworks */,
-				DC8452381ADBF6F4006AC5D4 /* Nimble.framework in Frameworks */,
+				DCDDA9301BED650100BB5228 /* Nimble.framework in Frameworks */,
+				DCDDA9321BED655500BB5228 /* Quick.framework in Frameworks */,
 				DC8452231ADBF5CC006AC5D4 /* Dobby.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -152,7 +165,7 @@
 			children = (
 				DC7F6AFA1AD8291800CCBF6D /* Dobby */,
 				DC7F6B071AD8291800CCBF6D /* DobbyTests */,
-				DC7F6B191AD82A4800CCBF6D /* Frameworks */,
+				DCDDA8E81BED4A7600BB5228 /* Configuration */,
 				DC7F6AF91AD8291800CCBF6D /* Products */,
 			);
 			sourceTree = "<group>";
@@ -205,35 +218,99 @@
 			isa = PBXGroup;
 			children = (
 				DC7F6B091AD8291800CCBF6D /* Info.plist */,
+				DCDDA92F1BED650100BB5228 /* Nimble.framework */,
+				DCDDA9311BED655500BB5228 /* Quick.framework */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		DC7F6B181AD82A4200CCBF6D /* iOS */ = {
+		DCDDA8E81BED4A7600BB5228 /* Configuration */ = {
 			isa = PBXGroup;
 			children = (
-				DC7F6B291AD8313400CCBF6D /* Quick.framework */,
-				DC7F6B281AD8313400CCBF6D /* Nimble.framework */,
+				DCDDA8EA1BED4A7600BB5228 /* Base */,
+				DCDDA8F71BED4A7600BB5228 /* iOS */,
+				DCDDA8FC1BED4A7600BB5228 /* Mac OS X */,
+				DCDDA9031BED4A7600BB5228 /* tvOS */,
+				DCDDA9081BED4A7600BB5228 /* watchOS */,
 			);
-			name = iOS;
+			name = Configuration;
+			path = Carthage/Checkouts/xcconfigs;
 			sourceTree = "<group>";
 		};
-		DC7F6B191AD82A4800CCBF6D /* Frameworks */ = {
+		DCDDA8EA1BED4A7600BB5228 /* Base */ = {
 			isa = PBXGroup;
 			children = (
-				DC7F6B181AD82A4200CCBF6D /* iOS */,
-				DC8452311ADBF5E6006AC5D4 /* Mac */,
+				DCDDA8EB1BED4A7600BB5228 /* Common.xcconfig */,
+				DCDDA8EC1BED4A7600BB5228 /* Configurations */,
+				DCDDA8F11BED4A7600BB5228 /* Targets */,
 			);
-			name = Frameworks;
+			path = Base;
 			sourceTree = "<group>";
 		};
-		DC8452311ADBF5E6006AC5D4 /* Mac */ = {
+		DCDDA8EC1BED4A7600BB5228 /* Configurations */ = {
 			isa = PBXGroup;
 			children = (
-				DC8452341ADBF603006AC5D4 /* Quick.framework */,
-				DC8452331ADBF603006AC5D4 /* Nimble.framework */,
+				DCDDA8ED1BED4A7600BB5228 /* Debug.xcconfig */,
+				DCDDA8EE1BED4A7600BB5228 /* Profile.xcconfig */,
+				DCDDA8EF1BED4A7600BB5228 /* Release.xcconfig */,
+				DCDDA8F01BED4A7600BB5228 /* Test.xcconfig */,
 			);
-			name = Mac;
+			path = Configurations;
+			sourceTree = "<group>";
+		};
+		DCDDA8F11BED4A7600BB5228 /* Targets */ = {
+			isa = PBXGroup;
+			children = (
+				DCDDA8F21BED4A7600BB5228 /* Application.xcconfig */,
+				DCDDA8F31BED4A7600BB5228 /* Framework.xcconfig */,
+				DCDDA8F41BED4A7600BB5228 /* StaticLibrary.xcconfig */,
+			);
+			path = Targets;
+			sourceTree = "<group>";
+		};
+		DCDDA8F71BED4A7600BB5228 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				DCDDA8F81BED4A7600BB5228 /* iOS-Application.xcconfig */,
+				DCDDA8F91BED4A7600BB5228 /* iOS-Base.xcconfig */,
+				DCDDA8FA1BED4A7600BB5228 /* iOS-Framework.xcconfig */,
+				DCDDA8FB1BED4A7600BB5228 /* iOS-StaticLibrary.xcconfig */,
+			);
+			path = iOS;
+			sourceTree = "<group>";
+		};
+		DCDDA8FC1BED4A7600BB5228 /* Mac OS X */ = {
+			isa = PBXGroup;
+			children = (
+				DCDDA8FD1BED4A7600BB5228 /* Mac-Application.xcconfig */,
+				DCDDA8FE1BED4A7600BB5228 /* Mac-Base.xcconfig */,
+				DCDDA8FF1BED4A7600BB5228 /* Mac-DynamicLibrary.xcconfig */,
+				DCDDA9001BED4A7600BB5228 /* Mac-Framework.xcconfig */,
+				DCDDA9011BED4A7600BB5228 /* Mac-StaticLibrary.xcconfig */,
+			);
+			path = "Mac OS X";
+			sourceTree = "<group>";
+		};
+		DCDDA9031BED4A7600BB5228 /* tvOS */ = {
+			isa = PBXGroup;
+			children = (
+				DCDDA9041BED4A7600BB5228 /* tvOS-Application.xcconfig */,
+				DCDDA9051BED4A7600BB5228 /* tvOS-Base.xcconfig */,
+				DCDDA9061BED4A7600BB5228 /* tvOS-Framework.xcconfig */,
+				DCDDA9071BED4A7600BB5228 /* tvOS-StaticLibrary.xcconfig */,
+			);
+			path = tvOS;
+			sourceTree = "<group>";
+		};
+		DCDDA9081BED4A7600BB5228 /* watchOS */ = {
+			isa = PBXGroup;
+			children = (
+				DCDDA9091BED4A7600BB5228 /* watchOS-Application.xcconfig */,
+				DCDDA90A1BED4A7600BB5228 /* watchOS-Base.xcconfig */,
+				DCDDA90B1BED4A7600BB5228 /* watchOS-Framework.xcconfig */,
+				DCDDA90C1BED4A7600BB5228 /* watchOS-StaticLibrary.xcconfig */,
+			);
+			path = watchOS;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -283,7 +360,7 @@
 				DC7F6AFF1AD8291800CCBF6D /* Sources */,
 				DC7F6B001AD8291800CCBF6D /* Frameworks */,
 				DC7F6B011AD8291800CCBF6D /* Resources */,
-				DC7F6B1B1AD82B1400CCBF6D /* CopyFiles */,
+				DCDDA9241BED61E900BB5228 /* Copy Frameworks */,
 			);
 			buildRules = (
 			);
@@ -320,7 +397,6 @@
 				DC84521E1ADBF5CC006AC5D4 /* Sources */,
 				DC84521F1ADBF5CC006AC5D4 /* Frameworks */,
 				DC8452201ADBF5CC006AC5D4 /* Resources */,
-				DC8452361ADBF6E5006AC5D4 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -368,10 +444,10 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				DC7F6AF71AD8291800CCBF6D /* Dobby-iOS */,
-				DC7F6B021AD8291800CCBF6D /* Dobby-iOSTests */,
 				DC8452171ADBF5CC006AC5D4 /* Dobby-Mac */,
 				DC8452211ADBF5CC006AC5D4 /* Dobby-MacTests */,
+				DC7F6AF71AD8291800CCBF6D /* Dobby-iOS */,
+				DC7F6B021AD8291800CCBF6D /* Dobby-iOSTests */,
 			);
 		};
 /* End PBXProject section */
@@ -470,49 +546,17 @@
 /* Begin XCBuildConfiguration section */
 		DC7F6B0C1AD8291800CCBF6D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DCDDA8ED1BED4A7600BB5228 /* Debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_BITCODE = YES;
 				ENABLE_TESTABILITY = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				MACOSX_DEPLOYMENT_TARGET = 10.10;
-				MTL_ENABLE_DEBUG_INFO = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "de.rheinfabrik.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(PROJECT_NAME)";
-				SDKROOT = iphoneos;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -521,42 +565,16 @@
 		};
 		DC7F6B0D1AD8291800CCBF6D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DCDDA8EF1BED4A7600BB5228 /* Release.xcconfig */;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				ENABLE_NS_ASSERTIONS = NO;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
+				ENABLE_BITCODE = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				MACOSX_DEPLOYMENT_TARGET = 10.10;
-				MTL_ENABLE_DEBUG_INFO = NO;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				PRODUCT_BUNDLE_IDENTIFIER = "de.rheinfabrik.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(PROJECT_NAME)";
-				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
@@ -564,188 +582,123 @@
 		};
 		DC7F6B0F1AD8291800CCBF6D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DCDDA8FA1BED4A7600BB5228 /* iOS-Framework.xcconfig */;
 			buildSettings = {
-				CLANG_ENABLE_MODULES = YES;
-				DEFINES_MODULE = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphonesimulator*]" = "";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-					"$(DEVELOPER_DIR)/Platforms/iPhoneSimulator.platform/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
 				);
 				INFOPLIST_FILE = Dobby/Info.plist;
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				OTHER_LDFLAGS = (
-					"-framework",
-					XCTest,
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = "de.rheinfabrik.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = "$(inherited)";
-				SKIP_INSTALL = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
 		DC7F6B101AD8291800CCBF6D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DCDDA8FA1BED4A7600BB5228 /* iOS-Framework.xcconfig */;
 			buildSettings = {
-				CLANG_ENABLE_MODULES = YES;
-				DEFINES_MODULE = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphonesimulator*]" = "";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-					"$(DEVELOPER_DIR)/Platforms/iPhoneSimulator.platform/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
 				);
 				INFOPLIST_FILE = Dobby/Info.plist;
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				OTHER_LDFLAGS = (
-					"-framework",
-					XCTest,
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = "de.rheinfabrik.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = "$(inherited)";
-				SKIP_INSTALL = YES;
 			};
 			name = Release;
 		};
 		DC7F6B121AD8291800CCBF6D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DCDDA8F81BED4A7600BB5228 /* iOS-Application.xcconfig */;
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
 					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
 				);
 				INFOPLIST_FILE = DobbyTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "de.rheinfabrik.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = "$(inherited)Tests";
+				PRODUCT_NAME = "$(PROJECT_NAME)Tests";
 			};
 			name = Debug;
 		};
 		DC7F6B131AD8291800CCBF6D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DCDDA8F81BED4A7600BB5228 /* iOS-Application.xcconfig */;
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(SDKROOT)/Developer/Library/Frameworks",
 				);
 				INFOPLIST_FILE = DobbyTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "de.rheinfabrik.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = "$(inherited)Tests";
+				PRODUCT_NAME = "$(PROJECT_NAME)Tests";
 			};
 			name = Release;
 		};
 		DC84522C1ADBF5CC006AC5D4 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DCDDA9001BED4A7600BB5228 /* Mac-Framework.xcconfig */;
 			buildSettings = {
-				COMBINE_HIDPI_IMAGES = YES;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				FRAMEWORK_SEARCH_PATHS = (
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
 					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
 				);
 				FRAMEWORK_VERSION = A;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
 				INFOPLIST_FILE = Dobby/Info.plist;
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
-				OTHER_LDFLAGS = (
-					"-framework",
-					XCTest,
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = "de.rheinfabrik.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = "$(inherited)";
-				SDKROOT = macosx;
-				SKIP_INSTALL = YES;
 			};
 			name = Debug;
 		};
 		DC84522D1ADBF5CC006AC5D4 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DCDDA9001BED4A7600BB5228 /* Mac-Framework.xcconfig */;
 			buildSettings = {
-				COMBINE_HIDPI_IMAGES = YES;
-				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				FRAMEWORK_SEARCH_PATHS = (
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
 					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
 				);
 				FRAMEWORK_VERSION = A;
 				INFOPLIST_FILE = Dobby/Info.plist;
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
-				OTHER_LDFLAGS = (
-					"-framework",
-					XCTest,
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = "de.rheinfabrik.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = "$(inherited)";
-				SDKROOT = macosx;
-				SKIP_INSTALL = YES;
 			};
 			name = Release;
 		};
 		DC84522F1ADBF5CC006AC5D4 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DCDDA8FD1BED4A7600BB5228 /* Mac-Application.xcconfig */;
 			buildSettings = {
-				COMBINE_HIDPI_IMAGES = YES;
-				DEBUG_INFORMATION_FORMAT = dwarf;
 				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/Mac",
-				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
 				);
 				INFOPLIST_FILE = DobbyTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.10;
-				PRODUCT_BUNDLE_IDENTIFIER = "de.rheinfabrik.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = "$(inherited)Tests";
-				SDKROOT = macosx;
+				PRODUCT_NAME = "$(PROJECT_NAME)Tests";
 			};
 			name = Debug;
 		};
 		DC8452301ADBF5CC006AC5D4 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DCDDA8FD1BED4A7600BB5228 /* Mac-Application.xcconfig */;
 			buildSettings = {
-				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
 					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/Mac",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
 				);
 				INFOPLIST_FILE = DobbyTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.10;
-				PRODUCT_BUNDLE_IDENTIFIER = "de.rheinfabrik.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = "$(inherited)Tests";
-				SDKROOT = macosx;
+				PRODUCT_NAME = "$(PROJECT_NAME)Tests";
 			};
 			name = Release;
 		};
