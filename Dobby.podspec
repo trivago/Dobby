@@ -1,6 +1,6 @@
 Pod::Spec.new do |spec|
   spec.name = 'Dobby'
-  spec.version = '0.4'
+  spec.version = '0.4.1'
   spec.authors = {
     'Rheinfabrik' => 'hi@rheinfabrik.de'
   }
@@ -18,9 +18,9 @@ Pod::Spec.new do |spec|
   spec.description = 'Dobby provides a few helpers for mocking and stubbing.'
 
   spec.ios.deployment_target = '8.0'
-  spec.osx.deployment_target = '10.10'
+  spec.osx.deployment_target = '10.9'
 
   spec.frameworks = 'Foundation', 'XCTest'
 
-  spec.source_files = 'Dobby/**/*.{h,swift}'
+  spec.source_files = 'Dobby/**/*.swift'
 end
