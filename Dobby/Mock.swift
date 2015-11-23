@@ -73,8 +73,11 @@ public final class Mock<Interaction> {
                 }
 
                 return
-            } else if strict && ordered {
-                fail("Interaction <\(interaction)> does not match expectation <\(expectation)>", file: file, line: line)
+            } else if ordered {
+                if strict {
+                    fail("Interaction <\(interaction)> does not match expectation <\(expectation)>", file: file, line: line)
+                }
+
                 return
             }
         }

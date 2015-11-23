@@ -105,29 +105,88 @@ class MockSpec: QuickSpec {
         }
 
         describe("Verification") {
-            beforeEach {
-                mock = Mock()
-            }
-
-            it("succeeds if all expectations are fulfilled") {
-                mock.expect(matches((any(), 1)))
-                mock.expect(matches((any(), matches { $0 == 2 })))
-                mock.record((0, 1))
-                mock.record((0, 2))
-                mock.verify()
-            }
-
-            it("fails if any expectation is not fulfilled") {
-                var failureMessage: String?
-
-                mock.expect(matches((any(), 1)))
-                mock.expect(matches((any(), equals(2))))
-                mock.record((0, 1))
-                mock.verify { message, _, _ in
-                    failureMessage = message
+            context("when the mock is strict") {
+                beforeEach {
+                    mock = Mock()
                 }
 
-                expect(failureMessage).to(equal("Expectation <(_, 2)> not fulfilled"))
+                it("succeeds if all expectations are fulfilled") {
+                    mock.expect(matches((any(), 1)))
+                    mock.expect(matches((any(), matches { $0 == 2 })))
+                    mock.record((0, 1))
+                    mock.record((0, 2))
+                    mock.verify()
+                }
+
+                it("fails if any expectation is not fulfilled") {
+                    var failureMessage: String?
+
+                    mock.expect(matches((any(), 1)))
+                    mock.expect(matches((any(), equals(2))))
+                    mock.record((0, 1))
+                    mock.verify { message, _, _ in
+                        failureMessage = message
+                    }
+
+                    expect(failureMessage).to(equal("Expectation <(_, 2)> not fulfilled"))
+                }
+            }
+
+            context("when the mock is nice and the order of expectations does matter") {
+                beforeEach {
+                    mock = Mock(nice: true)
+                }
+
+                it("succeeds if all expectations are fulfilled") {
+                    mock.expect(matches((any(), 1)))
+                    mock.expect(matches((any(), matches { $0 == 2 })))
+                    mock.record((0, 1))
+                    mock.record((0, 3))
+                    mock.record((0, 2))
+                    mock.verify()
+                }
+
+                it("fails if any expectation is not fulfilled") {
+                    var failureMessage: String?
+
+                    mock.expect(matches((any(), 1)))
+                    mock.expect(matches((any(), equals(2))))
+                    mock.record((0, 2))
+                    mock.record((0, 1))
+                    mock.verify { message, _, _ in
+                        failureMessage = message
+                    }
+
+                    expect(failureMessage).to(equal("Expectation <(_, 2)> not fulfilled"))
+                }
+            }
+
+            context("when the mock is nice and the order of expectations does not matter") {
+                beforeEach {
+                    mock = Mock(nice: true, ordered: false)
+                }
+
+                it("succeeds if all expectations are fulfilled") {
+                    mock.expect(matches((any(), 1)))
+                    mock.expect(matches((any(), matches { $0 == 2 })))
+                    mock.record((0, 2))
+                    mock.record((0, 3))
+                    mock.record((0, 1))
+                    mock.verify()
+                }
+
+                it("fails if any expectation is not fulfilled") {
+                    var failureMessage: String?
+
+                    mock.expect(matches((any(), 1)))
+                    mock.expect(matches((any(), equals(2))))
+                    mock.record((0, 2))
+                    mock.verify { message, _, _ in
+                        failureMessage = message
+                    }
+
+                    expect(failureMessage).to(equal("Expectation <(_, 1)> not fulfilled"))
+                }
             }
         }
 
@@ -141,7 +200,8 @@ class MockSpec: QuickSpec {
                 mock.expect(matches((any(), matches { $0 == 2 })))
                 mock.record((0, 1))
 
-                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(0.25 * Double(NSEC_PER_SEC))), dispatch_get_main_queue()) {
+                let when = dispatch_time(DISPATCH_TIME_NOW, Int64(0.25 * Double(NSEC_PER_SEC)))
+                dispatch_after(when, dispatch_get_main_queue()) {
                     mock.record((0, 2))
                 }
 
