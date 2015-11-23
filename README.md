@@ -43,7 +43,7 @@ let mock = Mock<[Int]>()
 mock.expect(matches([any(), matches { $0 > 0 }])) // expects [_, n > 0]
 mock.record([0, 1]) // succeeds
 mock.verify() // succeeds
-mock.record([1, 0]) // fails (fast)
+mock.record([1, 0]) // unexpected, fails (fast)
 ```
 
 The order of expectations may also be ignored:
@@ -55,7 +55,7 @@ mock.expect(matches([1, 0]))
 mock.record([1, 0]) // succeeds
 mock.record([0, 1]) // succeeds
 mock.verify() // succeeds
-mock.record([0, 0]) // fails (fast)
+mock.record([0, 0]) // unexpected, fails (fast)
 ```
 
 ### Nice mocks
@@ -66,10 +66,10 @@ Nice mocks allow unexpected interactions while still respecting the order of exp
 let mock = Mock<[Int?]>(strict: false)
 mock.expect(matches([some(0)]))
 mock.expect(matches([some(any())]))
-mock.record([nil]) // succeeds
-mock.verify() // fails
-mock.record([1]) // fails (fast)
+mock.record([nil]) // unexpected, ignored
+mock.record([1]) // out of order, ignored
 mock.record([0]) // succeeds
+mock.verify() // fails
 mock.record([1]) // succeeds
 mock.verify() // succeeds
 ```
@@ -80,6 +80,7 @@ Of course, nice mocks can ignore the order of expectations too:
 let mock = Mock<[String: Int?]>(strict: false, ordered: false)
 mock.expect(matches(["zero": some(0)]))
 mock.expect(matches(["none": none()]))
+mock.record(["some": 1]) // unexpected, ignored
 mock.record(["none": nil]) // succeeds
 mock.record(["zero": 0]) // succeeds
 mock.verify() // succeeds
@@ -92,7 +93,7 @@ In addition to normal expectations, nice mocks allow negative expectations to be
 ```swift
 let mock = Mock<Int>(nice: true)
 mock.reject(0)
-mock.record(0) // fails (fast)
+mock.record(0) // rejected, fails (fast)
 ```
 
 ### Verification with delay
@@ -103,7 +104,8 @@ Verification may also be performed with a delay, allowing expectations to be ful
 let mock = Mock<Int>()
 mock.expect(1)
 
-dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(1.0 * Double(NSEC_PER_SEC))), dispatch_get_main_queue()) {
+let when = dispatch_time(DISPATCH_TIME_NOW, Int64(1.0 * Double(NSEC_PER_SEC)))
+dispatch_after(when, dispatch_get_main_queue()) {
     mock.record(1) // succeeds
 }
 
@@ -116,17 +118,17 @@ Stubs, when invoked, return a value based on their set up behavior, or, if an in
 
 ```swift
 let stub = Stub<(Int, Int), Int>()
-let behavior = stub.on(equals((4, 3)), returnValue: 9)
-stub.on(matches((any(), any()))) { $0.0 + $0.1 }
-try! stub.invoke((4, 3)) // returns 9
-try! stub.invoke((4, 4)) // returns 8
+let behavior = stub.on(equals((2, 3)), returnValue: 4)
+stub.on(matches((any(), any()))) { x, y in x * y }
+try! stub.invoke((2, 3)) // returns 4
+try! stub.invoke((3, 3)) // returns 9
 ```
 
 Behavior may also be disposed:
 
 ```swift
 behavior.dispose()
-try! stub.invoke((4, 3)) // returns 7
+try! stub.invoke((2, 3)) // returns 6
 ```
 
 ## Example
