@@ -106,12 +106,13 @@ public final class Mock<Interaction> {
         verifyWithDelay(delay, file: file, line: line, fail: XCTFail)
     }
 
-    internal func verifyWithDelay(var delay: NSTimeInterval, file: String = __FILE__, line: UInt = __LINE__, fail: (String, file: String, line: UInt) -> ()) {
+    internal func verifyWithDelay(delay: NSTimeInterval, file: StaticString = #file, line: UInt = #line, fail: (String, file: StaticString, line: UInt) -> ()) {
+        var rest = delay
         var step = 0.01
 
-        while delay > 0 && expectations.count > 0 {
+        while rest > 0 && expectations.count > 0 {
             NSRunLoop.currentRunLoop().runUntilDate(NSDate(timeIntervalSinceNow: step))
-            delay -= step; step *= 2
+            rest -= step; step *= 2
         }
 
         verify(file: file, line: line, fail: fail)
