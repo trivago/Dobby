@@ -136,7 +136,7 @@ public func equals<Key: Equatable, Value: Equatable>(value: [Key: Value]) -> Mat
 /// Conforming types can be converted to a matcher.
 public protocol MatcherConvertible {
     /// The type of value this type, when converted to a matcher, does match.
-    typealias ValueType
+    associatedtype ValueType
 
     /// Converts this type to a matcher.
     func matcher() -> Matcher<ValueType>
