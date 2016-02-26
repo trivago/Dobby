@@ -57,11 +57,11 @@ public final class Mock<Interaction> {
     }
 
     /// Records the given interaction.
-    public func record(interaction: Interaction, file: String = __FILE__, line: UInt = __LINE__) {
+    public func record(interaction: Interaction, file: StaticString = #file, line: UInt = #line) {
         record(interaction, file: file, line: line, fail: XCTFail)
     }
 
-    internal func record(interaction: Interaction, file: String = __FILE__, line: UInt = __LINE__, fail: (String, file: String, line: UInt) -> ()) {
+    internal func record(interaction: Interaction, file: StaticString = #file, line: UInt = #line, fail: (String, file: StaticString, line: UInt) -> ()) {
         for (index, expectation) in expectations.enumerate() {
             if expectation.matcher.matches(interaction) {
                 if expectation.negative == false {
@@ -86,11 +86,11 @@ public final class Mock<Interaction> {
     }
 
     /// Verifies that all set up expectations have been fulfilled.
-    public func verify(file file: String = __FILE__, line: UInt = __LINE__) {
+    public func verify(file file: StaticString = #file, line: UInt = #line) {
         verify(file: file, line: line, fail: XCTFail)
     }
 
-    internal func verify(file file: String = __FILE__, line: UInt = __LINE__, fail: (String, file: String, line: UInt) -> ()) {
+    internal func verify(file file: StaticString = #file, line: UInt = #line, fail: (String, file: StaticString, line: UInt) -> ()) {
         for expectation in expectations {
             if expectation.negative == false {
                 fail("Expectation <\(expectation)> not fulfilled", file: file, line: line)
@@ -100,7 +100,7 @@ public final class Mock<Interaction> {
 
     /// Verifies that all set up expectations are fulfilled within the given
     /// delay.
-    public func verifyWithDelay(delay: NSTimeInterval = 1.0, file: String = __FILE__, line: UInt = __LINE__) {
+    public func verifyWithDelay(delay: NSTimeInterval = 1.0, file: StaticString = #file, line: UInt = #line) {
         verifyWithDelay(delay, file: file, line: line, fail: XCTFail)
     }
 
