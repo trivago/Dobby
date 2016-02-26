@@ -39,7 +39,9 @@ public final class Stub<Interaction, ReturnValue> {
     ///
     /// Returns a disposable that, when disposed, removes this behavior.
     public func on<M: MatcherConvertible where M.ValueType == Interaction>(matcher: M, invoke handler: Interaction -> ReturnValue) -> Disposable {
-        let identifier = currentIdentifier++
+        currentIdentifier += 1
+
+        let identifier = currentIdentifier
         behaviors.append((identifier: identifier, behavior: Behavior(matcher: matcher, handler: handler)))
 
         return Disposable { [weak self] in

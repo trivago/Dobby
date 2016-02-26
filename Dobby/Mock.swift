@@ -62,9 +62,7 @@ public final class Mock<Interaction> {
     }
 
     internal func record(interaction: Interaction, file: String = __FILE__, line: UInt = __LINE__, fail: (String, file: String, line: UInt) -> ()) {
-        for var index = 0; index < expectations.count; index++ {
-            let expectation = expectations[index]
-
+        for (index, expectation) in expectations.enumerate() {
             if expectation.matcher.matches(interaction) {
                 if expectation.negative == false {
                     expectations.removeAtIndex(index)
