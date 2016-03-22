@@ -8,7 +8,6 @@ dependencies:
 
 test:
   override:
-    # - script/cibuild
     - set -o pipefail &&
       xcodebuild
         -sdk macosx
