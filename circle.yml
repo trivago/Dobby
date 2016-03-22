@@ -2,6 +2,30 @@ machine:
   xcode:
     version: 7.3
 
+dependencies:
+  override:
+    - script/bootstrap
+
 test:
   override:
-    - script/cibuild
+    # - script/cibuild
+    - set -o pipefail &&
+      xcodebuild
+        -sdk macosx
+        -workspace Dobby.xcworkspace
+        -scheme Dobby-Mac
+        clean build test |
+      tee $CIRCLE_ARTIFACTS/xcode_raw_mac.log |
+      xcpretty --color --report junit --output $CIRCLE_TEST_REPORTS/xcode/results-mac.xml
+    - set -o pipefail &&
+      xcodebuild
+        CODE_SIGNING_REQUIRED=NO
+        CODE_SIGN_IDENTITY=
+        PROVISIONING_PROFILE=
+        -sdk iphonesimulator
+        -destination 'platform=iOS Simulator,OS=9.3,name=iPhone 6s'
+        -workspace Dobby.xcworkspace
+        -scheme Dobby-iOS
+        clean build test |
+      tee $CIRCLE_ARTIFACTS/xcode_raw_ios.log |
+      xcpretty --color --report junit --output $CIRCLE_TEST_REPORTS/xcode/results-ios.xml
