@@ -171,10 +171,10 @@ If you ever find yourself wanting to use a mock or stub with several interaction
 
 ## Documentation
 
-Please check out the [source](https://github.com/rheinfabrik/Dobby/tree/master/Dobby) and [tests](https://github.com/rheinfabrik/Dobby/tree/master/DobbyTests) for further documentation.
+Please check out the [source](https://github.com/trivago/Dobby/tree/master/Dobby) and [tests](https://github.com/trivago/Dobby/tree/master/DobbyTests) for further documentation.
 
 ## About
 
 ![](https://cloud.githubusercontent.com/assets/926377/8927635/28afa5de-3519-11e5-8d50-4f474eb2a57f.gif)
 
-Dobby was born at [Rheinfabrik](http://www.rheinfabrik.de) 🏭
+Dobby was born at [trivago](http://www.trivago.com) 🏭
