@@ -16,7 +16,7 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "DC8452171ADBF5CC006AC5D4"
                BuildableName = "Dobby.framework"
-               BlueprintName = "Dobby-Mac"
+               BlueprintName = "Dobby-macOS"
                ReferencedContainer = "container:Dobby.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -58,7 +58,7 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "DC8452211ADBF5CC006AC5D4"
                BuildableName = "DobbyTests.xctest"
-               BlueprintName = "Dobby-MacTests"
+               BlueprintName = "Dobby-macOSTests"
                ReferencedContainer = "container:Dobby.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -77,7 +77,7 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "DC8452211ADBF5CC006AC5D4"
                BuildableName = "DobbyTests.xctest"
-               BlueprintName = "Dobby-MacTests"
+               BlueprintName = "Dobby-macOSTests"
                ReferencedContainer = "container:Dobby.xcodeproj">
             </BuildableReference>
          </TestableReference>
@@ -87,7 +87,7 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "DC8452171ADBF5CC006AC5D4"
             BuildableName = "Dobby.framework"
-            BlueprintName = "Dobby-Mac"
+            BlueprintName = "Dobby-macOS"
             ReferencedContainer = "container:Dobby.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -109,7 +109,7 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "DC8452171ADBF5CC006AC5D4"
             BuildableName = "Dobby.framework"
-            BlueprintName = "Dobby-Mac"
+            BlueprintName = "Dobby-macOS"
             ReferencedContainer = "container:Dobby.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -127,7 +127,7 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "DC8452171ADBF5CC006AC5D4"
             BuildableName = "Dobby.framework"
-            BlueprintName = "Dobby-Mac"
+            BlueprintName = "Dobby-macOS"
             ReferencedContainer = "container:Dobby.xcodeproj">
          </BuildableReference>
       </MacroExpansion>

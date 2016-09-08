@@ -12,10 +12,10 @@ test:
       xcodebuild
         -sdk macosx
         -workspace Dobby.xcworkspace
-        -scheme Dobby-Mac
+        -scheme Dobby-macOS
         clean build test |
-      tee $CIRCLE_ARTIFACTS/xcode_raw_mac.log |
-      xcpretty --color --report junit --output $CIRCLE_TEST_REPORTS/xcode/results-mac.xml
+      tee $CIRCLE_ARTIFACTS/xcode_raw_macos.log |
+      xcpretty --color --report junit --output $CIRCLE_TEST_REPORTS/xcode/results-macos.xml
     - set -o pipefail &&
       xcodebuild
         CODE_SIGNING_REQUIRED=NO

@@ -49,7 +49,7 @@
 			containerPortal = DC7F6AEF1AD8291800CCBF6D /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = DC8452171ADBF5CC006AC5D4;
-			remoteInfo = "Dobby-Mac";
+			remoteInfo = "Dobby-macOS";
 		};
 /* End PBXContainerItemProxy section */
 
@@ -372,9 +372,9 @@
 			productReference = DC7F6B031AD8291800CCBF6D /* DobbyTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		DC8452171ADBF5CC006AC5D4 /* Dobby-Mac */ = {
+		DC8452171ADBF5CC006AC5D4 /* Dobby-macOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = DC84522B1ADBF5CC006AC5D4 /* Build configuration list for PBXNativeTarget "Dobby-Mac" */;
+			buildConfigurationList = DC84522B1ADBF5CC006AC5D4 /* Build configuration list for PBXNativeTarget "Dobby-macOS" */;
 			buildPhases = (
 				DC8452131ADBF5CC006AC5D4 /* Sources */,
 				DC8452141ADBF5CC006AC5D4 /* Frameworks */,
@@ -385,14 +385,14 @@
 			);
 			dependencies = (
 			);
-			name = "Dobby-Mac";
-			productName = "Dobby-Mac";
+			name = "Dobby-macOS";
+			productName = "Dobby-macOS";
 			productReference = DC8452181ADBF5CC006AC5D4 /* Dobby.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		DC8452211ADBF5CC006AC5D4 /* Dobby-MacTests */ = {
+		DC8452211ADBF5CC006AC5D4 /* Dobby-macOSTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = DC84522E1ADBF5CC006AC5D4 /* Build configuration list for PBXNativeTarget "Dobby-MacTests" */;
+			buildConfigurationList = DC84522E1ADBF5CC006AC5D4 /* Build configuration list for PBXNativeTarget "Dobby-macOSTests" */;
 			buildPhases = (
 				DC84521E1ADBF5CC006AC5D4 /* Sources */,
 				DC84521F1ADBF5CC006AC5D4 /* Frameworks */,
@@ -403,8 +403,8 @@
 			dependencies = (
 				DC8452251ADBF5CC006AC5D4 /* PBXTargetDependency */,
 			);
-			name = "Dobby-MacTests";
-			productName = "Dobby-MacTests";
+			name = "Dobby-macOSTests";
+			productName = "Dobby-macOSTests";
 			productReference = DC8452221ADBF5CC006AC5D4 /* DobbyTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
@@ -444,8 +444,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				DC8452171ADBF5CC006AC5D4 /* Dobby-Mac */,
-				DC8452211ADBF5CC006AC5D4 /* Dobby-MacTests */,
+				DC8452171ADBF5CC006AC5D4 /* Dobby-macOS */,
+				DC8452211ADBF5CC006AC5D4 /* Dobby-macOSTests */,
 				DC7F6AF71AD8291800CCBF6D /* Dobby-iOS */,
 				DC7F6B021AD8291800CCBF6D /* Dobby-iOSTests */,
 			);
@@ -538,7 +538,7 @@
 		};
 		DC8452251ADBF5CC006AC5D4 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = DC8452171ADBF5CC006AC5D4 /* Dobby-Mac */;
+			target = DC8452171ADBF5CC006AC5D4 /* Dobby-macOS */;
 			targetProxy = DC8452241ADBF5CC006AC5D4 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -727,7 +727,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		DC84522B1ADBF5CC006AC5D4 /* Build configuration list for PBXNativeTarget "Dobby-Mac" */ = {
+		DC84522B1ADBF5CC006AC5D4 /* Build configuration list for PBXNativeTarget "Dobby-macOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				DC84522C1ADBF5CC006AC5D4 /* Debug */,
@@ -736,7 +736,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		DC84522E1ADBF5CC006AC5D4 /* Build configuration list for PBXNativeTarget "Dobby-MacTests" */ = {
+		DC84522E1ADBF5CC006AC5D4 /* Build configuration list for PBXNativeTarget "Dobby-macOSTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				DC84522F1ADBF5CC006AC5D4 /* Debug */,
