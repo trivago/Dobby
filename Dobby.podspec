@@ -11,7 +11,7 @@ Pod::Spec.new do |spec|
   }
   spec.homepage = 'https://github.com/trivago/Dobby'
   spec.source = {
-    :git => 'https://github.com/rheinfabrik/Dobby.git',
+    :git => 'https://github.com/trivago/Dobby.git',
     :tag => spec.version.to_s
   }
   spec.summary = 'Swift helpers for mocking and stubbing'
