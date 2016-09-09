@@ -416,7 +416,7 @@
 			attributes = {
 				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0800;
-				ORGANIZATIONNAME = "B264 GmbH";
+				ORGANIZATIONNAME = "trivago GmbH";
 				TargetAttributes = {
 					DC7F6AF71AD8291800CCBF6D = {
 						CreatedOnToolsVersion = 6.3;
