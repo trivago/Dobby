@@ -9,7 +9,7 @@ Pod::Spec.new do |spec|
     :type => 'Apache License, Version 2.0',
     :file => 'LICENSE'
   }
-  spec.homepage = 'https://github.com/rheinfabrik/Dobby'
+  spec.homepage = 'https://github.com/trivago/Dobby'
   spec.source = {
     :git => 'https://github.com/rheinfabrik/Dobby.git',
     :tag => spec.version.to_s
