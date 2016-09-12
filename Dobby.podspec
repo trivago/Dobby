@@ -1,6 +1,6 @@
 Pod::Spec.new do |spec|
   spec.name = 'Dobby'
-  spec.version = '0.5.0'
+  spec.version = '0.6.0'
   spec.authors = {
     'Rheinfabrik' => 'hi@rheinfabrik.de'
   }
