@@ -88,34 +88,29 @@ public final class Mock<Interaction> {
         }
     }
 
-    /// Verifies that all set up expectations have been fulfilled.
-    public func verify(file: StaticString = #file, line: UInt = #line) {
-        verify(file: file, line: line, fail: XCTFail)
+    /// Verifies that all set up expectations are fulfilled within the given
+    /// delay, if any (none by default).
+    public func verify(delay: TimeInterval = 0, file: StaticString = #file, line: UInt = #line) {
+        verify(delay: delay, file: file, line: line, fail: XCTFail)
     }
 
-    internal func verify(file: StaticString = #file, line: UInt = #line, fail: (String, StaticString, UInt) -> ()) {
+    internal func verify(delay: TimeInterval = 0, file: StaticString = #file, line: UInt = #line, fail: (String, StaticString, UInt) -> ()) {
+        var rest = delay
+        var step = 0.01
+
+        while rest > 0 && expectations.count > 0 {
+            let limitDate = Date(timeIntervalSinceNow: step)
+
+            let currentLoop: RunLoop = .current
+            currentLoop.run(until: limitDate)
+
+            rest -= step; step *= 2
+        }
+
         for expectation in expectations {
             if expectation.negative == false {
                 fail("Expectation <\(expectation)> not fulfilled", file, line)
             }
         }
-    }
-
-    /// Verifies that all set up expectations are fulfilled within the given
-    /// delay.
-    public func verifyWithDelay(_ delay: TimeInterval = 1.0, file: StaticString = #file, line: UInt = #line) {
-        verifyWithDelay(delay, file: file, line: line, fail: XCTFail)
-    }
-
-    internal func verifyWithDelay(_ delay: TimeInterval, file: StaticString = #file, line: UInt = #line, fail: (String, StaticString, UInt) -> ()) {
-        var rest = delay
-        var step = 0.01
-
-        while rest > 0 && expectations.count > 0 {
-            RunLoop.current.run(until: Date(timeIntervalSinceNow: step))
-            rest -= step; step *= 2
-        }
-
-        verify(file: file, line: line, fail: fail)
     }
 }
