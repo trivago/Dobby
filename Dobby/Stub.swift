@@ -38,6 +38,7 @@ public final class Stub<Interaction, ReturnValue> {
     /// an interaction.
     ///
     /// Returns a disposable that, when disposed, removes this behavior.
+    @discardableResult
     public func on<M: MatcherConvertible>(_ matcher: M, invoke handler: @escaping (Interaction) -> ReturnValue) -> Disposable where M.ValueType == Interaction {
         currentIdentifier += 1
 
@@ -62,6 +63,7 @@ public final class Stub<Interaction, ReturnValue> {
     /// Returns a disposable that, when disposed, removes this behavior.
     ///
     /// - SeeAlso: `Stub.on<M>(matcher: M, invoke: Interaction -> ReturnValue) -> Disposable`
+    @discardableResult
     public func on<M: MatcherConvertible>(_ matcher: M, return value: ReturnValue) -> Disposable where M.ValueType == Interaction {
         return on(matcher) { _ in value }
     }
@@ -74,6 +76,7 @@ public final class Stub<Interaction, ReturnValue> {
     ///
     /// - Throws: `StubError.UnexpectedInteraction(Interaction)` if the given
     ///     interaction is unexpected.
+    @discardableResult
     public func invoke(_ interaction: Interaction) throws -> ReturnValue {
         for (_, behavior) in behaviors {
             if behavior.matcher.matches(interaction) {
