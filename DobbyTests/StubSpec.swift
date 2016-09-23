@@ -34,7 +34,7 @@ class StubSpec: QuickSpec {
             it("throws an exception if an interaction is unexpected") {
                 do {
                     try stub.invoke((5, 6))
-                } catch StubError<(Int, Int), Int>.UnexpectedInteraction(let interaction) {
+                } catch StubError<(Int, Int), Int>.unexpectedInteraction(let interaction) {
                     expect(interaction.0).to(equal(5))
                     expect(interaction.1).to(equal(6))
                     return;

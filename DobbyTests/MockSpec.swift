@@ -200,8 +200,8 @@ class MockSpec: QuickSpec {
                 mock.expect(matches((any(), matches { $0 == 2 })))
                 mock.record((0, 1))
 
-                let when = dispatch_time(DISPATCH_TIME_NOW, Int64(0.25 * Double(NSEC_PER_SEC)))
-                dispatch_after(when, dispatch_get_main_queue()) {
+                let mainQueue: DispatchQueue = .main
+                mainQueue.asyncAfter(deadline: .now() + 0.25) {
                     mock.record((0, 2))
                 }
 
