@@ -45,7 +45,8 @@ public final class Mock<Interaction> {
 
     /// Sets up the given matcher as expectation.
     public func expect<M: MatcherConvertible>(_ matcher: M) where M.ValueType == Interaction {
-        expectations.append(Expectation(matcher: matcher, negative: false))
+        let expectation = Expectation(matcher: matcher, negative: false)
+        expectations.append(expectation)
     }
 
     /// Sets up the given matcher as negative expectation.
@@ -53,7 +54,9 @@ public final class Mock<Interaction> {
     /// - Note: Negative expectations are restricted to nice mocks.
     public func reject<M: MatcherConvertible>(_ matcher: M) where M.ValueType == Interaction {
         assert(strict == false, "Setting up a matcher as negative expectation is restricted to nice mocks.")
-        expectations.append(Expectation(matcher: matcher, negative: true))
+
+        let expectation = Expectation(matcher: matcher, negative: true)
+        expectations.append(expectation)
     }
 
     /// Records the given interaction.

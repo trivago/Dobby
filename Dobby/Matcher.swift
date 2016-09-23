@@ -189,7 +189,9 @@ public func matches<A: MatcherConvertible, B: MatcherConvertible, C: MatcherConv
 /// Returns a new matcher that matches the given array of matchers.
 public func matches<Element: MatcherConvertible>(_ values: [Element]) -> Matcher<[Element.ValueType]> {
     return Matcher(description: "\(values)") { actualValues in
-        guard values.count == actualValues.count else { return false }
+        guard values.count == actualValues.count else {
+            return false
+        }
 
         for (element, actualElement) in zip(values, actualValues) {
             if element.matcher().matches(actualElement) == false {
@@ -204,10 +206,14 @@ public func matches<Element: MatcherConvertible>(_ values: [Element]) -> Matcher
 /// Returns a new matcher that matches the given dictionary of matchers.
 public func matches<Key: Hashable, Value: MatcherConvertible>(_ values: [Key: Value]) -> Matcher<[Key: Value.ValueType]> {
     return Matcher(description: "\(values)") { actualValues in
-        guard values.count == actualValues.count else { return false }
+        guard values.count == actualValues.count else {
+            return false
+        }
 
         for (key, value) in values {
-            guard let actualValue = actualValues[key] else { return false }
+            guard let actualValue = actualValues[key] else {
+                return false
+            }
 
             if value.matcher().matches(actualValue) == false {
                 return false
