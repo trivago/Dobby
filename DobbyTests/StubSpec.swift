@@ -13,14 +13,14 @@ class StubSpec: QuickSpec {
 
         describe("Invocation") {
             it("returns the correct value") {
-                stub.on(matches((4, 3)), returnValue: 9)
+                stub.on(matches((4, 3)), return: 9)
                 stub.on(matches((any(), any()))) { $0.0 + $0.1 }
                 expect(try! stub.invoke((4, 3))).to(equal(9))
                 expect(try! stub.invoke((4, 4))).to(equal(8))
             }
 
             it("returns the correct value after disposal") {
-                let disposable1 = stub.on(matches((4, 3)), returnValue: 9)
+                let disposable1 = stub.on(matches((4, 3)), return: 9)
                 let disposable2 = stub.on(matches((any(), any()))) { $0.0 + $0.1 }
 
                 disposable1.dispose()

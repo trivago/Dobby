@@ -62,8 +62,8 @@ public final class Stub<Interaction, ReturnValue> {
     /// Returns a disposable that, when disposed, removes this behavior.
     ///
     /// - SeeAlso: `Stub.on<M>(matcher: M, invoke: Interaction -> ReturnValue) -> Disposable`
-    public func on<M: MatcherConvertible>(_ matcher: M, returnValue: ReturnValue) -> Disposable where M.ValueType == Interaction {
-        return on(matcher) { _ in returnValue }
+    public func on<M: MatcherConvertible>(_ matcher: M, return value: ReturnValue) -> Disposable where M.ValueType == Interaction {
+        return on(matcher) { _ in value }
     }
 
     /// Invokes this stub, returning a value based on the set up behavior, or,
