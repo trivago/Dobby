@@ -74,7 +74,7 @@ public final class Stub<Interaction, ReturnValue> {
     /// Behavior is matched in order, i.e., the function associated with the
     /// first matcher that matches the given interaction is invoked.
     ///
-    /// - Throws: `StubError.UnexpectedInteraction(Interaction)` if the given
+    /// - Throws: `StubError.unexpectedInteraction(Interaction)` if the given
     ///     interaction is unexpected.
     @discardableResult
     public func invoke(_ interaction: Interaction) throws -> ReturnValue {
