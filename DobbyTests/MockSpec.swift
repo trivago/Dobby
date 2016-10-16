@@ -200,12 +200,12 @@ class MockSpec: QuickSpec {
                 mock.expect(matches((any(), matches { $0 == 2 })))
                 mock.record((0, 1))
 
-                let when = dispatch_time(DISPATCH_TIME_NOW, Int64(0.25 * Double(NSEC_PER_SEC)))
-                dispatch_after(when, dispatch_get_main_queue()) {
+                let mainQueue: DispatchQueue = .main
+                mainQueue.asyncAfter(deadline: .now() + 0.25) {
                     mock.record((0, 2))
                 }
 
-                mock.verifyWithDelay(0.5)
+                mock.verify(delay: 0.5)
             }
 
             it("fails if any expectation is not fulfilled within the given delay") {
@@ -214,7 +214,7 @@ class MockSpec: QuickSpec {
                 mock.expect(matches((any(), 1)))
                 mock.expect(matches((any(), equals(2))))
                 mock.record((0, 1))
-                mock.verifyWithDelay(0.25) { message, _, _ in
+                mock.verify(delay: 0.25) { message, _, _ in
                     failureMessage = message
                 }
 

@@ -3,11 +3,11 @@ public struct Matcher<Value>: CustomStringConvertible {
     public let description: String
 
     /// The matching function of this matcher.
-    public let matches: Value -> Bool
+    public let matches: (Value) -> Bool
 
     /// Initializes a new matcher with the given description and matching
     /// function.
-    public init(description: String = "<func>", matches: Value -> Bool) {
+    public init(description: String = "<func>", matches: @escaping (Value) -> Bool) {
         self.description = description
         self.matches = matches
     }
@@ -16,7 +16,7 @@ public struct Matcher<Value>: CustomStringConvertible {
 /// Returns a new matcher with the given matching function.
 ///
 /// - SeeAlso: `Matcher.init<Value>(description: String, matches: Value -> Bool)`
-public func matches<Value>(matches: Value -> Bool) -> Matcher<Value> {
+public func matches<Value>(_ matches: @escaping (Value) -> Bool) -> Matcher<Value> {
     return Matcher(matches: matches)
 }
 
@@ -34,7 +34,7 @@ public func any<Value>() -> Matcher<Value> {
 
 /// Returns a new matcher that matches anything but whatever the given matcher
 /// does match.
-public func not<M: MatcherConvertible>(matcher: M) -> Matcher<M.ValueType> {
+public func not<M: MatcherConvertible>(_ matcher: M) -> Matcher<M.ValueType> {
     let actualMatcher = matcher.matcher()
 
     return Matcher(description: "not(\(actualMatcher))") { actualValue in
@@ -51,7 +51,7 @@ public func none<Value>() -> Matcher<Value?> {
 
 /// Returns a new matcher that matches something (in the sense of whatever
 /// the given matcher does match).
-public func some<M: MatcherConvertible>(matcher: M) -> Matcher<M.ValueType?> {
+public func some<M: MatcherConvertible>(_ matcher: M) -> Matcher<M.ValueType?> {
     let actualMatcher = matcher.matcher()
 
     return Matcher(description: actualMatcher.description) { actualValue in
@@ -73,12 +73,12 @@ public extension Matcher where Value: Equatable {
 }
 
 /// Returns a new matcher that matches the given value.
-public func equals<Value: Equatable>(value: Value) -> Matcher<Value> {
+public func equals<Value: Equatable>(_ value: Value) -> Matcher<Value> {
     return Matcher(value: value)
 }
 
 /// Returns a new matcher that matches the given 2-tuple.
-public func equals<A: Equatable, B: Equatable>(values: (A, B)) -> Matcher<(A, B)> {
+public func equals<A: Equatable, B: Equatable>(_ values: (A, B)) -> Matcher<(A, B)> {
     return Matcher(description: "\(values)") { actualValues in
         return values.0 == actualValues.0
             && values.1 == actualValues.1
@@ -86,7 +86,7 @@ public func equals<A: Equatable, B: Equatable>(values: (A, B)) -> Matcher<(A, B)
 }
 
 /// Returns a new matcher that matches the given 3-tuple.
-public func equals<A: Equatable, B: Equatable, C: Equatable>(values: (A, B, C)) -> Matcher<(A, B, C)> {
+public func equals<A: Equatable, B: Equatable, C: Equatable>(_ values: (A, B, C)) -> Matcher<(A, B, C)> {
     return Matcher(description: "\(values)") { actualValues in
         return values.0 == actualValues.0
             && values.1 == actualValues.1
@@ -95,7 +95,7 @@ public func equals<A: Equatable, B: Equatable, C: Equatable>(values: (A, B, C)) 
 }
 
 /// Returns a new matcher that matches the given 4-tuple.
-public func equals<A: Equatable, B: Equatable, C: Equatable, D: Equatable>(values: (A, B, C, D)) -> Matcher<(A, B, C, D)> {
+public func equals<A: Equatable, B: Equatable, C: Equatable, D: Equatable>(_ values: (A, B, C, D)) -> Matcher<(A, B, C, D)> {
     return Matcher(description: "\(values)") { actualValues in
         // Expression was too complex to be solved in reasonable time; [...]
         let equals = values.0 == actualValues.0
@@ -107,7 +107,7 @@ public func equals<A: Equatable, B: Equatable, C: Equatable, D: Equatable>(value
 }
 
 /// Returns a new matcher that matches the given 5-tuple.
-public func equals<A: Equatable, B: Equatable, C: Equatable, D: Equatable, E: Equatable>(values: (A, B, C, D, E)) -> Matcher<(A, B, C, D, E)> {
+public func equals<A: Equatable, B: Equatable, C: Equatable, D: Equatable, E: Equatable>(_ values: (A, B, C, D, E)) -> Matcher<(A, B, C, D, E)> {
     return Matcher(description: "\(values)") { actualValues in
         // Expression was too complex to be solved in reasonable time; [...]
         let equals = values.0 == actualValues.0
@@ -120,14 +120,14 @@ public func equals<A: Equatable, B: Equatable, C: Equatable, D: Equatable, E: Eq
 }
 
 /// Returns a new matcher that matches the given array.
-public func equals<Element: Equatable>(value: [Element]) -> Matcher<[Element]> {
+public func equals<Element: Equatable>(_ value: [Element]) -> Matcher<[Element]> {
     return Matcher(description: "\(value)") { actualValue in
         return value == actualValue
     }
 }
 
 /// Returns a new matcher that matches the given dictionary.
-public func equals<Key: Equatable, Value: Equatable>(value: [Key: Value]) -> Matcher<[Key: Value]> {
+public func equals<Key: Equatable, Value: Equatable>(_ value: [Key: Value]) -> Matcher<[Key: Value]> {
     return Matcher(description: "\(value)") { actualValue in
         return value == actualValue
     }
@@ -149,7 +149,7 @@ extension Matcher: MatcherConvertible {
 }
 
 /// Returns a new matcher that matches the given 2-tuple of matchers.
-public func matches<A: MatcherConvertible, B: MatcherConvertible>(values: (A, B)) -> Matcher<(A.ValueType, B.ValueType)> {
+public func matches<A: MatcherConvertible, B: MatcherConvertible>(_ values: (A, B)) -> Matcher<(A.ValueType, B.ValueType)> {
     return Matcher(description: "\(values)") { actualValues in
         return values.0.matcher().matches(actualValues.0)
             && values.1.matcher().matches(actualValues.1)
@@ -157,7 +157,7 @@ public func matches<A: MatcherConvertible, B: MatcherConvertible>(values: (A, B)
 }
 
 /// Returns a new matcher that matches the given 3-tuple of matchers.
-public func matches<A: MatcherConvertible, B: MatcherConvertible, C: MatcherConvertible>(values: (A, B, C)) -> Matcher<(A.ValueType, B.ValueType, C.ValueType)> {
+public func matches<A: MatcherConvertible, B: MatcherConvertible, C: MatcherConvertible>(_ values: (A, B, C)) -> Matcher<(A.ValueType, B.ValueType, C.ValueType)> {
     return Matcher(description: "\(values)") { actualValues in
         return values.0.matcher().matches(actualValues.0)
             && values.1.matcher().matches(actualValues.1)
@@ -166,7 +166,7 @@ public func matches<A: MatcherConvertible, B: MatcherConvertible, C: MatcherConv
 }
 
 /// Returns a new matcher that matches the given 4-tuple of matchers.
-public func matches<A: MatcherConvertible, B: MatcherConvertible, C: MatcherConvertible, D: MatcherConvertible>(values: (A, B, C, D)) -> Matcher<(A.ValueType, B.ValueType, C.ValueType, D.ValueType)> {
+public func matches<A: MatcherConvertible, B: MatcherConvertible, C: MatcherConvertible, D: MatcherConvertible>(_ values: (A, B, C, D)) -> Matcher<(A.ValueType, B.ValueType, C.ValueType, D.ValueType)> {
     return Matcher(description: "\(values)") { actualValues in
         return values.0.matcher().matches(actualValues.0)
             && values.1.matcher().matches(actualValues.1)
@@ -176,7 +176,7 @@ public func matches<A: MatcherConvertible, B: MatcherConvertible, C: MatcherConv
 }
 
 /// Returns a new matcher that matches the given 5-tuple of matchers.
-public func matches<A: MatcherConvertible, B: MatcherConvertible, C: MatcherConvertible, D: MatcherConvertible, E: MatcherConvertible>(values: (A, B, C, D, E)) -> Matcher<(A.ValueType, B.ValueType, C.ValueType, D.ValueType, E.ValueType)> {
+public func matches<A: MatcherConvertible, B: MatcherConvertible, C: MatcherConvertible, D: MatcherConvertible, E: MatcherConvertible>(_ values: (A, B, C, D, E)) -> Matcher<(A.ValueType, B.ValueType, C.ValueType, D.ValueType, E.ValueType)> {
     return Matcher(description: "\(values)") { actualValues in
         return values.0.matcher().matches(actualValues.0)
             && values.1.matcher().matches(actualValues.1)
@@ -187,9 +187,11 @@ public func matches<A: MatcherConvertible, B: MatcherConvertible, C: MatcherConv
 }
 
 /// Returns a new matcher that matches the given array of matchers.
-public func matches<Element: MatcherConvertible>(values: [Element]) -> Matcher<[Element.ValueType]> {
+public func matches<Element: MatcherConvertible>(_ values: [Element]) -> Matcher<[Element.ValueType]> {
     return Matcher(description: "\(values)") { actualValues in
-        guard values.count == actualValues.count else { return false }
+        guard values.count == actualValues.count else {
+            return false
+        }
 
         for (element, actualElement) in zip(values, actualValues) {
             if element.matcher().matches(actualElement) == false {
@@ -202,12 +204,16 @@ public func matches<Element: MatcherConvertible>(values: [Element]) -> Matcher<[
 }
 
 /// Returns a new matcher that matches the given dictionary of matchers.
-public func matches<Key: Hashable, Value: MatcherConvertible>(values: [Key: Value]) -> Matcher<[Key: Value.ValueType]> {
+public func matches<Key: Hashable, Value: MatcherConvertible>(_ values: [Key: Value]) -> Matcher<[Key: Value.ValueType]> {
     return Matcher(description: "\(values)") { actualValues in
-        guard values.count == actualValues.count else { return false }
+        guard values.count == actualValues.count else {
+            return false
+        }
 
         for (key, value) in values {
-            guard let actualValue = actualValues[key] else { return false }
+            guard let actualValue = actualValues[key] else {
+                return false
+            }
 
             if value.matcher().matches(actualValue) == false {
                 return false

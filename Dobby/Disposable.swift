@@ -9,7 +9,7 @@ public final class Disposable {
     }
 
     /// Initializes a new disposable with the given action.
-    public init(action: () -> ()) {
+    public init(action: @escaping () -> ()) {
         self.action = action
     }
 

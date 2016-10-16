@@ -109,7 +109,7 @@ dispatch_after(when, dispatch_get_main_queue()) {
     mock.record(1) // succeeds
 }
 
-mock.verifyWithDelay(2.0) // succeeds
+mock.verify(delay: 2.0) // succeeds
 ```
 
 ## Stubs
@@ -118,7 +118,7 @@ Stubs, when invoked, return a value based on their set up behavior, or, if an in
 
 ```swift
 let stub = Stub<(Int, Int), Int>()
-let behavior = stub.on(equals((2, 3)), returnValue: 4)
+let behavior = stub.on(equals((2, 3)), return: 4)
 stub.on(matches((any(), any()))) { x, y in x * y }
 try! stub.invoke((2, 3)) // returns 4
 try! stub.invoke((3, 3)) // returns 9

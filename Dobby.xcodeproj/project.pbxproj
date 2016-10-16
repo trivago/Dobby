@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		DC18FB9C1BF0948900768632 /* Dobby.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = DC7F6AF81AD8291800CCBF6D /* Dobby.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		DC18FB9C1BF0948900768632 /* Dobby.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = DC7F6AF81AD8291800CCBF6D /* Dobby.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		DC3CFE781ADE895E004728C2 /* SwiftExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3CFE771ADE895E004728C2 /* SwiftExtensions.swift */; };
 		DC3CFE791ADE895E004728C2 /* SwiftExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3CFE771ADE895E004728C2 /* SwiftExtensions.swift */; };
 		DC457AD91B5552CA00919032 /* Matcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC457AD81B5552CA00919032 /* Matcher.swift */; };
@@ -30,8 +30,8 @@
 		DCDDA9321BED655500BB5228 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCDDA9311BED655500BB5228 /* Quick.framework */; };
 		DCDDA9351BED657C00BB5228 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCDDA92F1BED650100BB5228 /* Nimble.framework */; };
 		DCDDA9361BED657C00BB5228 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCDDA9311BED655500BB5228 /* Quick.framework */; };
-		DCDDA9371BED658600BB5228 /* Nimble.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = DCDDA92F1BED650100BB5228 /* Nimble.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		DCDDA9381BED658600BB5228 /* Quick.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = DCDDA9311BED655500BB5228 /* Quick.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		DCDDA9371BED658600BB5228 /* Nimble.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = DCDDA92F1BED650100BB5228 /* Nimble.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		DCDDA9381BED658600BB5228 /* Quick.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = DCDDA9311BED655500BB5228 /* Quick.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		DCE4080E1B6161000009E0B4 /* MatcherSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCE4080D1B6161000009E0B4 /* MatcherSpec.swift */; };
 		DCE4080F1B6161000009E0B4 /* MatcherSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCE4080D1B6161000009E0B4 /* MatcherSpec.swift */; };
 /* End PBXBuildFile section */
@@ -415,7 +415,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0700;
-				LastUpgradeCheck = 0700;
+				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = "B264 GmbH";
 				TargetAttributes = {
 					DC7F6AF71AD8291800CCBF6D = {
@@ -583,8 +583,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = DCDDA8FA1BED4A7600BB5228 /* iOS-Framework.xcconfig */;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphonesimulator*]" = "";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -593,7 +591,7 @@
 				);
 				INFOPLIST_FILE = Dobby/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				SWIFT_VERSION = 2.3;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -601,8 +599,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = DCDDA8FA1BED4A7600BB5228 /* iOS-Framework.xcconfig */;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphonesimulator*]" = "";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -611,7 +607,7 @@
 				);
 				INFOPLIST_FILE = Dobby/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				SWIFT_VERSION = 2.3;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -626,7 +622,7 @@
 				INFOPLIST_FILE = DobbyTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(PROJECT_NAME)Tests";
-				SWIFT_VERSION = 2.3;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -641,7 +637,7 @@
 				INFOPLIST_FILE = DobbyTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(PROJECT_NAME)Tests";
-				SWIFT_VERSION = 2.3;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -658,7 +654,7 @@
 				FRAMEWORK_VERSION = A;
 				INFOPLIST_FILE = Dobby/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
-				SWIFT_VERSION = 2.3;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -675,7 +671,7 @@
 				FRAMEWORK_VERSION = A;
 				INFOPLIST_FILE = Dobby/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
-				SWIFT_VERSION = 2.3;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -690,7 +686,7 @@
 				INFOPLIST_FILE = DobbyTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_NAME = "$(PROJECT_NAME)Tests";
-				SWIFT_VERSION = 2.3;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -705,7 +701,7 @@
 				INFOPLIST_FILE = DobbyTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_NAME = "$(PROJECT_NAME)Tests";
-				SWIFT_VERSION = 2.3;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
