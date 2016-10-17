@@ -2,16 +2,16 @@ Pod::Spec.new do |spec|
   spec.name = 'Dobby'
   spec.version = '0.6.0'
   spec.authors = {
-    'Rheinfabrik' => 'hi@rheinfabrik.de'
+    'trivago' => 'opensource@trivago.com'
   }
-  spec.social_media_url = 'https://twitter.com/rheinfabrik'
+  spec.social_media_url = 'https://twitter.com/trivago_tech'
   spec.license = {
     :type => 'Apache License, Version 2.0',
     :file => 'LICENSE'
   }
-  spec.homepage = 'https://github.com/rheinfabrik/Dobby'
+  spec.homepage = 'https://github.com/trivago/Dobby'
   spec.source = {
-    :git => 'https://github.com/rheinfabrik/Dobby.git',
+    :git => 'https://github.com/trivago/Dobby.git',
     :tag => spec.version.to_s
   }
   spec.summary = 'Swift helpers for mocking and stubbing'
