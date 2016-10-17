@@ -104,12 +104,12 @@ Verification may also be performed with a delay, allowing expectations to be ful
 let mock = Mock<Int>()
 mock.expect(1)
 
-let when = dispatch_time(DISPATCH_TIME_NOW, Int64(1.0 * Double(NSEC_PER_SEC)))
-dispatch_after(when, dispatch_get_main_queue()) {
+let mainQueue: DispatchQueue = .main
+mainQueue.asyncAfter(deadline: .now() + 1) {
     mock.record(1) // succeeds
 }
 
-mock.verify(delay: 2.0) // succeeds
+mock.verify(delay: 2) // succeeds
 ```
 
 ## Stubs
