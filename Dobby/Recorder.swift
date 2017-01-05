@@ -1,8 +1,23 @@
 /// A timestamp in a logical clock.
 public typealias Timestamp = UInt64
 
-/// The current timestamp of the global clock.
-internal var currentTimestamp: Timestamp = 0
+private var timestamp: Timestamp = 0
+private let timestampQueue = DispatchQueue(label: "com.trivago.dobby-timestampQueue", attributes: .concurrent)
+
+/// Returns the current timestamp of the global clock.
+public var currentTimestamp: Timestamp {
+    return timestampQueue.sync(execute: {
+        return timestamp
+    })
+}
+
+/// Advances the current timestamp of the global clock and returns it.
+public func nextTimestamp() -> Timestamp {
+    return timestampQueue.sync(flags: .barrier, execute: {
+        timestamp += 1
+        return timestamp
+    })
+}
 
 /// A type that provides chronological access to recorded timestamps.
 public protocol TimestampRecording: class {
@@ -53,7 +68,14 @@ public extension InteractionRecording {
 
 /// A recorder for interactions of the specified value type.
 public final class Recorder<Value>: InteractionRecording {
-    public private(set) var interactions: [Interaction<Value>] = []
+    private var _interactions: [Interaction<Value>] = []
+    private let _interactionsQueue = DispatchQueue(label: "com.trivago.dobby.recorder-interactionsQueue", attributes: .concurrent)
+
+    public var interactions: [Interaction<Value>] {
+        return _interactionsQueue.sync(execute: {
+            return _interactions
+        })
+    }
 
     /// Creates a new recorder.
     public init() {
@@ -63,10 +85,9 @@ public final class Recorder<Value>: InteractionRecording {
     /// Records an interaction with the given value at the current timestamp of
     /// the global clock.
     public func record(_ value: Value, file: StaticString = #file, line: UInt = #line) {
-        let interaction = Interaction(value: value, timestamp: currentTimestamp, file: file, line: line)
-        interactions.append(interaction)
-
-        // Advance the global clock.
-        currentTimestamp += 1
+        _interactionsQueue.sync(flags: .barrier, execute: {
+            let interaction = Interaction(value: value, timestamp: nextTimestamp(), file: file, line: line)
+            _interactions.append(interaction)
+        })
     }
 }
