@@ -18,10 +18,19 @@ public struct Interaction<Value> {
     /// The value of the interaction.
     public let value: Value
 
+    /// The file in which the interaction occurred.
+    public let file: StaticString
+
+    /// The line at which the interaction occurred.
+    public let line: UInt
+
     /// Creates a new interaction with the given value at the specified time.
-    public init(value: Value, at timestamp: Timestamp) {
+    public init(value: Value, timestamp: Timestamp, file: StaticString, line: UInt) {
         self.timestamp = timestamp
         self.value = value
+
+        self.file = file
+        self.line = line
     }
 }
 
@@ -53,8 +62,8 @@ public final class Recorder<Value>: InteractionRecording {
 
     /// Records an interaction with the given value at the current timestamp of
     /// the global clock.
-    public func record(_ value: Value) {
-        let interaction = Interaction(value: value, at: currentTimestamp)
+    public func record(_ value: Value, file: StaticString = #file, line: UInt = #line) {
+        let interaction = Interaction(value: value, timestamp: currentTimestamp, file: file, line: line)
         interactions.append(interaction)
 
         // Advance the global clock.
