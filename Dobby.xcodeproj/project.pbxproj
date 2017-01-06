@@ -16,6 +16,10 @@
 		DC4D88391E1CECE100FAE93F /* Recorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC4D88371E1CECE100FAE93F /* Recorder.swift */; };
 		DC4D883B1E1CF8D700FAE93F /* RecorderSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC4D883A1E1CF8D700FAE93F /* RecorderSpec.swift */; };
 		DC4D883C1E1CF8D700FAE93F /* RecorderSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC4D883A1E1CF8D700FAE93F /* RecorderSpec.swift */; };
+		DC4D883E1E1CFCAE00FAE93F /* Behavior.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC4D883D1E1CFCAE00FAE93F /* Behavior.swift */; };
+		DC4D883F1E1CFCAE00FAE93F /* Behavior.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC4D883D1E1CFCAE00FAE93F /* Behavior.swift */; };
+		DC4D88441E1F9A5500FAE93F /* BehaviorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC4D88431E1F9A5500FAE93F /* BehaviorSpec.swift */; };
+		DC4D88451E1F9A5500FAE93F /* BehaviorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC4D88431E1F9A5500FAE93F /* BehaviorSpec.swift */; };
 		DC7F6AFE1AD8291800CCBF6D /* Dobby.h in Headers */ = {isa = PBXBuildFile; fileRef = DC7F6AFD1AD8291800CCBF6D /* Dobby.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DC7F6B041AD8291800CCBF6D /* Dobby.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC7F6AF81AD8291800CCBF6D /* Dobby.framework */; };
 		DC7F6B1E1AD82B8C00CCBF6D /* Stub.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7F6B1D1AD82B8C00CCBF6D /* Stub.swift */; };
@@ -78,6 +82,8 @@
 		DC457AD81B5552CA00919032 /* Matcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Matcher.swift; sourceTree = "<group>"; };
 		DC4D88371E1CECE100FAE93F /* Recorder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Recorder.swift; sourceTree = "<group>"; };
 		DC4D883A1E1CF8D700FAE93F /* RecorderSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecorderSpec.swift; sourceTree = "<group>"; };
+		DC4D883D1E1CFCAE00FAE93F /* Behavior.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Behavior.swift; sourceTree = "<group>"; };
+		DC4D88431E1F9A5500FAE93F /* BehaviorSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BehaviorSpec.swift; sourceTree = "<group>"; };
 		DC7F6AF81AD8291800CCBF6D /* Dobby.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Dobby.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC7F6AFC1AD8291800CCBF6D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DC7F6AFD1AD8291800CCBF6D /* Dobby.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Dobby.h; sourceTree = "<group>"; };
@@ -190,6 +196,7 @@
 		DC7F6AFA1AD8291800CCBF6D /* Dobby */ = {
 			isa = PBXGroup;
 			children = (
+				DC4D883D1E1CFCAE00FAE93F /* Behavior.swift */,
 				DC83356B1B56661900569709 /* Disposable.swift */,
 				DC7F6AFD1AD8291800CCBF6D /* Dobby.h */,
 				DC457AD81B5552CA00919032 /* Matcher.swift */,
@@ -213,6 +220,7 @@
 		DC7F6B071AD8291800CCBF6D /* DobbyTests */ = {
 			isa = PBXGroup;
 			children = (
+				DC4D88431E1F9A5500FAE93F /* BehaviorSpec.swift */,
 				DCE4080D1B6161000009E0B4 /* MatcherSpec.swift */,
 				DC7F6B241AD830A500CCBF6D /* MockSpec.swift */,
 				DC4D883A1E1CF8D700FAE93F /* RecorderSpec.swift */,
@@ -506,6 +514,7 @@
 				DC7F6B1E1AD82B8C00CCBF6D /* Stub.swift in Sources */,
 				DC7F6B201AD82D3800CCBF6D /* Mock.swift in Sources */,
 				DC4D88391E1CECE100FAE93F /* Recorder.swift in Sources */,
+				DC4D883F1E1CFCAE00FAE93F /* Behavior.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -516,6 +525,7 @@
 				DCE4080E1B6161000009E0B4 /* MatcherSpec.swift in Sources */,
 				DC7F6B251AD830A500CCBF6D /* MockSpec.swift in Sources */,
 				DC4D883C1E1CF8D700FAE93F /* RecorderSpec.swift in Sources */,
+				DC4D88451E1F9A5500FAE93F /* BehaviorSpec.swift in Sources */,
 				DC7F6B271AD830B500CCBF6D /* StubSpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -530,6 +540,7 @@
 				DC8452401ADBF73C006AC5D4 /* Stub.swift in Sources */,
 				DC84523F1ADBF73C006AC5D4 /* Mock.swift in Sources */,
 				DC4D88381E1CECE100FAE93F /* Recorder.swift in Sources */,
+				DC4D883E1E1CFCAE00FAE93F /* Behavior.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -540,6 +551,7 @@
 				DCE4080F1B6161000009E0B4 /* MatcherSpec.swift in Sources */,
 				DC8452421ADBF743006AC5D4 /* MockSpec.swift in Sources */,
 				DC4D883B1E1CF8D700FAE93F /* RecorderSpec.swift in Sources */,
+				DC4D88441E1F9A5500FAE93F /* BehaviorSpec.swift in Sources */,
 				DC8452431ADBF743006AC5D4 /* StubSpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
