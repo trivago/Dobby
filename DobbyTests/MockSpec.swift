@@ -159,6 +159,15 @@ class MockSpec: QuickSpec {
 
                     expect(failureMessage).to(equal("Expectation <(_, 2)> not fulfilled"))
                 }
+
+                context("when an expectation is negative and it does not match") {
+                    it("continues matching against the remaining expectations") {
+                        mock.reject(matches((1, 2)))
+                        mock.expect(matches((3, 4)))
+                        mock.record((3, 4))
+                        mock.verify()
+                    }
+                }
             }
 
             context("when the mock is nice and the order of expectations does not matter") {
