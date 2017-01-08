@@ -79,7 +79,9 @@ public final class Mock<Interaction> {
                     fail("Interaction <\(interaction)> does not match expectation <\(expectation)>", file, line)
                 }
 
-                return
+                if expectation.negative == false {
+                    return
+                }
             }
         }
 
