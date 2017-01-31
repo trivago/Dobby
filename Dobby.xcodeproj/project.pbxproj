@@ -583,6 +583,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = DCDDA8FA1BED4A7600BB5228 /* iOS-Framework.xcconfig */;
 			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = NO;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -599,6 +600,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = DCDDA8FA1BED4A7600BB5228 /* iOS-Framework.xcconfig */;
 			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = NO;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -645,6 +647,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = DCDDA9001BED4A7600BB5228 /* Mac-Framework.xcconfig */;
 			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = NO;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -662,6 +665,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = DCDDA9001BED4A7600BB5228 /* Mac-Framework.xcconfig */;
 			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = NO;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				FRAMEWORK_SEARCH_PATHS = (
