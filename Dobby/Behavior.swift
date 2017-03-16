@@ -13,29 +13,29 @@ fileprivate struct Reaction<Value, ReturnValue> {
     }
 }
 
-/// A stub error.
-public enum StubError<Value, ReturnValue>: Error {
+/// A behavior error.
+public enum BehaviorError<Value, ReturnValue>: Error {
     /// An interaction with the associated value was unexpected.
     case unexpectedInteraction(Value)
 }
 
-/// A stub that, when invoked, returns a value based on the set up reactions,
-/// or, if an interaction is unexpected, throws an error.
-public final class Stub<Value, ReturnValue> {
+/// A behavior that, when invoked, returns a value based on the set up
+/// reactions, or, if an interaction is unexpected, throws an error.
+public final class Behavior<Value, ReturnValue> {
     /// The current (next) identifier for reactions.
     private var currentIdentifier: UInt = 0
 
-    /// The reactions of this stub.
+    /// The reactions of this behavior.
     private var reactions: [(identifier: UInt, reaction: Reaction<Value, ReturnValue>)] = []
 
-    /// Creates a new stub.
+    /// Creates a new behavior.
     public init() {
         
     }
 
-    /// Modifies the reactions of this stub, forwarding invocations to the
-    /// given handler and returning its return value if the given matcher
-    /// does match an interaction.
+    /// Modifies the reactions of this behavior, forwarding invocations to the
+    /// given handler and returning its return value if the given matcher does
+    /// match an interaction.
     ///
     /// Returns a disposable that, when disposed, removes this reaction.
     @discardableResult
@@ -57,24 +57,24 @@ public final class Stub<Value, ReturnValue> {
         }
     }
 
-    /// Modifies the reactions of this stub, returning the given value upon
+    /// Modifies the reactions of this behavior, returning the given value upon
     /// invocation if the given matcher does match an interaction.
     ///
     /// Returns a disposable that, when disposed, removes this reaction.
     ///
-    /// - SeeAlso: `Stub.on<Matcher>(matcher: Matcher, invoke: (Value) -> ReturnValue) -> Disposable`
+    /// - SeeAlso: `Behavior.on<Matcher>(matcher: Matcher, invoke: (Value) -> ReturnValue) -> Disposable`
     @discardableResult
     public func on<Matcher: MatcherConvertible>(_ matcher: Matcher, return value: ReturnValue) -> Disposable where Matcher.ValueType == Value {
         return on(matcher) { _ in value }
     }
 
-    /// Invokes this stub, returning a value based on the set up reactions, or,
-    /// if the given interaction is unexpected, throwing an error.
+    /// Invokes this behavior, returning a value based on the set up reactions,
+    /// or, if the given interaction is unexpected, throwing an error.
     ///
     /// Reactions are matched in order, i.e., the handler associated with the
     /// first matcher that matches the given interaction is invoked.
     ///
-    /// - Throws: `StubError.unexpectedInteraction(Value)` if the given
+    /// - Throws: `BehaviorError.unexpectedInteraction(Value)` if the given
     ///     interaction is unexpected.
     @discardableResult
     public func invoke(_ value: Value) throws -> ReturnValue {
@@ -84,6 +84,6 @@ public final class Stub<Value, ReturnValue> {
             }
         }
 
-        throw StubError<Value, ReturnValue>.unexpectedInteraction(value)
+        throw BehaviorError<Value, ReturnValue>.unexpectedInteraction(value)
     }
 }
