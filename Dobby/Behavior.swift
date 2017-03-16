@@ -4,10 +4,10 @@ fileprivate struct Reaction<Value, ReturnValue> {
     fileprivate let matcher: Matcher<Value>
 
     /// The handler of this reaction.
-    fileprivate let handler: (Value) -> ReturnValue
+    fileprivate let handler: (Value) throws -> ReturnValue
 
     /// Initializes a new reaction with the given matcher and handler.
-    fileprivate init<Matcher: MatcherConvertible>(matcher: Matcher, handler: @escaping (Value) -> ReturnValue) where Matcher.ValueType == Value {
+    fileprivate init<Matcher: MatcherConvertible>(matcher: Matcher, handler: @escaping (Value) throws -> ReturnValue) where Matcher.ValueType == Value {
         self.matcher = matcher.matcher()
         self.handler = handler
     }
@@ -42,7 +42,7 @@ public final class Behavior<Value, ReturnValue> {
     ///
     /// Returns a disposable that, when disposed, removes this reaction.
     @discardableResult
-    public func on<Matcher: MatcherConvertible>(_ matcher: Matcher, invoke handler: @escaping (Value) -> ReturnValue) -> Disposable where Matcher.ValueType == Value {
+    public func on<Matcher: MatcherConvertible>(_ matcher: Matcher, invoke handler: @escaping (Value) throws -> ReturnValue) -> Disposable where Matcher.ValueType == Value {
         currentIdentifier += 1
 
         let identifier = currentIdentifier
@@ -85,7 +85,7 @@ public final class Behavior<Value, ReturnValue> {
 
         for (_, reaction) in reactions {
             if reaction.matcher.matches(value) {
-                return reaction.handler(value)
+                return try reaction.handler(value)
             }
         }
 
