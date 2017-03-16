@@ -1,11 +1,11 @@
 import Quick
 import Nimble
 
-@testable import Dobby
+@testable import Dobby; import class Dobby.Pattern
 
-class BehaviorSpec: QuickSpec {
+class PatternSpec: QuickSpec {
     override func spec() {
-        var behavior: Behavior!
+        var pattern: Pattern!
 
         var recorder1: Recorder<Int>!
         var recorder2: Recorder<Int>!
@@ -16,30 +16,30 @@ class BehaviorSpec: QuickSpec {
         }
 
         describe("Verification") {
-            context("when the behavior is strict and the order of expectations does matter") {
+            context("when the pattern is strict and the order of expectations does matter") {
                 beforeEach {
-                    behavior = Behavior(strict: true, ordered: true)
+                    pattern = Pattern(strict: true, ordered: true)
                 }
 
                 it("succeeds if all set up expectations are fulfilled") {
                     recorder1.record(1)
                     recorder2.record(2)
 
-                    behavior.expect(1, in: recorder1)
-                    behavior.expect(2, in: recorder2)
-                    behavior.verify()
+                    pattern.expect(1, in: recorder1)
+                    pattern.expect(2, in: recorder2)
+                    pattern.verify()
                 }
 
                 it("fails if an interaction does not match the current expectation") {
                     recorder1.record(1)
                     recorder2.record(2)
 
-                    behavior.expect(1, in: recorder1)
-                    behavior.expect(3, in: recorder2)
+                    pattern.expect(1, in: recorder1)
+                    pattern.expect(3, in: recorder2)
 
                     var failureMessages: [String] = []
 
-                    behavior.verify(fail: { message, _, _ in
+                    pattern.verify(fail: { message, _, _ in
                         failureMessages.append(message)
                     })
 
@@ -53,11 +53,11 @@ class BehaviorSpec: QuickSpec {
                     recorder1.record(1)
                     recorder1.record(2)
 
-                    behavior.expect(1, in: recorder1)
+                    pattern.expect(1, in: recorder1)
 
                     var failureMessages: [String] = []
 
-                    behavior.verify(fail: { message, _, _ in
+                    pattern.verify(fail: { message, _, _ in
                         failureMessages.append(message)
                     })
 
@@ -69,12 +69,12 @@ class BehaviorSpec: QuickSpec {
                 it("fails if any expectation is not fulfilled") {
                     recorder1.record(1)
 
-                    behavior.expect(1, in: recorder1)
-                    behavior.expect(2, in: recorder2)
+                    pattern.expect(1, in: recorder1)
+                    pattern.expect(2, in: recorder2)
 
                     var failureMessages: [String] = []
 
-                    behavior.verify(fail: { message, _, _ in
+                    pattern.verify(fail: { message, _, _ in
                         failureMessages.append(message)
                     })
 
@@ -84,29 +84,29 @@ class BehaviorSpec: QuickSpec {
                 }
             }
 
-            context("when the behavior is strict and the order of expectations does not matter") {
+            context("when the pattern is strict and the order of expectations does not matter") {
                 beforeEach {
-                    behavior = Behavior(strict: true, ordered: false)
+                    pattern = Pattern(strict: true, ordered: false)
                 }
 
                 it("succeeds if all set up expectations are fulfilled") {
                     recorder2.record(2)
                     recorder1.record(1)
 
-                    behavior.expect(1, in: recorder1)
-                    behavior.expect(2, in: recorder2)
-                    behavior.verify()
+                    pattern.expect(1, in: recorder1)
+                    pattern.expect(2, in: recorder2)
+                    pattern.verify()
                 }
 
                 it("fails if an interaction is not expected") {
                     recorder1.record(2)
                     recorder1.record(1)
 
-                    behavior.expect(1, in: recorder1)
+                    pattern.expect(1, in: recorder1)
 
                     var failureMessages: [String] = []
 
-                    behavior.verify(fail: { message, _, _ in
+                    pattern.verify(fail: { message, _, _ in
                         failureMessages.append(message)
                     })
 
@@ -118,12 +118,12 @@ class BehaviorSpec: QuickSpec {
                 it("fails if any expectation is not fulfilled") {
                     recorder1.record(1)
 
-                    behavior.expect(2, in: recorder2)
-                    behavior.expect(1, in: recorder1)
+                    pattern.expect(2, in: recorder2)
+                    pattern.expect(1, in: recorder1)
 
                     var failureMessages: [String] = []
 
-                    behavior.verify(fail: { message, _, _ in
+                    pattern.verify(fail: { message, _, _ in
                         failureMessages.append(message)
                     })
 
@@ -133,9 +133,9 @@ class BehaviorSpec: QuickSpec {
                 }
             }
 
-            context("when the behavior is nice and the order of expectations does matter") {
+            context("when the pattern is nice and the order of expectations does matter") {
                 beforeEach {
-                    behavior = Behavior(nice: true, ordered: true)
+                    pattern = Pattern(nice: true, ordered: true)
                 }
 
                 it("succeeds if all set up expectations are fulfilled") {
@@ -144,9 +144,9 @@ class BehaviorSpec: QuickSpec {
                     recorder1.record(3)
                     recorder2.record(4)
 
-                    behavior.expect(1, in: recorder1)
-                    behavior.expect(2, in: recorder2)
-                    behavior.verify()
+                    pattern.expect(1, in: recorder1)
+                    pattern.expect(2, in: recorder2)
+                    pattern.verify()
                 }
 
                 it("fails if expectations are not fulfilled in order") {
@@ -154,12 +154,12 @@ class BehaviorSpec: QuickSpec {
                     recorder1.record(2)
                     recorder1.record(1)
 
-                    behavior.expect(1, in: recorder1)
-                    behavior.expect(2, in: recorder1)
+                    pattern.expect(1, in: recorder1)
+                    pattern.expect(2, in: recorder1)
 
                     var failureMessages: [String] = []
 
-                    behavior.verify(fail: { message, _, _ in
+                    pattern.verify(fail: { message, _, _ in
                         failureMessages.append(message)
                     })
 
@@ -171,12 +171,12 @@ class BehaviorSpec: QuickSpec {
                 it("fails if any expectation is not fulfilled") {
                     recorder1.record(1)
 
-                    behavior.expect(1, in: recorder1)
-                    behavior.expect(2, in: recorder2)
+                    pattern.expect(1, in: recorder1)
+                    pattern.expect(2, in: recorder2)
 
                     var failureMessages: [String] = []
 
-                    behavior.verify(fail: { message, _, _ in
+                    pattern.verify(fail: { message, _, _ in
                         failureMessages.append(message)
                     })
 
@@ -186,9 +186,9 @@ class BehaviorSpec: QuickSpec {
                 }
             }
 
-            context("when the behavior is nice and the order of expectations does not matter") {
+            context("when the pattern is nice and the order of expectations does not matter") {
                 beforeEach {
-                    behavior = Behavior(nice: true, ordered: false)
+                    pattern = Pattern(nice: true, ordered: false)
                 }
 
                 it("succeeds if all set up expectations are fulfilled") {
@@ -197,20 +197,20 @@ class BehaviorSpec: QuickSpec {
                     recorder2.record(2)
                     recorder1.record(1)
 
-                    behavior.expect(1, in: recorder1)
-                    behavior.expect(2, in: recorder2)
-                    behavior.verify()
+                    pattern.expect(1, in: recorder1)
+                    pattern.expect(2, in: recorder2)
+                    pattern.verify()
                 }
 
                 it("fails if any expectation is not fulfilled") {
                     recorder1.record(1)
 
-                    behavior.expect(2, in: recorder2)
-                    behavior.expect(1, in: recorder1)
+                    pattern.expect(2, in: recorder2)
+                    pattern.expect(1, in: recorder1)
 
                     var failureMessages: [String] = []
 
-                    behavior.verify(fail: { message, _, _ in
+                    pattern.verify(fail: { message, _, _ in
                         failureMessages.append(message)
                     })
 
@@ -223,7 +223,7 @@ class BehaviorSpec: QuickSpec {
 
         describe("Verification with a timeout") {
             beforeEach {
-                behavior = Behavior()
+                pattern = Pattern()
             }
 
             it("succeeds if all expectations are fulfilled before the timeout is reached") {
@@ -232,16 +232,16 @@ class BehaviorSpec: QuickSpec {
                     recorder1.record(1)
                 }
 
-                behavior.expect(1, in: recorder1)
-                behavior.verify(timeout: 0.5)
+                pattern.expect(1, in: recorder1)
+                pattern.verify(timeout: 0.5)
             }
 
             it("fails if any expectation is not fulfilled before the timeout is reached") {
-                behavior.expect(1, in: recorder1)
+                pattern.expect(1, in: recorder1)
 
                 var failureMessages: [String] = []
 
-                behavior.verify(fail: { message, _, _ in
+                pattern.verify(fail: { message, _, _ in
                     failureMessages.append(message)
                 })
 

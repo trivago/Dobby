@@ -145,10 +145,10 @@ fileprivate struct InteractionRecordingIterator: IteratorProtocol {
     }
 }
 
-/// A thread-safe behavior that can verify set up expectations with multiple
+/// A thread-safe pattern that can verify set up expectations with multiple
 /// interaction recorders.
-public final class Behavior {
-    /// Whether this behavior is strict (or nice).
+public final class Pattern {
+    /// Whether this pattern is strict (or nice).
     private let strict: Bool
 
     /// Whether the order of expectations matters.
@@ -156,15 +156,15 @@ public final class Behavior {
 
     /// All set up expectations.
     private var expectations: [Expectation] = []
-    private let expectationsQueue = DispatchQueue(label: "com.trivago.dobby.behavior-expectationsQueue", attributes: .concurrent)
+    private let expectationsQueue = DispatchQueue(label: "com.trivago.dobby.pattern-expectationsQueue", attributes: .concurrent)
 
-    /// Creates a new behavior with the given strict and ordered flags.
+    /// Creates a new pattern with the given strict and ordered flags.
     public init(strict: Bool = true, ordered: Bool = true) {
         self.strict = strict
         self.ordered = ordered
     }
 
-    /// Creates a new behavior with the given nice and ordered flags.
+    /// Creates a new pattern with the given nice and ordered flags.
     public convenience init(nice: Bool, ordered: Bool = true) {
         self.init(strict: nice == false, ordered: ordered)
     }
@@ -181,9 +181,9 @@ public final class Behavior {
     /// Sets up the given matcher as negative expectation for the given
     /// recorder, meaning any matching value will be rejected.
     ///
-    /// - Note: Negative expectations are restricted to nice behaviors.
+    /// - Note: Negative expectations are restricted to nice patterns.
     public func reject<Matcher: MatcherConvertible, Recorder: ValueRecording>(_ matcher: Matcher, in recorder: Recorder, file: StaticString = #file, line: UInt = #line) where Matcher.ValueType == Recorder.Value {
-        precondition(strict == false, "Only nice behaviors may have negative expectations.")
+        precondition(strict == false, "Only nice patterns may have negative expectations.")
 
         let expectation = Expectation(matcher: matcher, recorder: recorder, negative: true, file: file, line: line)
 
