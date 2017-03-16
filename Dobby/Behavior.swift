@@ -28,6 +28,9 @@ public final class Behavior<Value, ReturnValue> {
     /// The reactions of this behavior.
     private var reactions: [(identifier: UInt, reaction: Reaction<Value, ReturnValue>)] = []
 
+    /// The recorder of this behavior.
+    fileprivate let recorder: Recorder<Value> = Recorder()
+
     /// Creates a new behavior.
     public init() {
         
@@ -78,6 +81,8 @@ public final class Behavior<Value, ReturnValue> {
     ///     interaction is unexpected.
     @discardableResult
     public func invoke(_ value: Value) throws -> ReturnValue {
+        recorder.record(value)
+
         for (_, reaction) in reactions {
             if reaction.matcher.matches(value) {
                 return reaction.handler(value)
@@ -85,5 +90,15 @@ public final class Behavior<Value, ReturnValue> {
         }
 
         throw BehaviorError<Value, ReturnValue>.unexpectedInteraction(value)
+    }
+}
+
+extension Behavior: ValueRecording {
+    public var interactions: AnyRandomAccessCollection<Interaction> {
+        return recorder.interactions
+    }
+
+    public func valueForInteraction(at index: Int) -> Value {
+        return recorder.valueForInteraction(at: index)
     }
 }
