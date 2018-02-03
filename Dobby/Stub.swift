@@ -87,3 +87,14 @@ public final class Stub<Interaction, ReturnValue> {
         throw StubError<Interaction, ReturnValue>.unexpectedInteraction(interaction)
     }
 }
+
+extension Stub where Interaction == Void {
+    @discardableResult
+    public func `return`(_ handler: @autoclosure @escaping () -> ReturnValue) -> Disposable {
+        return on(any(), invoke: handler)
+    }
+
+    public func invoke() throws -> ReturnValue {
+        return try invoke(())
+    }
+}
