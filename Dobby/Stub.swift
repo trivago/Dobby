@@ -47,7 +47,7 @@ public final class Stub<Interaction, ReturnValue> {
         behaviors.append((identifier: identifier, behavior: behavior))
 
         return Disposable { [weak self] in
-            let index = self?.behaviors.index { otherIdentifier, _ in
+            let index = self?.behaviors.firstIndex { otherIdentifier, _ in
                 return otherIdentifier == identifier
             }
 
