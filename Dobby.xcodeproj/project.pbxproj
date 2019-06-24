@@ -424,7 +424,7 @@
 					};
 					DC7F6B021AD8291800CCBF6D = {
 						CreatedOnToolsVersion = 6.3;
-						LastSwiftMigration = 0800;
+						LastSwiftMigration = 1020;
 					};
 					DC8452171ADBF5CC006AC5D4 = {
 						CreatedOnToolsVersion = 6.3;
@@ -636,7 +636,7 @@
 				INFOPLIST_FILE = DobbyTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(PROJECT_NAME)Tests";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -651,7 +651,7 @@
 				INFOPLIST_FILE = DobbyTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(PROJECT_NAME)Tests";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
@@ -669,7 +669,7 @@
 				FRAMEWORK_VERSION = A;
 				INFOPLIST_FILE = Dobby/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -687,7 +687,7 @@
 				FRAMEWORK_VERSION = A;
 				INFOPLIST_FILE = Dobby/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
