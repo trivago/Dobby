@@ -22,7 +22,7 @@ public func matches<Value>(_ matches: @escaping (Value) -> Bool) -> Matcher<Valu
 
 public extension Matcher {
     /// Initializes a new matcher that matches anything.
-    public init() {
+  init() {
         self.init(description: "_") { _ in true }
     }
 }
@@ -65,7 +65,7 @@ public func some<M: MatcherConvertible>(_ matcher: M) -> Matcher<M.ValueType?> {
 
 public extension Matcher where Value: Equatable {
     /// Initializes a new matcher that matches the given value.
-    public init(value: Value) {
+  init(value: Value) {
         self.init(description: "\(value)") { actualValue in
             return value == actualValue
         }
