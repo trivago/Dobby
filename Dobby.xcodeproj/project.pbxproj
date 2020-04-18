@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5C66EBDE244B6F4B0049DC42 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C66EBDD244B6F4B0049DC42 /* Package.swift */; };
 		DC18FB9C1BF0948900768632 /* Dobby.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = DC7F6AF81AD8291800CCBF6D /* Dobby.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		DC3CFE781ADE895E004728C2 /* SwiftExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3CFE771ADE895E004728C2 /* SwiftExtensions.swift */; };
 		DC3CFE791ADE895E004728C2 /* SwiftExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3CFE771ADE895E004728C2 /* SwiftExtensions.swift */; };
@@ -70,6 +71,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		5C66EBDD244B6F4B0049DC42 /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
 		DC3CFE771ADE895E004728C2 /* SwiftExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftExtensions.swift; sourceTree = "<group>"; };
 		DC457AD81B5552CA00919032 /* Matcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Matcher.swift; sourceTree = "<group>"; };
 		DC7F6AF81AD8291800CCBF6D /* Dobby.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Dobby.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -163,6 +165,7 @@
 		DC7F6AEE1AD8291800CCBF6D = {
 			isa = PBXGroup;
 			children = (
+				5C66EBDD244B6F4B0049DC42 /* Package.swift */,
 				DC7F6AFA1AD8291800CCBF6D /* Dobby */,
 				DC7F6B071AD8291800CCBF6D /* DobbyTests */,
 				DCDDA8E81BED4A7600BB5228 /* Configuration */,
@@ -515,6 +518,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5C66EBDE244B6F4B0049DC42 /* Package.swift in Sources */,
 				DC457ADA1B5552CA00919032 /* Matcher.swift in Sources */,
 				DC3CFE791ADE895E004728C2 /* SwiftExtensions.swift in Sources */,
 				DC83356D1B56661900569709 /* Disposable.swift in Sources */,
