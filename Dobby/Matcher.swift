@@ -148,6 +148,13 @@ extension Matcher: MatcherConvertible {
     }
 }
 
+/// Returns a new matcher that matches the given value.
+public func matches<Value: MatcherConvertible>(_ value: Value) -> Matcher<Value.ValueType> {
+  return Matcher(description: "\(value)") { actualValue in
+      return value.matcher().matches(actualValue)
+    }
+}
+
 /// Returns a new matcher that matches the given 2-tuple of matchers.
 public func matches<A: MatcherConvertible, B: MatcherConvertible>(_ values: (A, B)) -> Matcher<(A.ValueType, B.ValueType)> {
     return Matcher(description: "\(values)") { actualValues in
