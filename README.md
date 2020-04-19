@@ -21,6 +21,16 @@ equals([1, 2, 3]) // matches [1, 2, 3]
 equals([1: 1, 2: 2, 3: 3]) // matches [1: 1, 2: 2, 3: 3]
 ```
 
+You may also extend your custom types using an extension: (not your types must conform to equatable)
+
+```
+extension MyCustomType: MatcherConvertible {
+    public func matcher() -> Matcher<Bool> {
+        return equals(self)
+    }
+}
+```
+
 Matchers may also be nested:
 
 ```swift
