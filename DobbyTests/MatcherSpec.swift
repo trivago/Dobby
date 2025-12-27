@@ -80,12 +80,12 @@ class MatcherSpec: QuickSpec {
                 let matcher: Dobby.Matcher<(Int, Int)> = equals((0, 1))
 
                 it("succeeds if all actual values equal the expected values") {
-                    expect(matcher.matches(0, 1)).to(beTrue())
+                    expect(matcher.matches((0, 1))).to(beTrue())
                 }
 
                 it("fails if any actual value does not equal the expected value") {
-                    expect(matcher.matches(1, 1)).to(beFalse())
-                    expect(matcher.matches(0, 0)).to(beFalse())
+                    expect(matcher.matches((1, 1))).to(beFalse())
+                    expect(matcher.matches((0, 0))).to(beFalse())
                 }
             }
 
@@ -93,13 +93,13 @@ class MatcherSpec: QuickSpec {
                 let matcher: Dobby.Matcher<(Int, Int, Int)> = equals((0, 1, 2))
 
                 it("succeeds if all actual values equal the expected values") {
-                    expect(matcher.matches(0, 1, 2)).to(beTrue())
+                    expect(matcher.matches((0, 1, 2))).to(beTrue())
                 }
 
                 it("fails if any actual value does not equal the expected value") {
-                    expect(matcher.matches(1, 1, 2)).to(beFalse())
-                    expect(matcher.matches(0, 0, 2)).to(beFalse())
-                    expect(matcher.matches(0, 1, 1)).to(beFalse())
+                    expect(matcher.matches((1, 1, 2))).to(beFalse())
+                    expect(matcher.matches((0, 0, 2))).to(beFalse())
+                    expect(matcher.matches((0, 1, 1))).to(beFalse())
                 }
             }
 
@@ -107,14 +107,14 @@ class MatcherSpec: QuickSpec {
                 let matcher: Dobby.Matcher<(Int, Int, Int, Int)> = equals((0, 1, 2, 3))
 
                 it("succeeds if all actual values equal the expected values") {
-                    expect(matcher.matches(0, 1, 2, 3)).to(beTrue())
+                    expect(matcher.matches((0, 1, 2, 3))).to(beTrue())
                 }
 
                 it("fails if any actual value does not equal the expected value") {
-                    expect(matcher.matches(1, 1, 2, 3)).to(beFalse())
-                    expect(matcher.matches(0, 0, 2, 3)).to(beFalse())
-                    expect(matcher.matches(0, 1, 1, 3)).to(beFalse())
-                    expect(matcher.matches(0, 1, 2, 2)).to(beFalse())
+                    expect(matcher.matches((1, 1, 2, 3))).to(beFalse())
+                    expect(matcher.matches((0, 0, 2, 3))).to(beFalse())
+                    expect(matcher.matches((0, 1, 1, 3))).to(beFalse())
+                    expect(matcher.matches((0, 1, 2, 2))).to(beFalse())
                 }
             }
 
@@ -122,15 +122,15 @@ class MatcherSpec: QuickSpec {
                 let matcher: Dobby.Matcher<(Int, Int, Int, Int, Int)> = equals((0, 1, 2, 3, 4))
 
                 it("succeeds if all actual values equal the expected values") {
-                    expect(matcher.matches(0, 1, 2, 3, 4)).to(beTrue())
+                    expect(matcher.matches((0, 1, 2, 3, 4))).to(beTrue())
                 }
 
                 it("fails if any actual value does not equal the expected value") {
-                    expect(matcher.matches(1, 1, 2, 3, 4)).to(beFalse())
-                    expect(matcher.matches(0, 0, 2, 3, 4)).to(beFalse())
-                    expect(matcher.matches(0, 1, 1, 3, 4)).to(beFalse())
-                    expect(matcher.matches(0, 1, 2, 2, 4)).to(beFalse())
-                    expect(matcher.matches(0, 1, 2, 3, 3)).to(beFalse())
+                    expect(matcher.matches((1, 1, 2, 3, 4))).to(beFalse())
+                    expect(matcher.matches((0, 0, 2, 3, 4))).to(beFalse())
+                    expect(matcher.matches((0, 1, 1, 3, 4))).to(beFalse())
+                    expect(matcher.matches((0, 1, 2, 2, 4))).to(beFalse())
+                    expect(matcher.matches((0, 1, 2, 3, 3))).to(beFalse())
                 }
             }
 
@@ -176,12 +176,12 @@ class MatcherSpec: QuickSpec {
                 let matcher: Dobby.Matcher<(Int, Int)> = matches((equals(0), equals(1)))
 
                 it("succeeds if all actual values equal the expected values") {
-                    expect(matcher.matches(0, 1)).to(beTrue())
+                    expect(matcher.matches((0, 1))).to(beTrue())
                 }
 
                 it("fails if any actual value does not equal the expected value") {
-                    expect(matcher.matches(1, 1)).to(beFalse())
-                    expect(matcher.matches(0, 0)).to(beFalse())
+                    expect(matcher.matches((1, 1))).to(beFalse())
+                    expect(matcher.matches((0, 0))).to(beFalse())
                 }
             }
 
@@ -189,13 +189,13 @@ class MatcherSpec: QuickSpec {
                 let matcher: Dobby.Matcher<(Int, Int, Int)> = matches((equals(0), equals(1), equals(2)))
 
                 it("succeeds if all actual values equal the expected values") {
-                    expect(matcher.matches(0, 1, 2)).to(beTrue())
+                    expect(matcher.matches((0, 1, 2))).to(beTrue())
                 }
 
                 it("fails if any actual value does not equal the expected value") {
-                    expect(matcher.matches(1, 1, 2)).to(beFalse())
-                    expect(matcher.matches(0, 0, 2)).to(beFalse())
-                    expect(matcher.matches(0, 1, 1)).to(beFalse())
+                    expect(matcher.matches((1, 1, 2))).to(beFalse())
+                    expect(matcher.matches((0, 0, 2))).to(beFalse())
+                    expect(matcher.matches((0, 1, 1))).to(beFalse())
                 }
             }
 
@@ -203,14 +203,14 @@ class MatcherSpec: QuickSpec {
                 let matcher: Dobby.Matcher<(Int, Int, Int, Int)> = matches((equals(0), equals(1), equals(2), equals(3)))
 
                 it("succeeds if all actual values equal the expected values") {
-                    expect(matcher.matches(0, 1, 2, 3)).to(beTrue())
+                    expect(matcher.matches((0, 1, 2, 3))).to(beTrue())
                 }
 
                 it("fails if any actual value does not equal the expected value") {
-                    expect(matcher.matches(1, 1, 2, 3)).to(beFalse())
-                    expect(matcher.matches(0, 0, 2, 3)).to(beFalse())
-                    expect(matcher.matches(0, 1, 1, 3)).to(beFalse())
-                    expect(matcher.matches(0, 1, 2, 2)).to(beFalse())
+                    expect(matcher.matches((1, 1, 2, 3))).to(beFalse())
+                    expect(matcher.matches((0, 0, 2, 3))).to(beFalse())
+                    expect(matcher.matches((0, 1, 1, 3))).to(beFalse())
+                    expect(matcher.matches((0, 1, 2, 2))).to(beFalse())
                 }
             }
 
@@ -218,15 +218,15 @@ class MatcherSpec: QuickSpec {
                 let matcher: Dobby.Matcher<(Int, Int, Int, Int, Int)> = matches((equals(0), equals(1), equals(2), equals(3), equals(4)))
 
                 it("succeeds if all actual values equal the expected values") {
-                    expect(matcher.matches(0, 1, 2, 3, 4)).to(beTrue())
+                    expect(matcher.matches((0, 1, 2, 3, 4))).to(beTrue())
                 }
 
                 it("fails if any actual value does not equal the expected value") {
-                    expect(matcher.matches(1, 1, 2, 3, 4)).to(beFalse())
-                    expect(matcher.matches(0, 0, 2, 3, 4)).to(beFalse())
-                    expect(matcher.matches(0, 1, 1, 3, 4)).to(beFalse())
-                    expect(matcher.matches(0, 1, 2, 2, 4)).to(beFalse())
-                    expect(matcher.matches(0, 1, 2, 3, 3)).to(beFalse())
+                    expect(matcher.matches((1, 1, 2, 3, 4))).to(beFalse())
+                    expect(matcher.matches((0, 0, 2, 3, 4))).to(beFalse())
+                    expect(matcher.matches((0, 1, 1, 3, 4))).to(beFalse())
+                    expect(matcher.matches((0, 1, 2, 2, 4))).to(beFalse())
+                    expect(matcher.matches((0, 1, 2, 3, 3))).to(beFalse())
                 }
             }
 
